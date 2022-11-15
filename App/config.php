@@ -3,7 +3,12 @@
 $config = array();
 
 /* configuració de connexió a la base dades */
-
+$config = [
+    "db" => "",
+    "user" => "test",
+    "pass" => "test",
+    "host" => "localhost"
+];
 
 /* Path on guardarem el fitxer sqlite */
 $config["sqlite"]["path"] = '../';
