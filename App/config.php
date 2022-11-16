@@ -4,7 +4,7 @@ $config = array();
 
 /* configuració de connexió a la base dades */
 $config = [
-    "db" => "",
+    "db" => "votaciones",
     "user" => "test",
     "pass" => "test",
     "host" => "localhost"
