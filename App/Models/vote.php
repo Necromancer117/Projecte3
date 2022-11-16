@@ -38,13 +38,14 @@ class Vote
 
         $query = 'select avg(valoracion_voto) from voto where id_espectaculo_voto=:id';
         $stm = $this->sql->prepare($query);
-        $stm->execute([':id' => $id]);
+        $result = $stm->execute([':id' => $id]);
 
         if ($stm->errorCode() !== '00000') {
             $err = $stm->errorInfo();
             $code = $stm->errorCode();
             throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
         }
+        return $stm->fetch(\PDO::FETCH_ASSOC);
 
     }
 
