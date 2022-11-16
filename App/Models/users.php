@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Models;
+
 class Users
 {
 
@@ -19,10 +21,10 @@ class Users
     }
 
     public function insertUser($name,$surename,$mail,$password,$avatar){//insert user requires the datta of the register form
-        $query = 'insert into users (nombre_usuario,apellido_usuario,mail_usuario,contrasena_usuario,avatar_usuario) 
+        $query = 'insert into usuario (nombre_usuario,apellido_usuario,mail_usuario,contrasena_usuario,avatar_usuario) 
         values (:name,:surename,:mail,:password,:avatar)';
         $stm = $this->sql->prepare($query);
-        $result = $stm->execute([':name' => $name, ':surename' => $surename, ':mail' => $mail, ':password' => $password, ':avatar' => $avatar]);
+        $stm->execute([':name' => $name, ':surename' => $surename, ':mail' => $mail, ':password' => $password, ':avatar' => $avatar]);
 
         if ($stm->errorCode() !== '00000') {
             $err = $stm->errorInfo();
