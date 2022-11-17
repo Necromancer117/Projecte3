@@ -9,24 +9,37 @@
  *
  **/
 
-/**
- * ctrlLogin: Controlador que carrega  la pàgina de login
- *
- * @param $request contingut de la peticó http.
- * @param $response contingut de la response http.
- * @param array $config  paràmetres de configuració de l'aplicació
- *
- **/
-function ctrlLogin($request, $response, $config)
+namespace App\Controllers;
+
+class Login
 {
-  // Comptem quantes vegades has visitat aquesta pàgina
-  $error = $request->get("SESSION", "error");
+
+  public $contenidor;
+
+    public function __construct($contenidor)
+    {
+        $this->contenidor = $contenidor;
+    }
+  /**
+   * ctrlLogin: Controlador que carrega  la pàgina de login
+   *
+   * @param $request contingut de la peticó http.
+   * @param $response contingut de la response http.
+   * @param array $config  paràmetres de configuració de l'aplicació
+   *
+   **/
+  function ctrlLogin($request, $response, $config)
+  {
+    // Comptem quantes vegades has visitat aquesta pàgina
+    $error = $request->get("SESSION", "error");
 
 
-  $response->set("error", $error);
-  $response->setSession("error", "");
+    $response->set("error", $error);
+    $response->setSession("error", "");
 
-  $response->SetTemplate("login.php");
+    $response->SetTemplate("login.php");
 
-  return $response;
+    return $response;
+  }
+
 }

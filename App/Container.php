@@ -14,5 +14,9 @@ class Container extends EmesetContainer {
             // Aqui podem inicialitzar totes les dependències del controlador i passar-les com a paràmetre.
             return new \App\Controllers\Privat($c);
         };
+        $this["\App\Controllers\Login"] = function ($c) {
+            // Aqui podem inicialitzar totes les dependències del controlador i passar-les com a paràmetre.
+            return new \App\Controllers\Login($c);
+        };
     }
 }
