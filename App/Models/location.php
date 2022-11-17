@@ -44,6 +44,7 @@ class Location
             $code = $stm->errorCode();
             throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
         }
+        return $stm->fetch(\PDO::FETCH_ASSOC);
     }
 
     public function updateLocation($column,$newValue,$id){
