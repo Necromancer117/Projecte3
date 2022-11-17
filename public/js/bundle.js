@@ -9,17 +9,6 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./App/js/hola.js":
-/*!************************!*\
-  !*** ./App/js/hola.js ***!
-  \************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ hola)\n/* harmony export */ });\n\nfunction hola() {\n    console.log('hola hola');\n}\nconsole.log(\"Hola 2\");\n\n\n//# sourceURL=webpack:///./App/js/hola.js?");
-
-/***/ }),
-
 /***/ "./App/js/index.js":
 /*!*************************!*\
   !*** ./App/js/index.js ***!
@@ -27,7 +16,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _hola_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./hola.js */ \"./App/js/hola.js\");\n\n\n\n\njquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function() {\n    console.log('Hello World');\n    (0,_hola_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n});\n\n\n//# sourceURL=webpack:///./App/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _login_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./login.js */ \"./App/js/login.js\");\n\r\n\r\n\r\njquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function() {\r\n    console.log('Hello World');\r\n    (0,_login_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\r\n});\r\n\n\n//# sourceURL=webpack:///./App/js/index.js?");
+
+/***/ }),
+
+/***/ "./App/js/login.js":
+/*!*************************!*\
+  !*** ./App/js/login.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ login)\n/* harmony export */ });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\r\nvar show = false;\r\nfunction login() {\r\njquery__WEBPACK_IMPORTED_MODULE_0___default()('#show_pass').on('change',function () {\r\n    show=!show;\r\n    if (show) {\r\n        jquery__WEBPACK_IMPORTED_MODULE_0___default()('#login_pass').attr('type', 'text');\r\n    }else{\r\n        jquery__WEBPACK_IMPORTED_MODULE_0___default()('#login_pass').attr('type', 'password');\r\n    }\r\n})\r\n}\r\n\n\n//# sourceURL=webpack:///./App/js/login.js?");
 
 /***/ }),
 

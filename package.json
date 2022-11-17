@@ -22,5 +22,8 @@
     "prod": "npm-run-all buildcss prodjs",
     "serve": "cd public && php -S localhost:8080 && echo 'Server started on http://localhost:8080'",
     "start": "npm-run-all -p watch serve"
+  },
+  "dependencies": {
+    "jsdom": "^20.0.2"
   }
 }
