@@ -5,7 +5,6 @@ import map from './map.js'
 
 
 $(document).ready(function() {
-    console.log('Hello World');
     login();
     navbar();
     map();

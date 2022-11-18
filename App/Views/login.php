@@ -45,7 +45,7 @@
             </div>
             <div class="grid grid-cols-2">
               <div>
-                <a class="text-sky-600 underline hover:text-sky-500" href="#">Create account</a>
+                <a class="text-sky-600 underline hover:text-sky-500" href="/signup">Create account</a>
               </div>
               <div class="justify-self-end">
                 <button class="border-lg py-2 px-5 text-white bg-blue-600 rounded transition duration-200 hover:bg-blue-500" type="submit">Log In</button>
