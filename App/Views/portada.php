@@ -57,7 +57,10 @@
   </div>
 
 
+  <?php
+    include "../App/Views/footer.php";
 
+  ?>
 
 </body>
 
