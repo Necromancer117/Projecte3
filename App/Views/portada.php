@@ -10,6 +10,7 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./css/leaflet.css">
 
 
   <title>Fake circ</title>
@@ -55,13 +56,16 @@
 
     </div>
   </div>
-
-
+  <div class="grid grid-cols-2">
+    <div class="h-[300px]" id="map"></div>
+    <div name='proxima_edicion'></div>
+  </div>
+    
   <?php
     include "../App/Views/footer.php";
 
   ?>
-
+<script src="./js/bundle.js"></script>
 </body>
 
 </html>

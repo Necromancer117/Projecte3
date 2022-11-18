@@ -1,3 +1,4 @@
+import $ from "jquery";
 var show = false
 export default function login() {
 $(document).ready(function() {
