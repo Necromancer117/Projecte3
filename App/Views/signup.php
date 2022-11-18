@@ -22,7 +22,7 @@
     <!-- CONTAINER -->
     <div class="flex place-content-center">
         <!-- BOX -->
-        <div class="rounded-lg p-8 grid bg-white">
+        <div class="rounded-lg p-8 grid bg-white border border-black">
             <!-- HEADER -->
             <div class="my-4">
                 <img src="./img/logo.png" class="h-12">
