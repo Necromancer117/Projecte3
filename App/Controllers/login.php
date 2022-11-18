@@ -16,10 +16,10 @@ class Login
 
   public $contenidor;
 
-    public function __construct($contenidor)
-    {
-        $this->contenidor = $contenidor;
-    }
+  public function __construct($contenidor)
+  {
+    $this->contenidor = $contenidor;
+  }
   /**
    * ctrlLogin: Controlador que carrega  la pàgina de login
    *
@@ -42,4 +42,10 @@ class Login
     return $response;
   }
 
+  function ctrlSignup($request, $response, $config)
+  {
+    $response->SetTemplate("signup.php");
+
+    return $response;
+  }
 }
