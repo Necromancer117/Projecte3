@@ -16,7 +16,7 @@
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _login_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./login.js */ \"./App/js/login.js\");\n\r\n\r\n\r\njquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function() {\r\n    console.log('Hello World');\r\n    (0,_login_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\r\n});\r\n\n\n//# sourceURL=webpack:///./App/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _login_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./login.js */ \"./App/js/login.js\");\n/* harmony import */ var _navbar_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./navbar.js */ \"./App/js/navbar.js\");\n\r\n\r\n\r\n\r\njquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function() {\r\n    console.log('Hello World');\r\n    (0,_login_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\r\n    (0,_navbar_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\r\n});\r\n\n\n//# sourceURL=webpack:///./App/js/index.js?");
 
 /***/ }),
 
@@ -27,7 +27,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jque
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ login)\n/* harmony export */ });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\r\nvar show = false;\r\nfunction login() {\r\njquery__WEBPACK_IMPORTED_MODULE_0___default()('#show_pass').on('change',function () {\r\n    show=!show;\r\n    if (show) {\r\n        jquery__WEBPACK_IMPORTED_MODULE_0___default()('#login_pass').attr('type', 'text');\r\n    }else{\r\n        jquery__WEBPACK_IMPORTED_MODULE_0___default()('#login_pass').attr('type', 'password');\r\n    }\r\n})\r\n}\r\n\n\n//# sourceURL=webpack:///./App/js/login.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ login)\n/* harmony export */ });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\r\nvar show = false;\r\nfunction login() {\r\njquery__WEBPACK_IMPORTED_MODULE_0___default()('#show_pass').on('change',function () {\r\n    show=!show;\r\n    if (show) {\r\n        jquery__WEBPACK_IMPORTED_MODULE_0___default()('#input_pass').attr('type', 'text');\r\n    }else{\r\n        jquery__WEBPACK_IMPORTED_MODULE_0___default()('#input_pass').attr('type', 'password');\r\n    }\r\n})\r\n}\r\n\n\n//# sourceURL=webpack:///./App/js/login.js?");
+
+/***/ }),
+
+/***/ "./App/js/navbar.js":
+/*!**************************!*\
+  !*** ./App/js/navbar.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ login)\n/* harmony export */ });\nvar show = false\r\nfunction login() {\r\n$(document).ready(function() {\r\n   //$('#user_options').css();\r\n    $('#avatar').on('click',function () {\r\n     if (!show) {\r\n        //$('#user_options').removeClass('invisible');\r\n        show=!show;\r\n        $('.item').removeClass('invisible');\r\n        $(\"#user_options\").animate({\r\n            opacity: '1',\r\n            height: '120px',\r\n            width: '150px'\r\n          });\r\n          \r\n     }else{\r\n        $('.item').addClass('invisible');\r\n        show=!show;\r\n         $(\"#user_options\").animate({\r\n            opacity: '0',\r\n            height: '0px',\r\n            width: '0px'\r\n          });\r\n        //$('#user_options').addClass('invisible');\r\n     }\r\n   });\r\n});\r\n}\r\n\n\n//# sourceURL=webpack:///./App/js/navbar.js?");
 
 /***/ }),
 
