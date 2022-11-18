@@ -32,7 +32,7 @@
                 <input class="text-lg bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none" type="text" name="email" placeholder="Email">
               </div>
               <div>
-                <input id="login_pass" class="text-lg bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none" type="password" name="pass" placeholder="Password">
+                <input id="input_pass" class="text-lg bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none" type="password" name="pass" placeholder="Password">
               </div>
             </div>
             <div class="flex items-center mb-5">
