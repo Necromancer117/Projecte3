@@ -76,16 +76,17 @@
                             </div>
                         </div>
                     </div>
+                    <!-- BUTTON SHOW PASSWORD -->
                     <div class="-mx-3 mb-6">
                         <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                            <input type="checkbox" name="showPassword" id="show_pass">
+                            <input class="w-4 h-4" type="checkbox" name="showPassword" id="show_pass">
                             <label for="showPassword">Show Password</label>
                         </div>
                     </div>
                     <!-- BUTTON CONTAINER -->
                     <div class="flex justify-between">
-                        <a href="/login" class="text-blue-500 hover:text-blue-700 self-center"> Sign in instead</a>
-                        <button type="submit" id="submitSignup" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Sign Up</button>
+                        <a href="/login" class="text-blue-500 hover:text-blue-700 self-center duration-200"> Sign in instead</a>
+                        <button type="submit" id="submitSignup" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded duration-200">Sign Up</button>
                     </div>
                 </div>
             </form>
