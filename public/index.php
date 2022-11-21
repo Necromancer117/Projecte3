@@ -20,7 +20,7 @@ include "../App/config.php";
 
 include "../App/Controllers/portada.php";
 include "../App/Controllers/error.php";
-//include "../App/Controllers/login.php";
+include "../App/Controllers/login.php";
 include "../App/Controllers/validarlogin.php";
 //include "../App/Controllers/privat.php";
 include "../App/Controllers/tancarSessio.php";
