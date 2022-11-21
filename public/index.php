@@ -37,6 +37,7 @@ $app = new \Emeset\Emeset($contenidor);
 $app->route("", "ctrlPortada");
 //$app->route("/login", "ctrlLogin");
 $app->route("/login", "\App\Controllers\Login:ctrlLogin");
+$app->route("/signup", "\App\Controllers\Login:ctrlSignup");
 $app->route("validar-login", "ctrlValidarLogin");
 $app->route("privat", "\App\Controllers\Privat:privat", ["auth"]);
 $app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);
