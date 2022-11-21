@@ -31,26 +31,26 @@
             <div class="my-6 font-semibold text-xl">Create your Fake Circus account
             </div>
             <!-- FORM -->
-            <form id="signupForm" action="/login" method="POST" class="">
+            <form id="signupForm" action="/signup" method="POST" class="">
                 <!-- INNER CONTAINER -->
                 <div class="w-full max-w-lg">
                     <!-- INFO CONTAINER -->
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <!-- NAME -->
                         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                            <input id='nameSignup' type="text" placeholder="Name" class="appearance-none block w-full text-gray-700 border border-gray-200 rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400" />
+                            <input id='nameSignup' name="firstName" ype="text" placeholder="Name" class="appearance-none block w-full text-gray-700 border border-gray-200 rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400" />
                             <p hidden id="fillName" class="text-red-500 text-xs italic">Please fill out this field.</p>
                         </div>
                         <!-- LAST NAME -->
                         <div class="w-full md:w-1/2 px-3">
-                            <input id='lastSignup' type="text" placeholder="Last Name" class="appearance-none block w-full text-gray-700 border border-gray-200 rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400">
+                            <input id='lastSignup' name="secondName" type="text" placeholder="Last Name" class="appearance-none block w-full text-gray-700 border border-gray-200 rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400">
                             <p hidden id="fillLast" class=" text-red-500 text-xs italic">Please fill out this field.</p>
                         </div>
                     </div>
                     <!-- EMAIL CONTAINER -->
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
-                            <input id='emailSignup' type="email" name="email" placeholder="Email" class="appearance-none block w-full text-gray-700 border border-gray-200 rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400">
+                            <input id='emailSignup' name="email" type="email" name="email" placeholder="Email" class="appearance-none block w-full text-gray-700 border border-gray-200 rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400">
                             <p hidden id="fillEmail" class="text-red-500 text-xs italic">Please fill out this field.</p>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <!-- PASSWORD -->
                         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                            <input type="password" placeholder="Password" id="input_pass" class="appearance-none block w-full text-gray-700 border border-gray-200 rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400">
+                            <input type="password" name="password" placeholder="Password" id="input_pass" class="appearance-none block w-full text-gray-700 border border-gray-200 rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400">
                             <p hidden id="fillPasword" class="text-red-500 text-xs italic">Please fill out this field.</p>
                         </div>
                         <!-- CONFIRM -->

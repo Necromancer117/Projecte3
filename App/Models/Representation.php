@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Models;
+
 use PDO;
 use PDOException;
 use FFI\Exception;
+
 class Representation
 {
 
@@ -15,18 +17,19 @@ class Representation
         $usuari = $config["user"];
         $clau = $config["pass"];
 
-        
-        
+
+
         try {
             $this->sql = new PDO($dsn, $usuari, $clau);
         } catch (PDOException $e) {
             die('Ha fallat la connexió: ' . $e->getMessage());
         }
     }
-   
 
-    public function insertRepresentation($id_show,$id_location,$time){
-       
+
+    public function insertRepresentation($id_show, $id_location, $time)
+    {
+
         $query = 'insert into representacion (id_espectaculo_representacion,id_espacio_representacion,hora_inicio_representacion) 
         values(:id_show,:id_location,:time)';
         $stm = $this->sql->prepare($query);
@@ -37,10 +40,10 @@ class Representation
             $code = $stm->errorCode();
             throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
         }
-
     }
 
-    public function getRepresentation($id){
+    public function getRepresentation($id)
+    {
 
         $query = 'select * from Representacion where id_representacion = :id';
         $stm = $this->sql->prepare($query);
@@ -51,24 +54,25 @@ class Representation
             $code = $stm->errorCode();
             throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
         }
-        
+
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
 
-    public function updateRepresentation($column,$newValue,$id){
+    public function updateRepresentation($column, $newValue, $id)
+    {
 
         $query = 'UPDATE representacion SET ' . $column . ' = :newValue WHERE id_representacion=:id';
         $stm = $this->sql->prepare($query);
-        $stm->execute([':id' => $id,':newValue' => $newValue]);
+        $stm->execute([':id' => $id, ':newValue' => $newValue]);
         if ($stm->errorCode() !== '00000') {
             $err = $stm->errorInfo();
             $code = $stm->errorCode();
             throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
         }
-
     }
 
-    public function deleteRepresentation($id){
+    public function deleteRepresentation($id)
+    {
 
         $query = 'delete from representacion where id_representacion = :id';
         $stm = $this->sql->prepare($query);
@@ -79,5 +83,4 @@ class Representation
             throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
         }
     }
-
 }
