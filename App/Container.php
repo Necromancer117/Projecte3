@@ -6,18 +6,20 @@ namespace App;
 use Emeset\Container as EmesetContainer;
 
 
-class Container extends EmesetContainer {
-//$config para enviar los datos de bd    
-public $config = [];
+class Container extends EmesetContainer
+{
+    //$config para enviar los datos de bd    
+    public $config = [];
 
-    public function __construct($config){
+    public function __construct($config)
+    {
         parent::__construct($config);
-        $this->config=$config;
-        
+        $this->config = $config;
+
         ////////////////////////////////
         /////////CONTROLADORES//////////
         ////////////////////////////////
-        
+
         $this["\App\Controllers\Privat"] = function ($c) {
             // Aqui podem inicialitzar totes les dependències del controlador i passar-les com a paràmetre.
             return new \App\Controllers\Privat($c);

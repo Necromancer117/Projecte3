@@ -40,6 +40,7 @@ $app->route("/login", "\App\Controllers\login:ctrlLogin");
 $app->route("validarLogin", "ctrlValidarLogin");
 $app->route("privat", "\App\Controllers\Privat:privat", ["auth"]);
 $app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);
+$app->route("/signup", "ctrlInserUser");
 
 
 $app->route("ajax", function ($request, $response) {
