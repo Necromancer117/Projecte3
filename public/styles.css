@@ -607,6 +607,9 @@ video {
 .mt-2 {
   margin-top: 0.5rem;
 }
+.mt-1 {
+  margin-top: 0.25rem;
+}
 .block {
   display: block;
 }
@@ -681,6 +684,9 @@ video {
 }
 .w-56 {
   width: 14rem;
+}
+.w-\[40\%\] {
+  width: 40%;
 }
 .max-w-lg {
   max-width: 32rem;
