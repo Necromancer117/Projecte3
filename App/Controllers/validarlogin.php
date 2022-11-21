@@ -34,6 +34,7 @@ function ctrlValidarLogin($request, $response, $container)
         $usuario = $users->getUser($id['id_usuario']);
         $response->setSession('user', $usuario['nombre_usuario']);
         $response->setSession('id', $id['id_usuario']);
+        $response->setSession('loged',true);
         switch ($usuario['usuario_rol']) {
             case 'cliente':
                 $response->redirect("location: /");
@@ -49,6 +50,7 @@ function ctrlValidarLogin($request, $response, $container)
                 $response->setSession('user', '');
                 $response->setSession('id', '');
                 $response->redirect("location: /");
+                $response->setSession('loged',false);
                 break;
         }
     } else {

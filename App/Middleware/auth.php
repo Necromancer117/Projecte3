@@ -13,18 +13,18 @@ function auth($request, $response, $container, $next)
 {
 
     $usuari = $request->get("SESSION", "user");
-    $logat = $request->get("SESSION", "loged");
+    $loged = $request->get("SESSION", "loged");
 
     if (!isset($logat)) {
         $usuari = "";
-        $logat = false;
+        $loged = false;
     }
 
     $response->set("usuari", $usuari);
-    $response->set("logat", $logat);
+    $response->set("logat", $loged);
 
     // si l'usuari està logat permetem carregar el recurs
-    if ($logat) {
+    if ($loged) {
         $response = nextMiddleware($request, $response, $container, $next);
     } else {
         $response->redirect("location: /login");
