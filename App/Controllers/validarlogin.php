@@ -32,7 +32,8 @@ function ctrlValidarLogin($request, $response, $container)
     if ($exist) {
         $id = $users->getId($email, $pass);
         $usuario = $users->getUser($id['id_usuario']);
-
+        $response->setSession('user',$usuario['nombre_usuario']);
+        $response->setSession('id',$id['id_usuario']);
         switch ($usuario['usuario_rol']) {
             case 'cliente':
                 
@@ -49,7 +50,8 @@ function ctrlValidarLogin($request, $response, $container)
                 break;
         }
     }else {
-        $response->redirect("location: ");
+        $response->redirect("location: /login");
+        $response->setSession('error','El usuario no existe');
     }
 
 

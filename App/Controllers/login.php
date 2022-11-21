@@ -31,8 +31,8 @@ class login
   function ctrlLogin($request, $response, $container)
   {
     // Comptem quantes vegades has visitat aquesta pàgina
+    
     $error = $request->get("SESSION", "error");
-
     $repre = $container->get('representation');
     
     $response->set("error", $error);

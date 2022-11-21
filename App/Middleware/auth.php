@@ -12,8 +12,8 @@
 function auth($request, $response, $container, $next)
 {
 
-    $usuari = $request->get("SESSION", "usuari");
-    $logat = $request->get("SESSION", "logat");
+    $usuari = $request->get("SESSION", "user");
+    $logat = $request->get("SESSION", "loged");
 
     if (!isset($logat)) {
         $usuari = "";

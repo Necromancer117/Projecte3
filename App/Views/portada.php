@@ -63,8 +63,8 @@
     
   <?php
     include "../App/Views/footer.php";
-
   ?>
+  
 <script src="./js/bundle.js"></script>
 </body>
 
