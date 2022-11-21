@@ -14,6 +14,8 @@ class Representation
         $dsn = "mysql:dbname={$config['db']};host={$config['host']}";
         $usuari = $config["user"];
         $clau = $config["pass"];
+
+        
         
         try {
             $this->sql = new PDO($dsn, $usuari, $clau);

@@ -7,13 +7,16 @@ use Emeset\Container as EmesetContainer;
 
 
 class Container extends EmesetContainer {
+//$config para enviar los datos de bd    
 public $config = [];
 
     public function __construct($config){
         parent::__construct($config);
         $this->config=$config;
         
-
+        ////////////////////////////////
+        /////////CONTROLADORES//////////
+        ////////////////////////////////
         
         $this["\App\Controllers\Privat"] = function ($c) {
             // Aqui podem inicialitzar totes les dependències del controlador i passar-les com a paràmetre.
@@ -23,7 +26,11 @@ public $config = [];
             // Aqui podem inicialitzar totes les dependències del controlador i passar-les com a paràmetre.
             return new \App\Controllers\Login($c);
         };
-        /* Podem definir com s’han d’instanciar els diferents models. */
+        ////////////////////////////////
+        /////////////MODELOS////////////
+        ////////////////////////////////
+
+        /* this 'nombre de funcion'para poder llamarlo despues ej. $repre=$controller->get('representation') */
         $this["representation"] = function ($c) {
             return new \App\Models\Representation($this->config['database']);
         };
