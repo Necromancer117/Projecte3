@@ -70,6 +70,25 @@ class Users
         }
     }
 
+    public function exist($mail,$pass){
+
+         $query = 'select * from usuario where :mail == mail_usuario && :pass == contrasena_usuario;';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':mail' => $mail,':pass'=>$pass]);
+
+        if ($stm->errorCode() !== '00000') {
+            $err = $stm->errorInfo();
+            $code = $stm->errorCode();
+            throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
+        }
+        
+        if ($result->rowCount() > 0) {
+            return true;
+          } else {
+             return false;
+          }
+    }
+
 
 
 

@@ -29,7 +29,7 @@
 					Enter to your Fake Circ account
 				</div>
 				<!-- FORM -->
-				<form action="">
+				<form action="validarLogin" method="POST">
 					<!-- EMAIL CONTAINER -->
 					<div class="flex flex-col gap-3 mb-5">
 						<div>
