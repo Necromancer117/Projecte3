@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Models;
-
+use PDO;
+use PDOException;
+use FFI\Exception;
 class Representation
 {
 
@@ -19,6 +21,7 @@ class Representation
             die('Ha fallat la connexió: ' . $e->getMessage());
         }
     }
+   
 
     public function insertRepresentation($id_show,$id_location,$time){
        

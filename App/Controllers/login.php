@@ -11,7 +11,7 @@
 
 namespace App\Controllers;
 
-class Login
+class login
 {
 
   public $contenidor;
@@ -28,17 +28,19 @@ class Login
    * @param array $config  paràmetres de configuració de l'aplicació
    *
    **/
-  function ctrlLogin($request, $response, $config)
+  function ctrlLogin($request, $response, $container)
   {
     // Comptem quantes vegades has visitat aquesta pàgina
     $error = $request->get("SESSION", "error");
 
-
+    $repre = $container->get('representation');
+    
     $response->set("error", $error);
     $response->setSession("error", "");
 
     $response->SetTemplate("login.php");
 
+    
     return $response;
   }
 

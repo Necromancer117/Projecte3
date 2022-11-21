@@ -3,12 +3,12 @@
 $config = array();
 
 /* configuració de connexió a la base dades */
-$config = [
+$config['database'] = Array(
     "db" => "votaciones",
-    "user" => "root",
-    "pass" => "",
+    "user" => "psoual",
+    "pass" => "daw-2022",
     "host" => "localhost"
-];
+);
 
 /* Path on guardarem el fitxer sqlite */
 $config["sqlite"]["path"] = '../';

@@ -20,7 +20,7 @@ include "../App/config.php";
 
 include "../App/Controllers/portada.php";
 include "../App/Controllers/error.php";
-include "../App/Controllers/login.php";
+//include "../App/Controllers/login.php";
 include "../App/Controllers/validarlogin.php";
 //include "../App/Controllers/privat.php";
 include "../App/Controllers/tancarSessio.php";
@@ -36,8 +36,7 @@ $app = new \Emeset\Emeset($contenidor);
 
 $app->route("", "ctrlPortada");
 //$app->route("/login", "ctrlLogin");
-$app->route("/login", "\App\Controllers\Login:ctrlLogin");
-$app->route("/signup", "\App\Controllers\Login:ctrlSignup");
+$app->route("/login", "\App\Controllers\login:ctrlLogin");
 $app->route("validar-login", "ctrlValidarLogin");
 $app->route("privat", "\App\Controllers\Privat:privat", ["auth"]);
 $app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);
