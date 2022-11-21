@@ -34,5 +34,10 @@ public $config = [];
         $this["representation"] = function ($c) {
             return new \App\Models\Representation($this->config['database']);
         };
+
+        /* this 'nombre de funcion'para poder llamarlo despues ej. $repre=$controller->get('representation') */
+        $this["users"] = function ($c) {
+            return new \App\Models\Users($this->config['database']);
+        };
     }
 }

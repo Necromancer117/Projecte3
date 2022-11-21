@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Models;
-
+use PDO;
+use PDOException;
+use FFI\Exception;
 class Users
 {
 
@@ -31,6 +33,9 @@ class Users
             $code = $stm->errorCode();
             throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
         }
+    }
+    public function getId($mail,$pass){
+
     }
 
     public function getUser($id)
@@ -70,9 +75,12 @@ class Users
         }
     }
 
+    /**
+     * Devuelve true o false si el usuario existe
+     */
     public function exist($mail,$pass){
 
-         $query = 'select * from usuario where :mail == mail_usuario && :pass == contrasena_usuario;';
+        $query = 'select * from usuario where :mail = mail_usuario && :pass = contrasena_usuario;';
         $stm = $this->sql->prepare($query);
         $result = $stm->execute([':mail' => $mail,':pass'=>$pass]);
 
@@ -82,7 +90,7 @@ class Users
             throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
         }
         
-        if ($result->rowCount() > 0) {
+        if ($stm->rowCount() > 0) {
             return true;
           } else {
              return false;
