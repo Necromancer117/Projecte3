@@ -32,26 +32,28 @@ function ctrlValidarLogin($request, $response, $container)
     if ($exist) {
         $id = $users->getId($email, $pass);
         $usuario = $users->getUser($id['id_usuario']);
-        $response->setSession('user',$usuario['nombre_usuario']);
-        $response->setSession('id',$id['id_usuario']);
+        $response->setSession('user', $usuario['nombre_usuario']);
+        $response->setSession('id', $id['id_usuario']);
         switch ($usuario['usuario_rol']) {
             case 'cliente':
-                
+                $response->redirect("location: /");
                 break;
             case 'creador':
-                
+
                 break;
             case 'administrador':
-                
+
                 break;
 
             default:
-            $response->redirect("location: ");
+                $response->setSession('user', '');
+                $response->setSession('id', '');
+                $response->redirect("location: /");
                 break;
         }
-    }else {
+    } else {
         $response->redirect("location: /login");
-        $response->setSession('error','The user doesn\'t exist');
+        $response->setSession('error', 'The user doesn\'t exist');
     }
 
 

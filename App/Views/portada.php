@@ -30,18 +30,27 @@
           <a class="rounded p-2 transition bg-white duration-200 ease-in hover:bg-black hover:text-white" href="#">Old Circ</a>
         </div>
         <div class="ml-6">
-          <a class="rounded p-2 transition bg-white duration-200 ease-in hover:bg-black hover:text-white" href="/login">Sign In</a>
-        </div>
-      </div>
-      <div class="text-[30px] flex flex-row gap-3 mr-10 mt-7">
-        <div>
-          <a href="#"><i class="bi bi-facebook transition duration-150 ease-in hover:text-black"></i></a>
-        </div>
-        <div>
-          <a href="#"><i class="bi bi-twitter transition duration-150 ease-in hover:text-black"></i></a>
-        </div>
-        <div>
-          <a href="#"><i class="bi bi-discord transition duration-150 ease-in hover:text-black"></i></a>
+          <!--CHECK IF USER IS LOG-->
+          <?php if ($user != '') { ?>
+            <div class="relative my-auto mt-[-20px] mr-[-30px] inline-block text-left">
+              <div>
+                <button><img id="avatar" name='avatar' class="w-16 border-2 rounded-full transition duration-400 hover:border-blue-600 ml-4" src="img/defaultAvatar.jpg" alt="" srcset=""></button>
+                </button>
+              </div>
+
+              <div class=" opacity-0 h-0 w-0 absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" id="user_options">
+                <div class="py-1" role="none">
+                  <span class="text-sm font-bold px-4 py-3"><?=$user?></span>
+                  <a href="#" class="item text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200" role="menuitem" tabindex="-1" id="menu-item-0">Account settings</a>
+                  <a href="#" class="item text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200" role="menuitem" tabindex="-1" id="menu-item-1">Support</a>
+                  <a href="#" class="item text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200" role="menuitem" tabindex="-1" id="menu-item-2">log out</a>
+                </div>
+              </div>
+            </div>
+          <?php } else { ?>
+            <a class="rounded p-2 transition bg-white duration-200 ease-in hover:bg-black hover:text-white" href="/login">Sign In</a>
+          <?php } ?>
+          <!--END CHECK-->
         </div>
       </div>
     </div>
@@ -60,12 +69,12 @@
     <div class="h-[300px]" id="map"></div>
     <div name='proxima_edicion'></div>
   </div>
-    
+
   <?php
-    include "../App/Views/footer.php";
+  include "../App/Views/footer.php";
   ?>
-  
-<script src="./js/bundle.js"></script>
+
+  <script src="./js/bundle.js"></script>
 </body>
 
 </html>

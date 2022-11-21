@@ -19,7 +19,8 @@
  **/
 function ctrlPortada($request, $response, $config)
 {
-   
+    $user = $request->get("SESSION", "user");
+    $response->set('user',$user);
     $response->SetTemplate("portada.php");
 
     return $response;

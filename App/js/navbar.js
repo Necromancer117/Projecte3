@@ -10,7 +10,7 @@ $(document).ready(function() {
         $('.item').removeClass('invisible');
         $("#user_options").animate({
             opacity: '1',
-            height: '120px',
+            height: '170px',
             width: '150px'
           });
           
