@@ -24,16 +24,34 @@ function ctrlValidarLogin($request, $response, $container)
     $email = $request->get(INPUT_POST, "email");
     $pass = $request->get(INPUT_POST, "pass");
 
-    
+
 
     $users = $container->get('users');
-    $exist = $users->exist($email,$pass);
+    $exist = $users->exist($email, $pass);
 
     if ($exist) {
-        
-    }
-    
-    
-    return $response;
+        $id = $users->getId($email, $pass);
+        $usuario = $users->getUser($id['id_usuario']);
 
+        switch ($usuario['usuario_rol']) {
+            case 'cliente':
+                
+                break;
+            case 'creador':
+                
+                break;
+            case 'administrador':
+                
+                break;
+
+            default:
+            $response->redirect("location: ");
+                break;
+        }
+    }else {
+        $response->redirect("location: ");
+    }
+
+
+    return $response;
 }

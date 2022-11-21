@@ -34,7 +34,25 @@ class Users
             throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
         }
     }
+
+    /**
+     * Devuelve la id del usuario
+     */
     public function getId($mail,$pass){
+
+        $query = 'select id_usuario from usuario where :mail = mail_usuario && :pass = contrasena_usuario;';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':mail' => $mail,':pass'=>$pass]);
+
+        if ($stm->errorCode() !== '00000') {
+            $err = $stm->errorInfo();
+            $code = $stm->errorCode();
+            throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
+        }
+        
+        
+
+        return $stm->fetch(\PDO::FETCH_ASSOC);
 
     }
 
