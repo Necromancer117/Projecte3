@@ -10,6 +10,9 @@ $('#show_pass').on('change',function () {
         $('#input_pass').attr('type', 'password');
     }
 })
+$('#login_error').animate({
+    opacity: '1'
+})
 }
 
 // ? ---- LOGIN FUNCTIONS ---- * //

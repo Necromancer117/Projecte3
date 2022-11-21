@@ -51,7 +51,7 @@ function ctrlValidarLogin($request, $response, $container)
         }
     }else {
         $response->redirect("location: /login");
-        $response->setSession('error','El usuario no existe');
+        $response->setSession('error','The user doesn\'t exist');
     }
 
 
