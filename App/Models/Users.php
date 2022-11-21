@@ -24,12 +24,12 @@ class Users
         }
     }
 
-    public function insertUser($name, $surename, $mail, $password, $avatar)
+    public function insertUser($name, $surename, $mail, $password)
     { //insert user requires the datta of the register form
-        $query = 'insert into usuario (nombre_usuario,apellido_usuario,mail_usuario,contrasena_usuario,avatar_usuario) 
-        values (:name,:surename,:mail,:password,:avatar)';
+        $query = 'insert into usuario (nombre_usuario,apellido_usuario,mail_usuario,contrasena_usuario) 
+        values (:name,:surename,:mail,:password)';
         $stm = $this->sql->prepare($query);
-        $stm->execute([':name' => $name, ':surename' => $surename, ':mail' => $mail, ':password' => $password, ':avatar' => $avatar]);
+        $stm->execute([':name' => $name, ':surename' => $surename, ':mail' => $mail, ':password' => $password]);
 
         if ($stm->errorCode() !== '00000') {
             $err = $stm->errorInfo();
