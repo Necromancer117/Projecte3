@@ -40,7 +40,8 @@ $app->route("/login", "\App\Controllers\login:ctrlLogin");
 $app->route("validar-login", "ctrlValidarLogin");
 $app->route("privat", "\App\Controllers\Privat:privat", ["auth"]);
 $app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);
-$app->route("/signup", "\App\Controllers\Signup:ctrlInsertUser");
+$app->route("createUser", "\App\Controllers\Signup:ctrlInsertUser");
+$app->route("/singup", "\App\Controllers\Signup:ctrlSignup");
 
 $app->route("ajax", function ($request, $response) {
     $response->set("result", "ok");

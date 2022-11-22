@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use Emeset\Http\Response;
+
 class Signup
 {
     public $contenidor;
@@ -17,16 +19,24 @@ class Signup
 
         /* ---- ACCES TO VARIABLES ----  */
         $email = $request->get(INPUT_POST, "email");
-        $nom = $request->get(INPUT_POST, "firstName");
-        $cognoms = $request->get(INPUT_POST, "secondName");
-        $contrasenya = $request->get(INPUT_POST, "password");
+        $name = $request->get(INPUT_POST, "firstName");
+        $second = $request->get(INPUT_POST, "secondName");
+        $pass = $request->get(INPUT_POST, "password");
 
-        // $existence = //does it exist
-        // if (!$existence) {
-        //     /*Insert the user*/
-        // }
-        // else {
-        //     /*Show alert the folowing email exists*/
-        // }
+        $existence = $users->exist($email, $pass);
+        if (!$existence) {
+            $users->insertUser($email, $name, $second, $pass);
+            $response->Redirect("location: validar-login");
+        } else {
+            $response->Set("existence", $existence);
+            $response->SetTemplate("signup.php");
+        }
+    }
+
+    function ctrlSignup($request, $response, $config)
+    {
+        $response->SetTemplate("signup.php");
+
+        return $response;
     }
 }
