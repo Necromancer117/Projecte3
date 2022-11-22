@@ -11,17 +11,9 @@ class Location
 
     private $sql;
 
-    public function __construct($config)
+    public function __construct($connexioDB)
     {
-        $dsn = "mysql:dbname={$config['db']};host={$config['host']}";
-        $usuari = $config["user"];
-        $clau = $config["pass"];
-
-        try {
-            $this->sql = new PDO($dsn, $usuari, $clau);
-        } catch (PDOException $e) {
-            die('Ha fallat la connexió: ' . $e->getMessage());
-        }
+        $this->sql = $connexioDB->getConnection();
     }
 
     public function insertLocation($name, $longitude, $latitude)

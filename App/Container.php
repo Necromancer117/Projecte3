@@ -32,18 +32,49 @@ class Container extends EmesetContainer
             // Aqui podem inicialitzar totes les dependències del controlador i passar-les com a paràmetre.
             return new \App\Controllers\Signup($c);
         };
+
         ////////////////////////////////
         /////////////MODELOS////////////
         ////////////////////////////////
 
-        /* this 'nombre de funcion'para poder llamarlo despues ej. $repre=$controller->get('representation') */
-        $this["representation"] = function ($c) {
-            return new \App\Models\Representation($this->config['database']);
+        // * GENERAL CONNECTRION TO DATABASE
+        $this["connection"] = function ($c) {
+            return new \App\Models\Connection($this->config['database']);
         };
 
-        /* this 'nombre de funcion'para poder llamarlo despues ej. $repre=$controller->get('representation') */
+        // * MODIFYERS
+        $this["edition"] = function ($c) {
+            return new \App\Models\Edition($c["connection"]);
+        };
+
+        // * FAVORITES
+        $this["favorite"] = function ($c) {
+            return new \App\Models\Favorite($c["connection"]);
+        };
+
+        // * LOCATION
+        $this["location"] = function ($c) {
+            return new \App\Models\Location($c["connection"]);
+        };
+
+        // * REPRESENTATIONS
+        $this["representation"] = function ($c) {
+            return new \App\Models\Representation($c["connection"]);
+        };
+
+        // * SHOW
+        $this["show"] = function ($c) {
+            return new \App\Models\Show($c["connection"]);
+        };
+
+        // * USERS
         $this["users"] = function ($c) {
-            return new \App\Models\Users($this->config['database']);
+            return new \App\Models\Users($c["connection"]);
+        };
+
+        // * VOTE
+        $this["vote"] = function ($c) {
+            return new \App\Models\Vote($c["connection"]);
         };
 
         /* this 'nombre de funcion'para poder llamarlo despues ej. $repre=$controller->get('representation') */
