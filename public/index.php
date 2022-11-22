@@ -53,8 +53,12 @@ $app->route("/signup", "\App\Controllers\Signup:ctrlInsertUser");
 >>>>>>> 9e5eadd (conexio a la base de dades i idea)
 =======
 $app->route("createUser", "\App\Controllers\Signup:ctrlInsertUser");
+<<<<<<< HEAD
 $app->route("/singup", "\App\Controllers\Signup:ctrlSignup");
 >>>>>>> 4feb07a (repair)
+=======
+$app->route("/signup", "\App\Controllers\login:ctrlSignup");
+>>>>>>> 2fd8b0e (funciona)
 
 $app->route("ajax", function ($request, $response) {
     $response->set("result", "ok");

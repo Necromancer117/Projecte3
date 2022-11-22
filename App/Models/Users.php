@@ -9,20 +9,11 @@ use FFI\Exception;
 class Users
 {
 
-    private $sql;
+    private $sql = null;
 
-    public function __construct($config)
+    public function __construct($connexioDB)
     {
-        $dsn = "mysql:unix_socket=/Applications/MAMP/tmp/mysql/mysql.sock;dbname=votaciones;";
-        //$dsn = "mysql:dbname={$config['db']};host={$config['host']}";
-        $usuari = $config["user"];
-        $clau = $config["pass"];
-
-        try {
-            $this->sql = new PDO($dsn, $usuari, $clau);
-        } catch (PDOException $e) {
-            die('Ha fallat la connexió: ' . $e->getMessage());
-        }
+        $this->sql = $connexioDB->getConnection();
     }
 
     public function insertUser($name, $surename, $mail, $password)

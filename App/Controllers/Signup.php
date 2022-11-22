@@ -32,11 +32,4 @@ class Signup
             $response->SetTemplate("signup.php");
         }
     }
-
-    function ctrlSignup($request, $response, $config)
-    {
-        $response->SetTemplate("signup.php");
-
-        return $response;
-    }
 }
