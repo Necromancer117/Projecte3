@@ -3,7 +3,7 @@
 $config = array();
 
 /* configuració de connexió a la base dades */
-$config['database'] = Array(
+$config['database'] = array(
     "db" => "votaciones",
     "user" => "psoual",
     "pass" => "daw-2022",
@@ -28,4 +28,3 @@ $config["login"]["clau"] = "1234";
 // require_once "../src/Emeset/Container.php";
 // require_once "../src/Emeset/Caller.php";
 // require_once "../src/Emeset/Emeset.php";
-
