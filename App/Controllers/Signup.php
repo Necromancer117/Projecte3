@@ -2,10 +2,16 @@
 
 namespace App\Controllers;
 
-class Singnup
+class Signup
 {
+    public $contenidor;
 
-    public function ctrlInserUser($request, $response, $container)
+    public function __construct($contenidor)
+    {
+        $this->contenidor = $contenidor;
+    }
+
+    public function ctrlInsertUser($request, $response, $container)
     {
         $users = $container["users"];
 

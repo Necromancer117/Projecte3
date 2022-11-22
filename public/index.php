@@ -37,15 +37,19 @@ $app = new \Emeset\Emeset($contenidor);
 $app->route("", "ctrlPortada");
 //$app->route("/login", "ctrlLogin");
 $app->route("/login", "\App\Controllers\login:ctrlLogin");
-$app->route("validarLogin", "ctrlValidarLogin");
+$app->route("validar-login", "ctrlValidarLogin");
 $app->route("privat", "\App\Controllers\Privat:privat", ["auth"]);
 $app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);
+<<<<<<< HEAD
 <<<<<<< HEAD
 $app->route("/show/id={id}","\App\Controllers\Show:ctrlShow");
 =======
 $app->route("/signup", "ctrlInserUser");
 >>>>>>> a94ac53 (intro and idea)
 
+=======
+$app->route("/signup", "\App\Controllers\Signup:ctrlInsertUser");
+>>>>>>> 9e5eadd (conexio a la base de dades i idea)
 
 $app->route("ajax", function ($request, $response) {
     $response->set("result", "ok");

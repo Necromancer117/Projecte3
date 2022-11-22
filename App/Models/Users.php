@@ -13,7 +13,8 @@ class Users
 
     public function __construct($config)
     {
-        $dsn = "mysql:dbname={$config['db']};host={$config['host']}";
+        $dsn = "mysql:unix_socket=/Applications/MAMP/tmp/mysql/mysql.sock;dbname=votaciones;";
+        //$dsn = "mysql:dbname={$config['db']};host={$config['host']}";
         $usuari = $config["user"];
         $clau = $config["pass"];
 

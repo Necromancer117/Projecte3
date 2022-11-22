@@ -28,6 +28,10 @@ class Container extends EmesetContainer
             // Aqui podem inicialitzar totes les dependències del controlador i passar-les com a paràmetre.
             return new \App\Controllers\Login($c);
         };
+        $this["\App\Controllers\Signup"] = function ($c) {
+            // Aqui podem inicialitzar totes les dependències del controlador i passar-les com a paràmetre.
+            return new \App\Controllers\Signup($c);
+        };
         ////////////////////////////////
         /////////////MODELOS////////////
         ////////////////////////////////
