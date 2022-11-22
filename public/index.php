@@ -42,6 +42,7 @@ $app->route("privat", "\App\Controllers\Privat:privat", ["auth"]);
 $app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 $app->route("/show/id={id}","\App\Controllers\Show:ctrlShow");
 =======
 $app->route("/signup", "ctrlInserUser");
@@ -50,6 +51,10 @@ $app->route("/signup", "ctrlInserUser");
 =======
 $app->route("/signup", "\App\Controllers\Signup:ctrlInsertUser");
 >>>>>>> 9e5eadd (conexio a la base de dades i idea)
+=======
+$app->route("createUser", "\App\Controllers\Signup:ctrlInsertUser");
+$app->route("/singup", "\App\Controllers\Signup:ctrlSignup");
+>>>>>>> 4feb07a (repair)
 
 $app->route("ajax", function ($request, $response) {
     $response->set("result", "ok");
