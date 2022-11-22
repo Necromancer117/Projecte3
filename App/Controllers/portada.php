@@ -17,8 +17,9 @@
  * @param array $config  paràmetres de configuració de l'aplicació
  *
  **/
-function ctrlPortada($request, $response, $config)
+function ctrlPortada($request, $response, $container)
 {
+    $shows = $container->get('show');
     $user = $request->get("SESSION", "user");
     $response->set('user',$user);
     $response->SetTemplate("portada.php");

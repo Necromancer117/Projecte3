@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Models;
-
+use PDO;
+use PDOException;
+use FFI\Exception;
 class Show
 {
 
@@ -47,6 +49,23 @@ class Show
         
         return $stm->fetch(\PDO::FETCH_ASSOC);
 
+    }
+
+    /**
+     * Devuelve todos los shows de la edicion corriente o mas cercana
+     */
+    public function getShows(){
+        $query = 'SELECT * FROM espectaculo e JOIN edicion ed ON e.id_edicion_espectaculo=ed.id_edicion WHERE ed.dia_final_edicion>=CURDATE() && ed.dia_final_edicion > ed.dia_inicio_edicion';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute();
+
+        if ($stm->errorCode() !== '00000') {
+            $err = $stm->errorInfo();
+            $code = $stm->errorCode();
+            throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
+        }
+        
+        return $stm->fetch(\PDO::FETCH_ASSOC);
     }
 
     public function updateShow($column,$newValue,$id){

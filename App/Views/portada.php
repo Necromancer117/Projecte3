@@ -66,40 +66,16 @@
     </div>
   </div>
   <div>
+    <!--START SHOWS LIST-->
     <div class="bg-black text-white text-4xl text-center py-5 font-bold">
       <span>Our shows</span>
     </div>
     <div class="grid grid-cols-3">
-      <div>
-          <img class="h-full object-fill border-2 border-grey-500" src="img/shows/show1.png" alt="" srcset="">
-      </div>
-      <div>
-          <img class="h-full object-fill" src="img/shows/show2.jpg" alt="" srcset="">
-      </div>
-      <div>
-          <img class="h-full object-fill" src="img/shows/show3.jpg" alt="" srcset="">
-      </div>
-      <div>
-          <img class="h-full object-fill" src="img/shows/show4.jpg" alt="" srcset="">
-      </div>
-      <div>
-          <img class="h-full object-fill" src="img/shows/show5.jpg" alt="" srcset="">
-      </div>
-      <div>
-          <img class="h-full object-fill" src="img/shows/show6.png" alt="" srcset="">
-      </div>
-      <div>
-          <img class="h-full object-fill" src="img/shows/show7.png" alt="" srcset="">
-      </div>
-      <div>
-          <img class="w-[200%]" src="img/shows/show8.png" alt="" srcset="">
-      </div>
-      <div>
-          <img class="h-full object-fill" src="img/shows/show9.png" alt="" srcset="">
-      </div>
+      
+
     </div>
-    <div class="bg-black text-white text-4xl text-center py-5 font-bold">
-  </div>
+    <div class="bg-black text-white text-4xl text-center py-5 font-bold"></div>
+    <!--END SHOWS LIST-->
   <div class="grid grid-cols-2">
     <div class="h-[300px]" id="map"></div>
     <div name='proxima_edicion'></div>
