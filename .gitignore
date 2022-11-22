@@ -1,3 +1,4 @@
 vendor
 node_modules
 /1-files
+/App/Models/Connection.php
