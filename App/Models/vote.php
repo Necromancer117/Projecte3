@@ -11,9 +11,17 @@ class Vote
 
     private $sql;
 
-    public function __construct($connexioDB)
+    public function __construct($config)
     {
-        $this->sql = $connexioDB->getConnection();
+        $dsn = "mysql:dbname={$config['db']};host={$config['host']}";
+        $usuari = $config["user"];
+        $clau = $config["pass"];
+
+        try {
+            $this->sql = new PDO($dsn, $usuari, $clau);
+        } catch (PDOException $e) {
+            die('Ha fallat la connexió: ' . $e->getMessage());
+        }
     }
 
     public function insertVote($id, $valoration)
