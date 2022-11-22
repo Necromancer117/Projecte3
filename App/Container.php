@@ -76,10 +76,5 @@ class Container extends EmesetContainer
         $this["vote"] = function ($c) {
             return new \App\Models\Vote($c["connection"]);
         };
-
-        /* this 'nombre de funcion'para poder llamarlo despues ej. $repre=$controller->get('representation') */
-        $this["show"] = function ($c) {
-            return new \App\Models\Show($this->config['database']);
-        };
     }
 }
