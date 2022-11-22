@@ -20,7 +20,11 @@
 function ctrlPortada($request, $response, $container)
 {
     $shows = $container->get('show');
+    $spectacle = $shows->getShows();
+    
     $user = $request->get("SESSION", "user");
+
+    $response->set('shows',$spectacle);
     $response->set('user',$user);
     $response->SetTemplate("portada.php");
 

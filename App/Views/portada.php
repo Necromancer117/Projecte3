@@ -40,7 +40,7 @@
 
               <div class=" opacity-0 h-0 w-0 absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" id="user_options">
                 <div class="py-1" role="none">
-                  <span class="text-sm font-bold px-4 py-3"><?=$user?></span>
+                  <span class="text-sm font-bold px-4 py-3"><?= $user ?></span>
                   <a href="#" class="item text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200" role="menuitem" tabindex="-1" id="menu-item-0">Account settings</a>
                   <a href="#" class="item text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200" role="menuitem" tabindex="-1" id="menu-item-1">Support</a>
                   <a href="#" class="item text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200" role="menuitem" tabindex="-1" id="menu-item-2">log out</a>
@@ -67,25 +67,37 @@
   </div>
   <div>
     <!--START SHOWS LIST-->
-    <div class="bg-black text-white text-4xl text-center py-5 font-bold">
-      <span>Our shows</span>
+    <div class="bg-black text-center py-5 ">
+      <span class="font-extrabold text-transparent text-7xl bg-clip-text bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#B38728]">Our shows</span>
     </div>
-    <div class="grid grid-cols-3">
-      
+    <div class="grid gap-1 grid-cols-3">
+      <?php foreach ($shows as $show) { ?>
+
+        <div class="relative">
+          <img class="object-fill h-full w-full" src="img/shows/<?php echo ($show['imagen_espectaculo']) ?>" alt="" srcset="">
+          <div class='img__overlay absolute top-0 left-0 w-full h-full bg-black opacity-0 bg-opacity-60 flex flex-col items-center justify-center transition duration-200 ease-in hover:opacity-100'>
+            <div class="overlay__title text-white text-center text-4xl font-bold "><?php echo($show['nombre_espectaculo']) ?></div>
+              <p class="overlay__description text-white text-center mt-4">
+                Click for more info here!
+              </p>
+          </div>
+        </div>
+
+      <?php } ?>
 
     </div>
     <div class="bg-black text-white text-4xl text-center py-5 font-bold"></div>
     <!--END SHOWS LIST-->
-  <div class="grid grid-cols-2">
-    <div class="h-[300px]" id="map"></div>
-    <div name='proxima_edicion'></div>
-  </div>
+    <div class="grid grid-cols-2">
+      <div class="h-[300px]" id="map"></div>
+      <div name='proxima_edicion'></div>
+    </div>
 
-  <?php
-  include "../App/Views/footer.php";
-  ?>
+    <?php
+    include "../App/Views/footer.php";
+    ?>
 
-  <script src="./js/bundle.js"></script>
+    <script src="./js/bundle.js"></script>
 </body>
 
 </html>

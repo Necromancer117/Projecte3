@@ -65,7 +65,13 @@ class Show
             throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
         }
         
-        return $stm->fetch(\PDO::FETCH_ASSOC);
+        $shows = [];
+
+
+            while ($show = $stm->fetch(PDO::FETCH_ASSOC)) {
+                $shows[] = $show;
+            }
+            return $shows;
     }
 
     public function updateShow($column,$newValue,$id){
