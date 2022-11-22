@@ -37,11 +37,10 @@ $app = new \Emeset\Emeset($contenidor);
 $app->route("", "ctrlPortada");
 //$app->route("/login", "ctrlLogin");
 $app->route("/login", "\App\Controllers\login:ctrlLogin");
-$app->route("validarLogin", "ctrlValidarLogin");
+$app->route("validar-login", "ctrlValidarLogin");
 $app->route("privat", "\App\Controllers\Privat:privat", ["auth"]);
 $app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);
-$app->route("/signup", "ctrlInserUser");
-
+$app->route("/signup", "\App\Controllers\Signup:ctrlInsertUser");
 
 $app->route("ajax", function ($request, $response) {
     $response->set("result", "ok");
