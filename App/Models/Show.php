@@ -33,7 +33,7 @@ class Show
 
     public function getShow($id)
     {
-        $query = 'select * from espectaculo where id_espectaculo = :id';
+        $query = 'select * from espectaculo e where e.id_espectaculo = :id';
         $stm = $this->sql->prepare($query);
         $result = $stm->execute([':id' => $id]);
 

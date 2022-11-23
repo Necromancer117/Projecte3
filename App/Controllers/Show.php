@@ -20,13 +20,16 @@ class Show
         if (!isset($loged)) {
             $loged = false;
         }
-
+        $data = [];
         $id = $request->getParam('id');
         $show = $container->get('show');
-        $data = $show->getShow($id);
+        $data['show'] = $show->getShow($id);
 
-        $response->set('loged',$loged);
-        $response->set('show', $data);
+        $representation = $container->get('representation');
+        $data['mapinfo'] = json_encode($representation->getMapinfo($id));
+
+        $response->set('loged', $loged);
+        $response->set('data', $data);
         $response->setTemplate('show_info.php');
         return $response;
     }

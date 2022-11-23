@@ -44,8 +44,29 @@ class Representation
             $code = $stm->errorCode();
             throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
         }
-
         return $stm->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function getMapinfo($id_show)
+    {
+        
+        $query = 'select * from representacion r JOIN espacio es ON r.id_espacio_representacion=es.id_espacio where r.id_espectaculo_representacion = 1;';
+        $stm = $this->sql->prepare($query);
+        $stm->execute([':id_show' => $id_show]);
+
+        if ($stm->errorCode() !== '00000') {
+            $err = $stm->errorInfo();
+            $code = $stm->errorCode();
+            throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
+        }
+        
+        $datas = [];
+
+        while ($data = $stm->fetch(PDO::FETCH_ASSOC)) {
+            $datas[] = $data;
+        }
+
+        return $datas;
     }
 
     public function updateRepresentation($column, $newValue, $id)
