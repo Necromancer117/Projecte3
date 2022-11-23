@@ -2,24 +2,32 @@
 
 namespace App\Controllers;
 
-class Show{
+class Show
+{
 
     public $container;
-    public function __construct($container){
-    
-        $this->container=$container;
-        
+    public function __construct($container)
+    {
+
+        $this->container = $container;
     }
 
-    public function ctrlShow($request, $response, $container){
+    public function ctrlShow($request, $response, $container)
+    {
 
-        $id=$request->getParam('id');
+        $loged = $request->get("SESSION", "loged");
 
-        print_r($id);
-        die();
+        if (!isset($loged)) {
+            $loged = false;
+        }
 
+        $id = $request->getParam('id');
+        $show = $container->get('show');
+        $data = $show->getShow($id);
+
+        $response->set('loged',$loged);
+        $response->set('show', $data);
+        $response->setTemplate('show_info.php');
         return $response;
-
     }
-
 }
