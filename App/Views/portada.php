@@ -72,18 +72,18 @@
     </div>
     <div class="grid gap-1 grid-cols-3">
       <?php foreach ($shows as $show) { ?>
-        
+
         <div class="relative">
-          <a href="/show/id=<?php echo($show['id_espectaculo']) ?>">
+          <a href="/show/id=<?php echo ($show['id_espectaculo']) ?>">
             <img class="object-fill h-full w-full" src="img/shows/<?php echo ($show['imagen_espectaculo']) ?>" alt="" srcset="">
-          <div class='img__overlay group absolute top-0 left-0 w-full h-full bg-black opacity-0 bg-opacity-60 flex flex-col items-center justify-center transition duration-200 ease-in hover:opacity-100'>
-            <div class="overlay__title transition duration-200 ease-in group-hover:translate-y-0 translate-y-10 text-white text-center text-4xl font-bold hover:text-amber-500"><?php echo($show['nombre_espectaculo']) ?></div>
+            <div class='img__overlay group absolute top-0 left-0 w-full h-full bg-black opacity-0 bg-opacity-60 flex flex-col items-center justify-center transition duration-200 ease-in hover:opacity-100'>
+              <div class="overlay__title transition duration-200 ease-in group-hover:translate-y-0 translate-y-10 text-white text-center text-4xl font-bold hover:text-amber-500"><?php echo ($show['nombre_espectaculo']) ?></div>
               <p class="overlay__description transition duration-200 ease-in group-hover:translate-y-0 translate-y-10 text-white text-center mt-4">
                 Click for more info here!
               </p>
-          </div>
+            </div>
           </a>
-          
+
         </div>
 
       <?php } ?>
@@ -92,7 +92,7 @@
     <div class="bg-black text-white text-4xl text-center py-5 font-bold"></div>
     <!--END SHOWS LIST-->
     <div class="grid grid-cols-2">
-      <div class="h-[300px]" id="map"></div>
+      <div id="map" class="h-[300px]" data-mapInfo='<?php echo (json_encode($data['mapinfo'])) ?>'></div>
       <div name='proxima_edicion'></div>
     </div>
 

@@ -19,13 +19,18 @@
  **/
 function ctrlPortada($request, $response, $container)
 {
+    $data=[];
     $shows = $container->get('show');
     $spectacle = $shows->getShows();
-    
+
     $user = $request->get("SESSION", "user");
 
-    $response->set('shows',$spectacle);
-    $response->set('user',$user);
+    $representation = $container->get('representation');
+    $data['mapinfo'] = $representation->getMapinfo();
+
+    $response->set('data',$data);
+    $response->set('shows', $spectacle);
+    $response->set('user', $user);
     $response->SetTemplate("portada.php");
 
     return $response;

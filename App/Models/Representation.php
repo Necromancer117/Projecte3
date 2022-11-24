@@ -47,19 +47,25 @@ class Representation
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
 
-    public function getMapinfo($id_show)
+    public function getMapinfo($id_show = false)
     {
-        
-        $query = 'select * from representacion r JOIN espacio es ON r.id_espacio_representacion=es.id_espacio where r.fecha_inicio_representacion >= NOW() && r.id_espectaculo_representacion = :id_show GROUP BY r.id_espacio_representacion;';
-        $stm = $this->sql->prepare($query);
-        $stm->execute([':id_show' => $id_show]);
+        if ($id_show == false) {
+            $query = 'select * from representacion r JOIN espacio es ON r.id_espacio_representacion=es.id_espacio where r.fecha_inicio_representacion >= NOW() GROUP BY r.id_espacio_representacion;';
+            $stm = $this->sql->prepare($query);
+            $stm->execute([]);
+        } else {
+            $query = 'select * from representacion r JOIN espacio es ON r.id_espacio_representacion=es.id_espacio where r.fecha_inicio_representacion >= NOW() && r.id_espectaculo_representacion = :id_show GROUP BY r.id_espacio_representacion;';
+            $stm = $this->sql->prepare($query);
+            $stm->execute([':id_show' => $id_show]);
+        }
+
 
         if ($stm->errorCode() !== '00000') {
             $err = $stm->errorInfo();
             $code = $stm->errorCode();
             throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
         }
-        
+
         $datas = [];
 
         while ($data = $stm->fetch(PDO::FETCH_ASSOC)) {
@@ -68,6 +74,8 @@ class Representation
 
         return $datas;
     }
+
+
 
     public function updateRepresentation($column, $newValue, $id)
     {
