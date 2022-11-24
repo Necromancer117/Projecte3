@@ -24,6 +24,8 @@ function ctrlPortada($request, $response, $container)
     $spectacle = $shows->getShows();
 
     $user = $request->get("SESSION", "user");
+    $user_id=$request->get('SESSION','id');
+    $data['user_id']=$user_id;
 
     $representation = $container->get('representation');
     $data['mapinfo'] = $representation->getMapinfo();
