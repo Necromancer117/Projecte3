@@ -16,6 +16,7 @@ class Show
     {
 
         $loged = $request->get("SESSION", "loged");
+        $user_id = $request->get('SESSION','id');
 
         if (!isset($loged)) {
             $loged = false;
@@ -24,6 +25,7 @@ class Show
         $id = $request->getParam('id');
         $show = $container->get('show');
         $data['show'] = $show->getShow($id);
+        $data['user_id']=$user_id;
 
         $representation = $container->get('representation');
         $data['mapinfo'] = $representation->getMapinfo($id);

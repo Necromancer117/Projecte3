@@ -1,7 +1,7 @@
   <div class="py-3 flex flex-row underline decoration-white text-white font-bold bg-red-600">
 
     <div class=" text-[50px] ml-6">
-      <a href="/"><img class="w-[130px]" src="../img/logo.png" alt="" srcset=""></a>
+      <a href="/"><img class="w-[130px]" src="/img/logo.png" alt="" srcset=""></a>
     </div>
     <div class="flex flex-row gap-12 text-end items-center justify-self-end ml-auto mr-20 text-lg text-yellow-400">
       <div>
@@ -15,7 +15,7 @@
         <div class="relative inline-block text-left">
           <?php if ($loged) { ?>
             <div>
-            <button><img id="avatar" name='avatar' class="w-12 border-2 rounded-full transition duration-400 hover:border-blue-600 ml-4" src="../img/defaultAvatar.jpg" alt="" srcset=""></button>
+            <button><img id="avatar" name='avatar' class="w-12 border-2 rounded-full transition duration-400 hover:border-blue-600 ml-4" src="/img/defaultAvatar.jpg" alt="" srcset=""></button>
             </button>
           </div>
 

@@ -11,9 +11,9 @@ class AccountSettings{
 
     public function ctrlAccountSettings($request, $response, $container){
 
-
-        print_r('hola');
-        die();
+        
+        $response->setTemplate('accountSettings.php');
+        return $response;
     }
     
 }
