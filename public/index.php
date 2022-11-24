@@ -38,7 +38,7 @@ $app->route("", "ctrlPortada");
 //$app->route("/login", "ctrlLogin");
 $app->route("/login", "\App\Controllers\login:ctrlLogin");
 $app->route("validarLogin", "ctrlValidarLogin");
-$app->route("privat", "\App\Controllers\Privat:privat", ["auth"]);
+$app->route("/account/id={user_id}/settings", "\App\Controllers\AccountSettings:ctrlAccountSettings", ["auth"]);
 $app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);
 $app->route("/show/id={id}", "\App\Controllers\Show:ctrlShow");
 $app->route("/signup", "ctrlInserUser");

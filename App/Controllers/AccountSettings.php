@@ -11,6 +11,9 @@ class AccountSettings{
 
     public function ctrlAccountSettings($request, $response, $container){
 
+
+        print_r('hola');
+        die();
     }
     
 }

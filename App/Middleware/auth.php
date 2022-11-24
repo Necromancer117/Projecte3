@@ -21,7 +21,7 @@ function auth($request, $response, $container, $next)
     }
 
     $response->set("usuari", $usuari);
-    $response->set("logat", $loged);
+    $response->set("loged", $loged);
 
     // si l'usuari està logat permetem carregar el recurs
     if ($loged) {
