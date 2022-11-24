@@ -38,5 +38,8 @@ public $config = [];
         $this["representation"] = function ($c) {
             return new \App\Models\Representation($this->config['database']);
         };
+        $this["users"] = function ($c) {
+            return new \App\Models\users($this->config['database']);
+        };
     }
 }

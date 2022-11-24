@@ -53,11 +53,11 @@
 			<main class="w-full">
 				<div class="p-4 flex w-full flex-col">
 					<div id="userstuff" class="hideme">
-						<form action="#" class="p-4 w-full">
+						<form action="#" class="p-4 w-full" method="post">
 							<div class="bg-sky-200 p-8 w-full">
 								<span>User insert.</span>
 								<table class="table-fixed bg-sky-200 p-8 w-full">
-									<thead class="pt-4 pb-4 border-2 mt-4 bg-sky-400  rounded-md">
+									<thead class="pt-4 pb-4 border-2 bg-sky-400  rounded-md">
 										<tr>
 											<th>Name</th>
 											<th>Surename</th>
@@ -82,18 +82,47 @@
 
 								</table>
 							</div>
-							<button class="bg-blue-500 mt-4 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+							<button class="bg-blue-500 mt-4 hover:bg-blue-400 text-white py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
 								Submit
 							</button>
-							<button class="bg-blue-500 mt-4 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+							<button class="bg-blue-500 mt-4 hover:bg-blue-400 text-white py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
 								Random user
 							</button>
 
 						</form>
-						
-					</div>
-					<div class="hideme w-full">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates deleniti, iste itaque fugit impedit aliquid dolorum fugiat temporibus, rerum non quia labore debitis beatae similique magni culpa enim alias expedita.
+						<div class="w-full bg-sky-200 p-8 w-full">
+							<table class="table-fixed bg-sky-400 p-8 w-full">
+								<thead>
+									<tr>
+										<th>Id</th>
+										<th>Name</th>
+										<th>Surename</th>
+										<th>Mail</th>
+										<th>Password</th>
+										<th>Avatar</th>
+										<th>Role</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php foreach ($list as $entry) {
+										//var_dump($list);
+										//die;
+									?>
+										<tr class="bg-white">
+											<th><?php echo $entry['id_usuario'] ?></th>
+											<th><p class="font-normal"><?php echo $entry['nombre_usuario'] ?></p></th>
+											<th><p class="font-normal"><?php echo $entry['apellido_usuario'] ?></p></th>
+											<th><p class="font-normal"><?php echo $entry['mail_usuario'] ?></p></th>
+											<th><p class="font-normal"><?php echo $entry['contrasena_usuario'] ?></p></th>
+											<th><p class="font-normal"><?php echo $entry['avatar_usuario'] ?></p></th>
+											<th><p class="font-normal"><?php echo $entry['usuario_rol'] ?></p></th>
+
+										</tr>
+									<?php } ?>
+								</tbody>
+							</table>
+						</div>
+
 					</div>
 				</div>
 			</main>

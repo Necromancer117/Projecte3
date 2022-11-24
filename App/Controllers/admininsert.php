@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class adminpanel
+class admininsert
 {
 
     public $contenidor;
@@ -11,7 +11,7 @@ class adminpanel
     {
         $this->contenidor = $contenidor;
     }
-    public function ctrlAdminpanel($request, $response, $container)
+    public function ctrlAdmininsert($request, $response, $container)
     {
         $users = $container->get('users');
         $list=$users->getAllUsers();

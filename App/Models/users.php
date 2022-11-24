@@ -50,6 +50,27 @@ class Users
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
 
+    public function getAllUsers()
+    {
+        $query = 'select * from usuario';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute();
+
+        if ($stm->errorCode() !== '00000') {
+            $err = $stm->errorInfo();
+            $code = $stm->errorCode();
+            throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
+        }
+        
+        $datas = [];
+
+        while ($data = $stm->fetch(PDO::FETCH_ASSOC)) {
+            $datas[] = $data;
+        }
+
+        return $datas;
+    }
+
     public function UpdateUser($column,$newValue,$id){
         $query = 'UPDATE usuario SET ' . $column . ' = :newValue WHERE id_usuario=:id';
         $stm = $this->sql->prepare($query);
