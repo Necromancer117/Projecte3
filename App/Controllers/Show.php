@@ -26,7 +26,7 @@ class Show
         $data['show'] = $show->getShow($id);
 
         $representation = $container->get('representation');
-        $data['mapinfo'] = json_encode($representation->getMapinfo($id));
+        $data['mapinfo'] = $representation->getMapinfo($id);
 
         $response->set('loged', $loged);
         $response->set('data', $data);
