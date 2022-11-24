@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Models;
-
+use PDO;
+use PDOException;
+use FFI\Exception;
 class Edition
 {
 
@@ -36,7 +38,7 @@ class Edition
 
         $query = 'select * from edicion where id_edicion = :id';
         $stm = $this->sql->prepare($query);
-        $result = $stm->exectue([':id' => $id]);
+        $result = $stm->execute([':id' => $id]);
         if ($stm->errorCode() !== '00000') {
             $err = $stm->errorInfo();
             $code = $stm->errorCode();

@@ -26,6 +26,10 @@ public $config = [];
             // Aqui podem inicialitzar totes les dependències del controlador i passar-les com a paràmetre.
             return new \App\Controllers\Login($c);
         };
+        $this["\App\Controllers\Login"] = function ($c) {
+            // Aqui podem inicialitzar totes les dependències del controlador i passar-les com a paràmetre.
+            return new \App\Controllers\Login($c);
+        };
         ////////////////////////////////
         /////////////MODELOS////////////
         ////////////////////////////////

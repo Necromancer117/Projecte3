@@ -22,12 +22,9 @@
     "prod": "npm-run-all -p buildcss prodjs",
     "serve": "cd public && php -S localhost:8080 && echo 'Server started on http://localhost:8080'",
     "start": "npm-run-all -p watch serve"
-<<<<<<< HEAD
   },
   "dependencies": {
     "jsdom": "^20.0.2",
     "leaflet": "^1.9.2"
-=======
->>>>>>> 3d611d8 (sign up done)
   }
 }
