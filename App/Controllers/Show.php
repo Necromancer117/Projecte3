@@ -31,6 +31,9 @@ class Show
         $response->set('loged', $loged);
         $response->set('data', $data);
         $response->setTemplate('show_info.php');
+
+
+
         return $response;
     }
 }

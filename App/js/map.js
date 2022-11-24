@@ -24,7 +24,8 @@ export default function map() {
         }).addTo(map);
 
         //START FOR EACH MARKER
-        infos['mapinfo'].forEach(info => {
+        //UNCOMMENT THIS TO ENABLE MAP MARKERS IN CLIENT SIDE
+        /*infos['mapinfo'].forEach(info => {
 
             const settings = {
                 "async": true,
@@ -45,7 +46,7 @@ export default function map() {
             });
 
             
-        });
+        });*/
     }
 
 }
