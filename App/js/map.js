@@ -40,7 +40,7 @@ export default function map() {
                     console.log(locations['features']['0']['properties']['geocoding']);
                 
                 
-                L.marker([info.latitud_espacio, info.longitud_espacio], { icon: icon }).addTo(map).bindPopup("Event location:<br><b>Date: "+info.fecha_inicio_representacion+"</b><br>"+info.hora_inicio_representacion+" to "+info.hora_fin_representacion+"<br> On: "+locations['features']['0']['properties']['geocoding']['locality']+"<br>"+locations['features']['0']['properties']['geocoding']['city']);
+                L.marker([info.latitud_espacio, info.longitud_espacio], { icon: icon }).addTo(map).bindPopup("<b>Show: "+info.nombre_espectaculo+"</b><br>Event location:<br><b>Date: "+info.fecha_inicio_representacion+"</b><br>"+info.hora_inicio_representacion+" to "+info.hora_fin_representacion+"<br> On: "+locations['features']['0']['properties']['geocoding']['label']+"<br>"+locations['features']['0']['properties']['geocoding']['city']);
 
             });
 

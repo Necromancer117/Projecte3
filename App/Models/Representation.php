@@ -50,11 +50,11 @@ class Representation
     public function getMapinfo($id_show = false)
     {
         if ($id_show == false) {
-            $query = 'select * from representacion r JOIN espacio es ON r.id_espacio_representacion=es.id_espacio where r.fecha_inicio_representacion >= NOW() GROUP BY r.id_espacio_representacion;';
+            $query = 'select * from representacion r JOIN espacio es ON r.id_espacio_representacion=es.id_espacio JOIN espectaculo e ON e.id_espectaculo = r.id_espectaculo_representacion where r.fecha_inicio_representacion >= NOW() GROUP BY r.id_espacio_representacion;';
             $stm = $this->sql->prepare($query);
             $stm->execute([]);
         } else {
-            $query = 'select * from representacion r JOIN espacio es ON r.id_espacio_representacion=es.id_espacio where r.fecha_inicio_representacion >= NOW() && r.id_espectaculo_representacion = :id_show GROUP BY r.id_espacio_representacion;';
+            $query = 'select * from representacion r JOIN espacio es ON r.id_espacio_representacion=es.id_espacio JOIN espectaculo e ON e.id_espectaculo = r.id_espectaculo_representacion where r.fecha_inicio_representacion >= NOW() && r.id_espectaculo_representacion = :id_show GROUP BY r.id_espacio_representacion;';
             $stm = $this->sql->prepare($query);
             $stm->execute([':id_show' => $id_show]);
         }
