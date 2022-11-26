@@ -3,8 +3,9 @@ import $ from 'jquery';
 
 
 export default function map() {
-    if ($('#map'.length)) {
+    if ($('#map').length != 0) {
 
+        
         var icon = L.icon({
             iconUrl: '../../img/map_pointers/marker-icon.png',
             shadowUrl: '../../img/map_pointers/marker-shadow.png',
