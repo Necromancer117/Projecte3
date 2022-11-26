@@ -28,9 +28,10 @@ function ctrlValidarLogin($request, $response, $container)
 
     $users = $container->get('users');
     $exist = $users->exist($email, $pass);
+    
 
     if ($exist) {
-        $id = $users->getId($email, $pass);
+        $id = $users->getId($email);
         $usuario = $users->getUser($id['id_usuario']);
         $response->setSession('user', $usuario['nombre_usuario']);
         $response->setSession('id', $id['id_usuario']);

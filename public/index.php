@@ -39,18 +39,17 @@ $app->route("", "ctrlPortada");
 $app->route("/login", "\App\Controllers\login:ctrlLogin");
 $app->route("validarLogin", "ctrlValidarLogin");
 $app->route("/account/settings", "\App\Controllers\AccountSettings:ctrlAccountSettings", ["auth"]);
+$app->route("/account/settings/check", "\App\Controllers\AccountSettings:ajaxSelector", ["auth"]);
 $app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);
 $app->route("/show/id={id}", "\App\Controllers\Show:ctrlShow");
 $app->route("/signup", "ctrlInserUser");
-
 $app->route("createUser", "\App\Controllers\Signup:ctrlInsertUser");
-
 $app->route("/signup", "\App\Controllers\login:ctrlSignup");
 
-$app->route("ajax", function ($request, $response) {
-    $response->set("result", "ok");
-    return $response;
-});
+///////////////////////////////////
+/////////*AJAX CONTROLLERS*/////////
+///////////////////////////////////
+
 
 $app->route("/hola/{id}", function ($request, $response) {
     $id = $request->getParam("id");
