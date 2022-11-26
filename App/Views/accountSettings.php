@@ -25,7 +25,7 @@
         </div>
         <div class="w-[80%] rounded shadow-lg mx-auto border-2 bg-white flex">
             <div class="border-r-2 flex flex-col gap-4 pt-5 px-4">
-                <div id="account_step1">
+                <div id="account_step1" class="text-blue-400 underline">
                     <button class="flex flex-row gap-2">
                         <i class="text-lg font-bolder bi bi-person"></i>
                         <p class="pt-1">Account</p>
@@ -67,20 +67,22 @@
                     <div class="text-xl font-bold">
                         <h2>Change password</h2>
                     </div>
-
+                    <div id="account_password_error" class="opacity-0 hidden mx-auto lg:w-1/2 mt-3 mb-3 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
+                        
+                    </div>
                     <div class="grid grid-cols-1 h-full md:w-1/2 mx-auto">
                         <div class="flex flex-col mr-14">
-                            <label class="text-gray-500" for="last_name">Current password</label>
-                            <input class="border-2 border-gray-400 rounded-md py-0.5 outline-blue-500" type="password" name="last_name">
+                            <label class="text-gray-500" for="current_password">Current password</label>
+                            <input class="border-2 border-gray-400 rounded-md py-0.5 outline-blue-500" type="password" name="current_password">
                         </div>
 
                         <div class="flex flex-col mr-14">
-                            <label class="text-gray-500" for="last_name">New password</label>
-                            <input class="border-2 border-gray-400 rounded-md py-0.5 outline-blue-500" type="password" name="last_name">
+                            <label class="text-gray-500" for="new_password">New password</label>
+                            <input class="border-2 border-gray-400 rounded-md py-0.5 outline-blue-500" type="password" name="new_password">
                         </div>
                         <div class="flex flex-col mr-14">
-                            <label class="text-gray-500" for="last_name">Repeat password</label>
-                            <input class="border-2 border-gray-400 rounded-md py-0.5 outline-blue-500" type="password" name="last_name">
+                            <label class="text-gray-500" for="repeat_password">Repeat password</label>
+                            <input class="border-2 border-gray-400 rounded-md py-0.5 outline-blue-500" type="password" name="repeat_password">
                         </div>
                     </div>
                 </div>

@@ -31,7 +31,7 @@
         </div>
         <div class="ml-6">
           <!--CHECK IF USER IS LOG-->
-          <?php if ($user != '') { ?>
+          <?php if (isset($user)) { ?>
             <div class="relative my-auto mt-[-20px] mr-[-30px] inline-block text-left">
               <div>
                 <button><img id="avatar" name='avatar' class="w-16 border-2 rounded-full transition duration-400 hover:border-blue-600 ml-4" src="img/defaultAvatar.jpg" alt="" srcset=""></button>
