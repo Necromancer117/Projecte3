@@ -12,6 +12,7 @@ class AccountSettings{
     public function ctrlAccountSettings($request, $response, $container){
 
         
+        
         $response->setTemplate('accountSettings.php');
         return $response;
     }
