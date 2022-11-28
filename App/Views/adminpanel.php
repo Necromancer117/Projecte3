@@ -134,7 +134,7 @@
 							</table>
 						</div>
 						<div class="w-full mt-16 p-8 w-full">
-							<form action="#" class="w-full">
+							<form action="#" class="w-full" method="post">
 								<div class="bg-sky-200 p-8 w-full">
 									<span>Update user</span>
 									<table class="table-fixed bg-sky-200 w-full">
@@ -146,9 +146,9 @@
 											</tr>
 										</thead>
 										<tbody class="pt-4 pb-4 mt-4">
-											<th><input name="insertusername" class="w-full" type="text" placeholder="User-id"></th>
+											<th><input name="updateuserid" class="w-full" type="text" placeholder="User-id"></th>
 											<th>
-												<select name="insertuserrole" class="w-full">
+												<select name="updateusercol" class="w-full">
 													<option value="name">Name</option>
 													<option value="surename">Surename</option>
 													<option value="mail">mail</option>
@@ -157,7 +157,7 @@
 													<option value="role">role</option>
 												</select>
 											</th>
-											<th><input name="insertuseravatar" class="w-full" type="text" placeholder="New value"></th>
+											<th><input name="updateusernew" class="w-full" type="text" placeholder="New value"></th>
 										</tbody>
 
 									</table>

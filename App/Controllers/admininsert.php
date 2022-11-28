@@ -28,6 +28,9 @@ class admininsert
     }
 
     public function ctrlAdminUpdate($request, $response, $container){
-        
+        $id = $request->get(INPUT_POST, "updateuserid");
+        $col= $request->get(INPUT_POST, "updateusercol");
+        $newvalue= $request->get(INPUT_POST, "updateusernew");
+        $users = $container->get('users');
     }
 }
