@@ -41,10 +41,7 @@ $app->route("validarLogin", "ctrlValidarLogin");
 $app->route("/account/id={user_id}/settings", "\App\Controllers\AccountSettings:ctrlAccountSettings", ["auth"]);
 $app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);
 $app->route("/show/id={id}", "\App\Controllers\Show:ctrlShow");
-$app->route("/signup", "ctrlInserUser");
-
 $app->route("createUser", "\App\Controllers\Signup:ctrlInsertUser");
-
 $app->route("/signup", "\App\Controllers\login:ctrlSignup");
 
 $app->route("ajax", function ($request, $response) {
