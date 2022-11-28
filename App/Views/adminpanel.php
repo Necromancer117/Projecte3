@@ -53,7 +53,7 @@
 			<main class="w-full">
 				<div class="p-4 flex w-full flex-col">
 					<div id="userstuff" class="hideme">
-						<form action="#" class="p-4 w-full" method="post">
+						<form action="admininsert" class="p-4 w-full" method="post">
 							<div class="bg-sky-200 p-8 w-full">
 								<span>User insert.</span>
 								<table class="table-fixed bg-sky-200 p-8 w-full">
@@ -68,12 +68,12 @@
 										</tr>
 									</thead>
 									<tbody class="pt-4 pb-4 mt-4">
-										<th><input class="w-full" type="text" placeholder="Name"></th>
-										<th><input class="w-full" type="text" placeholder="Surename"></th>
-										<th><input class="w-full" type="text" placeholder="mail"></th>
-										<th><input class="w-full" type="text" placeholder="Password"></th>
-										<th><input class="w-full" type="text" placeholder="Avatar"></th>
-										<th><select class="w-full">
+										<th><input name="insertusername" class="w-full" type="text" placeholder="Name"></th>
+										<th><input name="insertusersurename" class="w-full" type="text" placeholder="Surename"></th>
+										<th><input name="insertusermail" class="w-full" type="text" placeholder="mail"></th>
+										<th><input name="insertuserpassword" class="w-full" type="text" placeholder="Password"></th>
+										<th><input name="insertuseravatar" class="w-full" type="text" placeholder="Avatar"></th>
+										<th><select name="insertuserrole" class="w-full">
 												<option value="creator">Creator</option>
 												<option value="client">Client</option>
 												<option value="admin">Admin</option>
@@ -105,22 +105,67 @@
 								</thead>
 								<tbody>
 									<?php foreach ($list as $entry) {
-										//var_dump($list);
-										//die;
+
 									?>
 										<tr class="bg-white">
 											<th><?php echo $entry['id_usuario'] ?></th>
-											<th><p class="font-normal"><?php echo $entry['nombre_usuario'] ?></p></th>
-											<th><p class="font-normal"><?php echo $entry['apellido_usuario'] ?></p></th>
-											<th><p class="font-normal"><?php echo $entry['mail_usuario'] ?></p></th>
-											<th><p class="font-normal"><?php echo $entry['contrasena_usuario'] ?></p></th>
-											<th><p class="font-normal"><?php echo $entry['avatar_usuario'] ?></p></th>
-											<th><p class="font-normal"><?php echo $entry['usuario_rol'] ?></p></th>
+											<th>
+												<p class="font-normal"><?php echo $entry['nombre_usuario'] ?></p>
+											</th>
+											<th>
+												<p class="font-normal"><?php echo $entry['apellido_usuario'] ?></p>
+											</th>
+											<th>
+												<p class="font-normal"><?php echo $entry['mail_usuario'] ?></p>
+											</th>
+											<th>
+												<p class="font-normal"><?php echo $entry['contrasena_usuario'] ?></p>
+											</th>
+											<th>
+												<p class="font-normal"><?php echo $entry['avatar_usuario'] ?></p>
+											</th>
+											<th>
+												<p class="font-normal"><?php echo $entry['usuario_rol'] ?></p>
+											</th>
 
 										</tr>
 									<?php } ?>
 								</tbody>
 							</table>
+						</div>
+						<div class="w-full mt-16 p-8 w-full">
+							<form action="#" class="w-full">
+								<div class="bg-sky-200 p-8 w-full">
+									<span>Update user</span>
+									<table class="table-fixed bg-sky-200 w-full">
+										<thead class="pt-4 pb-4 border-2 bg-sky-400  rounded-md">
+											<tr>
+												<th>user id</th>
+												<th>Column</th>
+												<th>New value</th>
+											</tr>
+										</thead>
+										<tbody class="pt-4 pb-4 mt-4">
+											<th><input name="insertusername" class="w-full" type="text" placeholder="User-id"></th>
+											<th>
+												<select name="insertuserrole" class="w-full">
+													<option value="name">Name</option>
+													<option value="surename">Surename</option>
+													<option value="mail">mail</option>
+													<option value="password">password</option>
+													<option value="avatar">avatar</option>
+													<option value="role">role</option>
+												</select>
+											</th>
+											<th><input name="insertuseravatar" class="w-full" type="text" placeholder="New value"></th>
+										</tbody>
+
+									</table>
+								</div>
+								<button class="bg-blue-500 mt-4 hover:bg-blue-400 text-white py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+								Submit
+							</button>
+							</form>
 						</div>
 
 					</div>

@@ -35,6 +35,19 @@ class Users
         }
     }
 
+    public function insertAdminUser($name,$surename,$mail,$password,$avatar,$role){//insert user requires the datta of the register form
+        $query = 'insert into usuario (nombre_usuario,apellido_usuario,mail_usuario,contrasena_usuario,avatar_usuario,usuario_rol) 
+        values (:name,:surename,:mail,:password,:avatar,:role)';
+        $stm = $this->sql->prepare($query);
+        $stm->execute([':name' => $name, ':surename' => $surename, ':mail' => $mail, ':password' => $password, ':avatar' => $avatar, ':role' =>$role]);
+
+        if ($stm->errorCode() !== '00000') {
+            $err = $stm->errorInfo();
+            $code = $stm->errorCode();
+            throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
+        }
+    }
+
     public function getUser($id)
     {
         $query = 'select * from usuario where id_usuario=:id;';
