@@ -69,6 +69,9 @@ class Users
 
     public function UpdateUser($column, $newValue, $id)
     {
+        if ($column == 'contrasena_usuario') {
+            $newValue = password_hash($newValue, PASSWORD_DEFAULT);
+        }
         $query = 'UPDATE usuario SET ' . $column . ' = :newValue WHERE id_usuario=:id';
         $stm = $this->sql->prepare($query);
         $stm->execute([':id' => $id, ':newValue' => $newValue]);
@@ -124,17 +127,10 @@ class Users
             return false;
         }
 
-
-
-        if ($stm->rowCount() > 0) {
-            return true;
-        } else {
-            return false;
-        }
     }
     public function checkPass($user_id,$pass){
 
-        $query = 'select * from usuario where :id = usuario_id';
+        $query = 'select * from usuario where :id = id_usuario';
         $stm = $this->sql->prepare($query);
         $result = $stm->execute([':id'=>$user_id]);
 
@@ -144,12 +140,22 @@ class Users
             throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
         }
 
-        print_r($stm);
-        die();
-        if ($stm->rowCount() > 0) {
-            return true;
+        $users = [];
+
+
+        while ($user = $stm->fetch(PDO::FETCH_ASSOC)) {
+            $users[] = $user;
+        }
+        
+        if (!empty($users)) {
+            if (password_verify($pass, $users[0]['contrasena_usuario'])) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
+        
     }
 }

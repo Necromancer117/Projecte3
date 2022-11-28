@@ -67,7 +67,10 @@
                     <div class="text-xl font-bold">
                         <h2>Change password</h2>
                     </div>
-                    <div id="account_password_error" class="opacity-0 hidden mx-auto lg:w-1/2 mt-3 mb-3 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
+                    <div id="account_password_message" class="">
+                        
+                    </div>
+                    <div id="account_password_success" class="opacity-0 hidden mx-auto lg:w-1/2 mt-3 mb-3 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
                         
                     </div>
                     <div class="grid grid-cols-1 h-full md:w-1/2 mx-auto">
