@@ -23,8 +23,8 @@ function ctrlPortada($request, $response, $container)
     $shows = $container->get('show');
     $spectacle = $shows->getShows();
 
-    $user = $request->get("SESSION", "user");
-    $user_id=$request->get('SESSION','id');
+    $user = $request->get("SESSION", "user") != NULL ? $request->get("SESSION", "user") : '';
+    $user_id=$request->get('SESSION','id') != NULL ? $request->get('SESSION','id'):'';
     $data['user_id']=$user_id;
 
     $representation = $container->get('representation');
