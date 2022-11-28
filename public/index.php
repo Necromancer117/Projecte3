@@ -40,6 +40,7 @@ $app->route("/login", "\App\Controllers\login:ctrlLogin");
 $app->route("validarLogin", "ctrlValidarLogin");
 $app->route("/account/settings", "\App\Controllers\AccountSettings:ctrlAccountSettings", ["auth"]);
 $app->route("/account/settings/check", "\App\Controllers\AccountSettings:ajaxSelector", ["auth"]);
+$app->route("/account/settings/upload", "\App\Controllers\AccountSettings:upload", ["auth"]);
 $app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);
 $app->route("/show/id={id}", "\App\Controllers\Show:ctrlShow");
 $app->route("/signup", "ctrlInserUser");

@@ -57,14 +57,19 @@ class AccountSettings
                 $value = $request->get(INPUT_POST,'value');
                 $users->UpdateUser('mail_usuario',$value,$user_id);
                 break;
-            case 'update_avatar':
-                
-                break;
 
             default:
                 
                 break;
         }
+
+        return $response;
+    }
+
+    public function upload($request, $response, $container){
+
+        $img = $_FILES;
+        echo($img);
 
         return $response;
     }

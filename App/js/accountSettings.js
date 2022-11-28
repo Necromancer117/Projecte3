@@ -84,10 +84,23 @@ function Success(message) {
 
 }
 
+function validateTypefile(file) {
+
+    var index = file.lastIndexOf('.') + 1;
+    var type = file.substring(index, file.length);
+
+
+    if (type == 'png') {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 $('#settings_submit').on('click', function () {
 
     if (step1) {
-        
+
         var success = false;
         if ($('input[name="first_name"]').val() != '') {
             $.ajax({
@@ -96,7 +109,7 @@ $('#settings_submit').on('click', function () {
                 url: '/account/settings/check',
                 data: { select: 'update_firstname', value: $('input[name="first_name"]').val() },
                 success: function (result) {
-                   success=true;
+                    success = true;
                 }
             });
         }
@@ -107,7 +120,7 @@ $('#settings_submit').on('click', function () {
                 url: '/account/settings/check',
                 data: { select: 'update_lastname', value: $('input[name="last_name"]').val() },
                 success: function (result) {
-                    success=true;
+                    success = true;
                 }
             });
         }
@@ -118,24 +131,41 @@ $('#settings_submit').on('click', function () {
                 url: '/account/settings/check',
                 data: { select: 'update_mail', value: $('input[name="mail"]').val() },
                 success: function (result) {
-                    success=true;
+                    success = true;
                 }
             });
         }
         if ($('input[name="file"]').val() != '') {
-            $.ajax({
-                type: 'POST',
-                async: false,
-                url: '/account/settings/check',
-                data: { select: 'update_avatar', value: $('input[name="file"]').val() },
-                success: function (result) {
-                    success=true;
-                }
-            });
+
+            var file = $('input[name="file"]').val();
+            if (validateTypefile(file)) {
+                var formData = new FormData(document.getElementById("formuploadajax"));
+                formData.append("dato", "valor");
+
+                $.ajax({
+                    url: '/account/settings/upload',
+                    async: false,
+                    type: "post",
+                    dataType: "html",
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                })
+                    .done(function (res) {
+                        console.log(res);
+                        success = true;
+                    });
+            }else{
+                error('The image is not in <b>PNG</b> format');
+            }
+
+
         }
-        if(success){
+
+        if (success) {
             Success('Your credentials has been changed');
-        } 
+        }
     }
     if (step2) {
         //If passwords are not empty and doesn't match
