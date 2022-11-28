@@ -49,6 +49,7 @@ function resetParamsStep1() {
     lastname = $('input[name="last_name"]').val("");
     mail = $('input[name="mail"]').val("");
     avatar = $('input[name="file"]').val("");
+    $('#account_password_message').addClass('hidden');
 }
 function resetParamsStep2() {
 
@@ -57,6 +58,8 @@ function resetParamsStep2() {
     cur_pass = $('input[name="current_password"]').val("");
     new_pass = $('input[name="new_password"]').val("");
     repeat_pass = $('input[name="repeat_password"]').val("");
+    $('#account_password_message').addClass('hidden');
+
 }
 
 function error(message) {
@@ -69,7 +72,7 @@ function error(message) {
     })
 }
 
-function success(message) {
+function Success(message) {
 
     $('#account_password_message').removeClass();
     $('#account_password_message').addClass('opacity-0 mx-auto lg:w-1/2 mt-3 mb-3 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative')
@@ -84,11 +87,12 @@ function success(message) {
 $('#settings_submit').on('click', function () {
 
     if (step1) {
-
-        let success = false;
+        
+        var success = false;
         if ($('input[name="first_name"]').val() != '') {
             $.ajax({
                 type: 'POST',
+                async: false,
                 url: '/account/settings/check',
                 data: { select: 'update_firstname', value: $('input[name="first_name"]').val() },
                 success: function (result) {
@@ -99,6 +103,7 @@ $('#settings_submit').on('click', function () {
         if ($('input[name="last_name"]').val() != '') {
             $.ajax({
                 type: 'POST',
+                async: false,
                 url: '/account/settings/check',
                 data: { select: 'update_lastname', value: $('input[name="last_name"]').val() },
                 success: function (result) {
@@ -109,6 +114,7 @@ $('#settings_submit').on('click', function () {
         if ($('input[name="mail"]').val() != '') {
             $.ajax({
                 type: 'POST',
+                async: false,
                 url: '/account/settings/check',
                 data: { select: 'update_mail', value: $('input[name="mail"]').val() },
                 success: function (result) {
@@ -119,6 +125,7 @@ $('#settings_submit').on('click', function () {
         if ($('input[name="file"]').val() != '') {
             $.ajax({
                 type: 'POST',
+                async: false,
                 url: '/account/settings/check',
                 data: { select: 'update_avatar', value: $('input[name="file"]').val() },
                 success: function (result) {
@@ -126,8 +133,9 @@ $('#settings_submit').on('click', function () {
                 }
             });
         }
-
-        success ? success('Your credentials has been changed') : '';
+        if(success){
+            Success('Your credentials has been changed');
+        } 
     }
     if (step2) {
         //If passwords are not empty and doesn't match
@@ -151,7 +159,7 @@ $('#settings_submit').on('click', function () {
                                 url: '/account/settings/check',
                                 data: { select: 'update_pass', pass: new_pass },
                                 success: function (result) {
-                                    success('Your password has been changed successfully!')
+                                    Success('Your password has been changed successfully!')
                                 }
                             });
                         }

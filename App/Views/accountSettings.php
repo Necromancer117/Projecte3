@@ -40,6 +40,9 @@
                 </div>
             </div>
             <div class="pt-10 pb-5 px-4 flex flex-col w-full">
+            <div id="account_password_message" class="">
+                        
+                        </div>
                 <div id="account__account" class="">
                     <div>
                         <h2 class="text-xl font-bold">General info</h2>
@@ -67,12 +70,7 @@
                     <div class="text-xl font-bold">
                         <h2>Change password</h2>
                     </div>
-                    <div id="account_password_message" class="">
-                        
-                    </div>
-                    <div id="account_password_success" class="opacity-0 hidden mx-auto lg:w-1/2 mt-3 mb-3 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
-                        
-                    </div>
+                    
                     <div class="grid grid-cols-1 h-full md:w-1/2 mx-auto">
                         <div class="flex flex-col mr-14">
                             <label class="text-gray-500" for="current_password">Current password</label>

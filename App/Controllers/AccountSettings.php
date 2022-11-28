@@ -46,12 +46,16 @@ class AccountSettings
                 break;
             case 'update_firstname':
                 
+                $value = $request->get(INPUT_POST,'value');
+                $users->UpdateUser('nombre_usuario',$value,$user_id);
                 break;
             case 'update_lastname':
-                
+                $value = $request->get(INPUT_POST,'value');
+                $users->UpdateUser('apellido_usuario',$value,$user_id);
                 break;
             case 'update_mail':
-                
+                $value = $request->get(INPUT_POST,'value');
+                $users->UpdateUser('mail_usuario',$value,$user_id);
                 break;
             case 'update_avatar':
                 
