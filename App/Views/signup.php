@@ -30,8 +30,17 @@
             <!-- TITLE -->
             <div class="my-6 font-semibold text-xl">Create your Fake Circus account
             </div>
+            <!-- ALERT EMAIL EXISTS -->
+            <?php if (isset($existence)) {
+                if ($existence = true) { ?>
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                        <strong class="font-bold">Email already exists!</strong>
+                        <span class="block sm:inline">Please, try again.</span>
+                    </div>s
+            <?php }
+            } ?>
             <!-- FORM -->
-            <form id="signupForm" action="/signup" method="POST" class="">
+            <form id="signupForm" action="createUser" method="POST" class="">
                 <!-- INNER CONTAINER -->
                 <div class="w-full max-w-lg">
                     <!-- INFO CONTAINER -->

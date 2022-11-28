@@ -24,12 +24,15 @@ class Signup
         $pass = $request->get(INPUT_POST, "password");
 
         $existence = $users->exist($email, $pass);
+
         if (!$existence) {
-            $users->insertUser($email, $name, $second, $pass);
-            $response->Redirect("location: validar-login");
+            $users->insertUser($name, $second, $email, $pass);
+            $response->redirect("location: /login");
         } else {
+            //* Send existence to singup view and brake
             $response->Set("existence", $existence);
-            $response->SetTemplate("signup.php");
+            $response->redirect("location: /signup");
         }
+        return $response;
     }
 }
