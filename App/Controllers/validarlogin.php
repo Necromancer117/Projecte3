@@ -36,6 +36,7 @@ function ctrlValidarLogin($request, $response, $container)
         $response->setSession('user', $usuario['nombre_usuario']);
         $response->setSession('id', $id['id_usuario']);
         $response->setSession('loged',true);
+        $response->setSession('avatar',$usuario['avatar_usuario']);
         switch ($usuario['usuario_rol']) {
             case 'cliente':
                 $response->redirect("location: /");

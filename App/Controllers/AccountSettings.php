@@ -15,7 +15,7 @@ class AccountSettings
     {
 
 
-
+        
         $response->setTemplate('accountSettings.php');
         return $response;
     }
@@ -88,7 +88,7 @@ class AccountSettings
             if (move_uploaded_file($_FILES['file']['tmp_name'],'./img/avatars/'.$img)) {
               $users = $container->get('users');
               $current_user = $users->getUser($user_id);
-              echo($current_user['avatar_usuario']);
+              //echo($current_user['avatar_usuario']);
               unlink('./img/'.$current_user['avatar_usuario']);
               $users->UpdateUser('avatar_usuario','avatars/'.$img,$user_id);
               
