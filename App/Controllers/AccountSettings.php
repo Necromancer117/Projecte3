@@ -68,7 +68,8 @@ class AccountSettings
 
     public function upload($request, $response, $container)
     {
-        //$request->get('FILE','file')
+        $user_id=$request->get('SESSION','id');
+        $data = [];
 
         if ($_FILES['file']) {
             $img = $_FILES['file']['name'];
@@ -81,10 +82,19 @@ class AccountSettings
             $final_name = date("Y-m-d_h:i:s").'.'.$extension;
             //Put all to lower case
             $final_name = strtolower($final_name);
-            //$_FILES['file']['tmp_name']=$final_name;
+            $img=$final_name;
             //echo(print_r($_FILES['file']));
 
-            var_dump(move_uploaded_file($_FILES['file']['tmp_name'],'./img/'.$img));
+            if (move_uploaded_file($_FILES['file']['tmp_name'],'./img/avatars/'.$img)) {
+              $users = $container->get('users');
+              $current_user = $users->getUser($user_id);
+              echo($current_user['avatar_usuario']);
+              unlink('./img/'.$current_user['avatar_usuario']);
+              $users->UpdateUser('avatar_usuario','avatars/'.$img,$user_id);
+              
+              $response->set('image',$img);  
+            };
+            
             
         }
 

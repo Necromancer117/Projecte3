@@ -153,7 +153,8 @@ $('#settings_submit').on('click', function () {
                     processData: false
                 })
                     .done(function (res) {
-                        console.log(res);
+                        var result = JSON.parse(res);
+                        $('#avatar').attr('src','/img/avatars/'+result['image']);
                         success = true;
                     });
             }else{
