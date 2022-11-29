@@ -45,31 +45,48 @@ class AccountSettings
                 $users->UpdateUser('contrasena_usuario', $pass, $user_id);
                 break;
             case 'update_firstname':
-                
-                $value = $request->get(INPUT_POST,'value');
-                $users->UpdateUser('nombre_usuario',$value,$user_id);
+
+                $value = $request->get(INPUT_POST, 'value');
+                $users->UpdateUser('nombre_usuario', $value, $user_id);
                 break;
             case 'update_lastname':
-                $value = $request->get(INPUT_POST,'value');
-                $users->UpdateUser('apellido_usuario',$value,$user_id);
+                $value = $request->get(INPUT_POST, 'value');
+                $users->UpdateUser('apellido_usuario', $value, $user_id);
                 break;
             case 'update_mail':
-                $value = $request->get(INPUT_POST,'value');
-                $users->UpdateUser('mail_usuario',$value,$user_id);
+                $value = $request->get(INPUT_POST, 'value');
+                $users->UpdateUser('mail_usuario', $value, $user_id);
                 break;
 
             default:
-                
+
                 break;
         }
 
         return $response;
     }
 
-    public function upload($request, $response, $container){
+    public function upload($request, $response, $container)
+    {
+        //$request->get('FILE','file')
 
-        $img = $_FILES;
-        echo($img);
+        if ($_FILES['file']) {
+            $img = $_FILES['file']['name'];
+            $tmp = $_FILES['file']['tmp_name'];
+            
+
+            // get uploaded file's extension
+            $extension = strtolower(pathinfo($img, PATHINFO_EXTENSION));
+            //generate a name 
+            $final_name = date("Y-m-d_h:i:s").'.'.$extension;
+            //Put all to lower case
+            $final_name = strtolower($final_name);
+            //$_FILES['file']['tmp_name']=$final_name;
+            //echo(print_r($_FILES['file']));
+
+            var_dump(move_uploaded_file($_FILES['file']['tmp_name'],'./img/'.$img));
+            
+        }
 
         return $response;
     }

@@ -60,7 +60,7 @@
                             <label class="text-gray-500" for="mail">E-mail</label>
                             <input class="border-2 border-gray-400 rounded-md py-0.5 outline-blue-500" type="email" name="mail">
                         </div>
-                        <form enctype="multipart/form-data" id="formuploadajax" method="post">
+                        <form enctype="multipart/form-data" id="formuploadajax" method="post" action="/account/settings/upload">
                             <div class="flex flex-col mr-14">
                                 <label class="text-gray-500" for="file">Change avatar</label>
                                 <input class=" py-0.5" type="file" name="file" accept="image/png">
