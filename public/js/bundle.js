@@ -20,6 +20,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./App/js/favorites.js":
+/*!*****************************!*\
+  !*** ./App/js/favorites.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ favorites)\n/* harmony export */ });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\n\nfunction favorites() {}\n\njquery__WEBPACK_IMPORTED_MODULE_0___default()('.favorite').on('click',function(event){\n    event.preventDefault();\n\n    \n    console.log(this.id);\n})\n\n//# sourceURL=webpack:///./App/js/favorites.js?");
+
+/***/ }),
+
 /***/ "./App/js/index.js":
 /*!*************************!*\
   !*** ./App/js/index.js ***!
@@ -27,7 +38,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _login_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./login.js */ \"./App/js/login.js\");\n/* harmony import */ var _navbar_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./navbar.js */ \"./App/js/navbar.js\");\n/* harmony import */ var _map_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./map.js */ \"./App/js/map.js\");\n/* harmony import */ var _accountSettings__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./accountSettings */ \"./App/js/accountSettings.js\");\n\n\n\n\n\n\n\njquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function() {\n    (0,_login_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n    (0,_navbar_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\n    (0,_map_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])();\n});\n\n\n//# sourceURL=webpack:///./App/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _login_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./login.js */ \"./App/js/login.js\");\n/* harmony import */ var _navbar_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./navbar.js */ \"./App/js/navbar.js\");\n/* harmony import */ var _map_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./map.js */ \"./App/js/map.js\");\n/* harmony import */ var _accountSettings__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./accountSettings */ \"./App/js/accountSettings.js\");\n/* harmony import */ var _favorites_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./favorites.js */ \"./App/js/favorites.js\");\n\n\n\n\n\n\n\n\njquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function() {\n    (0,_login_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n    (0,_navbar_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\n    (0,_map_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])();\n});\n\n\n//# sourceURL=webpack:///./App/js/index.js?");
 
 /***/ }),
 
