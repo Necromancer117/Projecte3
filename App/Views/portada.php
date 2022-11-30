@@ -10,6 +10,7 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="./css/leaflet.css">
 
 
@@ -81,8 +82,12 @@
               <p class="overlay__description transition duration-200 ease-in group-hover:translate-y-0 translate-y-10 text-white text-center mt-4">
                 Click for more info here!
               </p>
+              <div class="absolute top-6 left-6">
+          <i id="<?php echo ($show['id_espectaculo']) ?>" class="favorite bi bi-heart-fill text-white stroke-1 text-opacity-100 text-3xl transition duration-200 ease-in hover:text-red-600"></i>
+          </div>
             </div>
           </a>
+          
 
         </div>
 

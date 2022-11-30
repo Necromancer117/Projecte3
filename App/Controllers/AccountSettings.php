@@ -92,6 +92,7 @@ class AccountSettings
               $current_user = $users->getUser($user_id);
               //Delete previous image and update it
               unlink('./img/'.$current_user['avatar_usuario']);
+              $response->setSession('avatar','avatars/'.$img);
               $users->UpdateUser('avatar_usuario','avatars/'.$img,$user_id);
               
               $response->set('image',$img);  
