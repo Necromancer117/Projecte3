@@ -75,6 +75,7 @@ class AccountSettings
             $img = $_FILES['file']['name'];
             $tmp = $_FILES['file']['tmp_name'];
             
+            
 
             // get uploaded file's extension
             $extension = strtolower(pathinfo($img, PATHINFO_EXTENSION));
@@ -83,12 +84,13 @@ class AccountSettings
             //Put all to lower case
             $final_name = strtolower($final_name);
             $img=$final_name;
-            //echo(print_r($_FILES['file']));
-
+            
+            //Create file in server if success continue
             if (move_uploaded_file($_FILES['file']['tmp_name'],'./img/avatars/'.$img)) {
               $users = $container->get('users');
+              //Update user image path
               $current_user = $users->getUser($user_id);
-              //echo($current_user['avatar_usuario']);
+              //Delete previous image and update it
               unlink('./img/'.$current_user['avatar_usuario']);
               $users->UpdateUser('avatar_usuario','avatars/'.$img,$user_id);
               
