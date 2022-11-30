@@ -45,7 +45,25 @@ class Favorite
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
 
+    public function getUserFavorites($id_user){
 
+        $query = 'select id_espectaculo_favorito from favorito where id_usuario_favorito = :id_user';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':id_user' => $id_user]);
+        if ($stm->errorCode() !== '00000') {
+            $err = $stm->errorInfo();
+            $code = $stm->errorCode();
+            throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
+        }
+        $datas = [];
+        
+        while ($data = $stm->fetch(PDO::FETCH_ASSOC)) {
+            $datas[]=$data;
+        }
+
+
+        return $datas;
+    }
 
 
 

@@ -84,10 +84,12 @@
               </p>
             </div>
           </a>
-          <div class="opacity-0 absolute top-6 left-6 group-hover:opacity-100 transition-all duration-200 hover:scale-125">
-            <button class="favorite" id="<?php echo ($show['id_espectaculo']) ?>" style="z-index: 100;">
-              <i class="bi bi-heart-fill text-white stroke-1 text-opacity-100 text-3xl transition duration-200 ease-in hover:text-red-600"></i></button>
-          </div>
+          <?php if (isset($user)) { ?>
+              <div class="opacity-0 absolute top-6 left-6 group-hover:opacity-100 transition-all duration-200 hover:scale-125">
+                <button class="favorite <?php if($fav[$show['id_espectaculo']]){echo('active');} ?>" id="<?php echo ($show['id_espectaculo']) ?>" style="z-index: 100;">
+                  <i class="bi bi-heart-fill <?php if($fav[$show['id_espectaculo']]){echo('text-red-600');}else{echo('text-white');} ?>  stroke-1 text-opacity-100 text-3xl transition duration-200 ease-in hover:text-red-600"></i></button>
+              </div>
+          <?php } ?>
         </div>
 
       <?php } ?>
