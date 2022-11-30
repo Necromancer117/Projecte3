@@ -46,7 +46,7 @@
 							<input class="appearance-none block w-full text-gray-700 border border-gray-200 rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400" type="text" name="email" placeholder="Email">
 						</div>
 						<div>
-							<input id="login_pass" class="appearance-none block w-full text-gray-700 border border-gray-200 rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400" type="password" name="pass" placeholder="Password">
+							<input id="input_pass" class="appearance-none block w-full text-gray-700 border border-gray-200 rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400" type="password" name="pass" placeholder="Password">
 						</div>
 					</div>
 					<!-- SHOW PASSWORD -->

@@ -18,6 +18,7 @@ class Users
 
     public function insertUser($name, $surename, $mail, $password)
     { //insert user requires the datta of the register form
+        $password = password_hash($password, PASSWORD_DEFAULT); //Encripta contraseña
         $query = 'insert into usuario (nombre_usuario,apellido_usuario,mail_usuario,contrasena_usuario) 
         values (:name,:surename,:mail,:password)';
         $stm = $this->sql->prepare($query);
@@ -33,12 +34,12 @@ class Users
     /**
      * Devuelve la id del usuario
      */
-    public function getId($mail, $pass)
+    public function getId($mail)
     {
 
-        $query = 'select id_usuario from usuario where :mail = mail_usuario && :pass = contrasena_usuario;';
+        $query = 'select id_usuario from usuario where :mail = mail_usuario';
         $stm = $this->sql->prepare($query);
-        $result = $stm->execute([':mail' => $mail, ':pass' => $pass]);
+        $result = $stm->execute([':mail' => $mail]);
 
         if ($stm->errorCode() !== '00000') {
             $err = $stm->errorInfo();
@@ -68,6 +69,9 @@ class Users
 
     public function UpdateUser($column, $newValue, $id)
     {
+        if ($column == 'contrasena_usuario') {
+            $newValue = password_hash($newValue, PASSWORD_DEFAULT);
+        }
         $query = 'UPDATE usuario SET ' . $column . ' = :newValue WHERE id_usuario=:id';
         $stm = $this->sql->prepare($query);
         $stm->execute([':id' => $id, ':newValue' => $newValue]);
@@ -96,9 +100,9 @@ class Users
     public function exist($mail, $pass)
     {
 
-        $query = 'select * from usuario where :mail = mail_usuario && :pass = contrasena_usuario;';
+        $query = 'select mail_usuario,contrasena_usuario from usuario where :mail = mail_usuario';
         $stm = $this->sql->prepare($query);
-        $result = $stm->execute([':mail' => $mail, ':pass' => $pass]);
+        $result = $stm->execute([':mail' => $mail]);
 
         if ($stm->errorCode() !== '00000') {
             $err = $stm->errorInfo();
@@ -106,10 +110,52 @@ class Users
             throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
         }
 
-        if ($stm->rowCount() > 0) {
-            return true;
+        $users = [];
+
+
+        while ($user = $stm->fetch(PDO::FETCH_ASSOC)) {
+            $users[] = $user;
+        }
+        
+        if (!empty($users)) {
+            if ($users[0]['mail_usuario'] == $mail && password_verify($pass, $users[0]['contrasena_usuario'])) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
+
+    }
+    public function checkPass($user_id,$pass){
+
+        $query = 'select * from usuario where :id = id_usuario';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([':id'=>$user_id]);
+
+        if ($stm->errorCode() !== '00000') {
+            $err = $stm->errorInfo();
+            $code = $stm->errorCode();
+            throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
+        }
+
+        $users = [];
+
+
+        while ($user = $stm->fetch(PDO::FETCH_ASSOC)) {
+            $users[] = $user;
+        }
+        
+        if (!empty($users)) {
+            if (password_verify($pass, $users[0]['contrasena_usuario'])) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+        
     }
 }

@@ -15,14 +15,14 @@
         <div class="relative inline-block text-left">
           <?php if ($loged) { ?>
             <div>
-            <button><img id="avatar" name='avatar' class="w-12 border-2 rounded-full transition duration-400 hover:border-blue-600 ml-4" src="/img/defaultAvatar.jpg" alt="" srcset=""></button>
+            <button><img id="avatar" name='avatar' class="w-12 border-2 rounded-full transition duration-400 hover:border-blue-600 ml-4" src="/img/<?php echo($avatar) ?>" alt="" srcset=""></button>
             </button>
           </div>
 
           <div class=" opacity-0 h-0 w-0 absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" id="user_options">
             <div class="py-1" role="none">
               <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-              <a href="/account/id=<?php echo($data['user_id']) ?>/settings" class="item text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200" role="menuitem" tabindex="-1" id="menu-item-0">Account settings</a>
+              <a href="/account/settings" class="item text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200" role="menuitem" tabindex="-1" id="menu-item-0">Account settings</a>
               <a href="#" class="item text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200" role="menuitem" tabindex="-1" id="menu-item-1">Support</a>
               <a href="#" class="item text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200" role="menuitem" tabindex="-1" id="menu-item-2">log out</a>
             </div>

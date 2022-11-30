@@ -25,6 +25,7 @@ function ctrlPortada($request, $response, $container)
 
     $user = $request->get("SESSION", "user");
     $user_id=$request->get('SESSION','id');
+    $avatar=$request->get('SESSION','avatar');
     $data['user_id']=$user_id;
 
     $representation = $container->get('representation');
@@ -33,6 +34,7 @@ function ctrlPortada($request, $response, $container)
     $response->set('data',$data);
     $response->set('shows', $spectacle);
     $response->set('user', $user);
+    $response->set('avatar',$avatar);
     $response->SetTemplate("portada.php");
 
     return $response;
