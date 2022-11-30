@@ -77,7 +77,7 @@
         <div class="relative group">
           <a href="/show/id=<?php echo ($show['id_espectaculo']) ?>">
             <img class="object-fill h-full w-full poster" src="img/shows/<?php echo ($show['imagen_espectaculo']) ?>" alt="" srcset="">
-            <div class='img__overlay group absolute top-0 left-0 w-full h-full bg-black opacity-0 bg-opacity-60 flex flex-col items-center justify-center transition duration-200 ease-in hover:opacity-100'>
+            <div class='img__overlay absolute top-0 left-0 w-full h-full bg-black opacity-0 bg-opacity-60 flex flex-col items-center justify-center transition duration-200 ease-in group-hover:opacity-100'>
               <div class="overlay__title transition duration-200 ease-in group-hover:translate-y-0 translate-y-10 text-white text-center text-4xl font-bold hover:text-amber-500"><?php echo ($show['nombre_espectaculo']) ?></div>
               <p class="overlay__description transition duration-200 ease-in group-hover:translate-y-0 translate-y-10 text-white text-center mt-4">
                 Click for more info here!

@@ -49,12 +49,12 @@ class Favorite
 
 
 
-    public function deleteFavorite($id)
+    public function deleteFavorite($id_user, $id_show)
     {
 
-        $query = 'delte from favorito where id_favorito = :id';
+        $query = 'delete from favorito where id_usuario_favorito = :id_user AND id_espectaculo_favorito = :id_show';
         $stm = $this->sql->prepare($query);
-        $stm->execute([':id' => $id]);
+        $stm->execute([':id_user' => $id_user,':id_show'=>$id_show]);
 
         if ($stm->errorCode() !== '00000') {
             $err = $stm->errorInfo();
