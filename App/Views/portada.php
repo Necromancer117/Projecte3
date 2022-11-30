@@ -35,7 +35,7 @@
           <?php if (isset($user)) { ?>
             <div class="relative my-auto mt-[-20px] mr-[-30px] inline-block text-left">
               <div>
-                <button><img id="avatar" name='avatar' class="w-16 border-2 rounded-full transition duration-400 hover:border-blue-600 ml-4" src="img/<?php echo($avatar) ?>" alt="" srcset=""></button>
+                <button><img id="avatar" name='avatar' class="w-16 border-2 rounded-full transition duration-400 hover:border-blue-600 ml-4" src="img/<?php echo ($avatar) ?>" alt="" srcset=""></button>
                 </button>
               </div>
 
@@ -74,21 +74,20 @@
     <div class="grid gap-1 grid-cols-3">
       <?php foreach ($shows as $show) { ?>
 
-        <div class="relative">
+        <div class="relative group">
           <a href="/show/id=<?php echo ($show['id_espectaculo']) ?>">
-            <img class="object-fill h-full w-full" src="img/shows/<?php echo ($show['imagen_espectaculo']) ?>" alt="" srcset="">
+            <img class="object-fill h-full w-full poster" src="img/shows/<?php echo ($show['imagen_espectaculo']) ?>" alt="" srcset="">
             <div class='img__overlay group absolute top-0 left-0 w-full h-full bg-black opacity-0 bg-opacity-60 flex flex-col items-center justify-center transition duration-200 ease-in hover:opacity-100'>
               <div class="overlay__title transition duration-200 ease-in group-hover:translate-y-0 translate-y-10 text-white text-center text-4xl font-bold hover:text-amber-500"><?php echo ($show['nombre_espectaculo']) ?></div>
               <p class="overlay__description transition duration-200 ease-in group-hover:translate-y-0 translate-y-10 text-white text-center mt-4">
                 Click for more info here!
               </p>
-              <div class="absolute top-6 left-6">
-          <i id="<?php echo ($show['id_espectaculo']) ?>" class="favorite bi bi-heart-fill text-white stroke-1 text-opacity-100 text-3xl transition duration-200 ease-in hover:text-red-600"></i>
-          </div>
             </div>
           </a>
-          
-
+          <div class="opacity-0 absolute top-6 left-6 group-hover:opacity-100 transition-all duration-200 hover:scale-125">
+            <button class="favorite" id="<?php echo ($show['id_espectaculo']) ?>" style="z-index: 100;">
+              <i class="bi bi-heart-fill text-white stroke-1 text-opacity-100 text-3xl transition duration-200 ease-in hover:text-red-600"></i></button>
+          </div>
         </div>
 
       <?php } ?>

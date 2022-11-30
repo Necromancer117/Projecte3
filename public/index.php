@@ -51,6 +51,7 @@ $app->route("/signup", "\App\Controllers\login:ctrlSignup");
 /////////*AJAX CONTROLLERS*/////////
 ///////////////////////////////////
 
+$app->route('/favorites','\App\Controllers\Favorites:addFavorite',['auth']);
 
 $app->route("/hola/{id}", function ($request, $response) {
     $id = $request->getParam("id");

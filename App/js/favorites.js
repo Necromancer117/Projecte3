@@ -2,9 +2,18 @@ import $ from 'jquery';
 
 export default function favorites() {}
 
-$('.favorite').on('click',function(event){
-    event.preventDefault();
+$('.favorite').click(function(){
 
-    
-    console.log(this.id);
+    var id_show = this.id;
+
+    $.ajax({
+        type: 'POST',
+        url: '/favorites',
+        data: { value: id_show },
+        success: function (result) {
+            console.log(result);
+        }
+    });
 })
+
+
