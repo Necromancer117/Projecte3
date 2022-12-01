@@ -22,32 +22,38 @@
                     Manage your favorites
                 </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white flex flex-col items-center shadow-xl shadow-gray-500">
-                    <div class="grid grid-cols-2 grid-row-1 border-b-[1px] border-black">
-                        <div>
-                            <img class="object-fill h-full" src="/img/shows/show1.png" alt="" srcset="">
-                        </div>
-                        <div class="py-4">
-                            <div>
-                                <b>Description:</b>
-                            </div>
-                            <br>
-                            <div>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, velit doloremque saepe est nihil quod minus quaerat necessitatibus omnis beatae dolore neque ad facilis odio. Quaerat delectus optio nisi alias?
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex gap-3 py-3">
-                        <button class="text-white bg-red-600 rounded border-[1px] border-red-600 py-1 px-1 transition ease-in duration-300 hover:bg-white hover:text-red-600">
-                            <i class="bi bi-trash-fill"></i> Remove
-                        </button>
-                        <div class="bg-blue-600 p-1 text-white rounded border-[1px] border-blue-600 transition ease-in duration-300 hover:bg-white hover:text-blue-600">
-                            <a href="/show/id=1"><i class="bi bi-info-circle-fill"></i> More info</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+                <!--FAVORITE INFO-->
+                <?php foreach ($shows as $show) { ?>
+                    <?php if ($fav[$show['id_espectaculo']]) { ?>
 
+                        <div class="bg-white flex flex-col items-center shadow-xl shadow-gray-500">
+                            <div class="grid grid-cols-2 grid-row-1 border-b-[1px] border-black">
+                                <div>
+                                    <img class="h-[300px]" src="/img/shows/<?php echo ($show['imagen_espectaculo']) ?>" alt="" srcset="">
+                                </div>
+                                <div class="py-4">
+                                    <div>
+                                        <b><?php echo ($show['nombre_espectaculo']) ?></b>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <?php echo ($show['descripcion_espectaculo']) ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 py-3">
+                                <button id="<?php echo ($show['id_espectaculo']) ?>" class="remove text-white bg-red-600 rounded border-[1px] border-red-600 py-1 px-1 transition ease-in duration-300 hover:bg-white hover:text-red-600">
+                                    <i class="bi bi-trash-fill"></i> Remove
+                                </button>
+                                <div class="bg-blue-600 p-1 text-white rounded border-[1px] border-blue-600 transition ease-in duration-300 hover:bg-white hover:text-blue-600">
+                                    <a href="/show/id=<?php echo ($show['id_espectaculo']) ?>"><i class="bi bi-info-circle-fill"></i> More info</a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+                <?php } ?>
+                <!--END FAVORITE INFO-->
             </div>
         </div>
     </div>
