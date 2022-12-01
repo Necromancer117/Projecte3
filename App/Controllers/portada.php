@@ -31,6 +31,17 @@ function ctrlPortada($request, $response, $container)
     $representation = $container->get('representation');
     $data['mapinfo'] = $representation->getMapinfo();
 
+    $favorite = $container->get('favorite');
+    $favorites=$favorite->getUserFavorites($user_id);
+
+    $fav= [];
+
+    foreach($favorites as $favo){
+        $fav[$favo['id_espectaculo_favorito']]=true;
+    }
+
+    
+    $response->set('fav',$fav);
     $response->set('data',$data);
     $response->set('shows', $spectacle);
     $response->set('user', $user);
