@@ -12,6 +12,11 @@ class Favorites
         $this->container = $container;
     }
 
+    public function ctrlMyfavorites($request, $response, $container){
+
+        $response->setTemplate('myfavorites.php');
+        return $response;
+    }
 
     public function addFavorite($request, $response, $container)
     {
