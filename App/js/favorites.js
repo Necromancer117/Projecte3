@@ -32,5 +32,16 @@ $('.favorite').click(function(){
     
 })
 
-
+$('.remove').on('click',function(){
+    var id = this.id;
+    
+    $.ajax({
+        type: 'POST',
+        url: '/favorites',
+        data: { selector:'remove',value: id },
+        success: function () {
+            $('#favorite_card-'+id).remove();
+        }
+    });
+})
 

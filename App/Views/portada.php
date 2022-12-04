@@ -27,9 +27,11 @@
         <div>
           <a class="rounded p-2 transition bg-white duration-200 ease-in hover:bg-black hover:text-white" href="#">FakeCirc 2023</a>
         </div>
+        <?php if (isset($user)) { ?>
         <div>
-          <a class="rounded p-2 transition bg-white duration-200 ease-in hover:bg-black hover:text-white" href="#">Old Circ</a>
+          <a class="rounded p-2 transition bg-white duration-200 ease-in hover:bg-black hover:text-white" href="/user/favorites">My Favorites</a>
         </div>
+        <?php } ?>
         <div class="ml-6">
           <!--CHECK IF USER IS LOG-->
           <?php if (isset($user)) { ?>

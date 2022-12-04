@@ -12,6 +12,27 @@ class Favorites
         $this->container = $container;
     }
 
+    public function ctrlMyfavorites($request, $response, $container)
+    {
+
+        $shows = $container->get('show');
+        $spectacle = $shows->getShows();
+        $user_id = $request->get('SESSION', 'id');
+
+        $favorite = $container->get('favorite');
+        $favorites = $favorite->getUserFavorites($user_id);
+
+        $fav = [];
+
+        foreach ($favorites as $favo) {
+            $fav[$favo['id_espectaculo_favorito']] = true;
+        }
+        $response->set('fav',$fav);
+        $response->set('shows', $spectacle);
+
+        $response->setTemplate('myfavorites.php');
+        return $response;
+    }
 
     public function addFavorite($request, $response, $container)
     {
