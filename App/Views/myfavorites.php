@@ -27,7 +27,7 @@
                 <?php foreach ($shows as $show) { ?>
                     <?php if ($fav[$show['id_espectaculo']]) { ?>
 
-                        <div class="bg-white flex flex-col items-center shadow-xl shadow-gray-500">
+                        <div id="favorite_card-<?php echo($show['id_espectaculo']) ?>" class="bg-white flex flex-col items-center shadow-xl shadow-gray-500">
                             <div class="grid grid-cols-2 grid-row-1 border-b-[1px] border-black">
                                 <div>
                                     <img class="h-[300px]" src="/img/shows/<?php echo ($show['imagen_espectaculo']) ?>" alt="" srcset="">
