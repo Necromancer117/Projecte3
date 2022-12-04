@@ -9,7 +9,7 @@
       </div>
       <?php if ($loged) { ?>
       <div>
-        <a class=" transition duration-200 ease-in hover:text-white" href="#">My favorites</a>
+        <a class=" transition duration-200 ease-in hover:text-white" href="/user/favorites">My favorites</a>
       </div>
       <div class="flex items-center">
 
