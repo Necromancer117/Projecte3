@@ -37,6 +37,14 @@ class Container extends EmesetContainer
             return new \App\Controllers\AccountSettings($c);
         };
 
+        $this["\App\Controllers\adminpanel"] = function ($c) {
+            // Aqui podem inicialitzar totes les dependències del controlador i passar-les com a paràmetre.
+            return new \App\Controllers\adminpanel($c);
+        };
+        $this["\App\Controllers\admininsert"] = function ($c) {
+            // Aqui podem inicialitzar totes les dependències del controlador i passar-les com a paràmetre.
+            return new \App\Controllers\admininsert($c);
+        };
         ////////////////////////////////
         /////////////MODELOS////////////
         ////////////////////////////////

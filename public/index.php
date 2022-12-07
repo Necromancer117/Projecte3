@@ -44,6 +44,11 @@ $app->route("/show/id={id}", "\App\Controllers\Show:ctrlShow");
 $app->route("createUser", "\App\Controllers\Signup:ctrlInsertUser");
 $app->route("/signup", "\App\Controllers\login:ctrlSignup");
 
+$app->route("/adminpanel", "\App\Controllers\adminpanel:ctrlAdminpanel");
+$app->route("/admininsert", "\App\Controllers\admininsert:ctrlAdmininsert");
+$app->route("/adminupdate", "\App\Controllers\admininsert:ctrlAdminUpdate");
+$app->route("/adminDelete", "\App\Controllers\admininsert:ctrlAdminDelete");
+
 $app->route("ajax", function ($request, $response) {
     $response->set("result", "ok");
     return $response;

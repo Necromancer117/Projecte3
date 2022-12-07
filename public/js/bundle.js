@@ -9,6 +9,17 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./App/js/adminpanel.js":
+/*!******************************!*\
+  !*** ./App/js/adminpanel.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ adminpanel)\n/* harmony export */ });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\r\nfunction adminpanel() {\r\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {\r\n    jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#usertarget\").on('click', function () {\r\n      //alert(\"2\");\r\n     jquery__WEBPACK_IMPORTED_MODULE_0___default()(\".hideme\").hide();\r\n     jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#userstuff\").show();\r\n    });\r\n  });\r\n\r\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {\r\n    jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#editionstarget\").on('click', function () {\r\n      //alert(\"2\");\r\n     jquery__WEBPACK_IMPORTED_MODULE_0___default()(\".hideme\").hide();\r\n     jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#editionsstuff\").removeClass(\"invisible\");\r\n     jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#editionsstuff\").show();\r\n    });\r\n  });\r\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {\r\n    jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#showtarget\").on('click', function () {\r\n      //alert(\"2\");\r\n     jquery__WEBPACK_IMPORTED_MODULE_0___default()(\".hideme\").hide();\r\n     jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#showstuff\").removeClass(\"invisible\");\r\n     jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#showstuff\").show();\r\n    });\r\n  });\r\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {\r\n    jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#representationtarget\").on('click', function () {\r\n      //alert(\"3\");\r\n     jquery__WEBPACK_IMPORTED_MODULE_0___default()(\".hideme\").hide();\r\n     jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#representationstuff\").removeClass(\"invisible\");\r\n     jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#representationstuff\").show();\r\n    });\r\n  });\r\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {\r\n    jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#locationtarget\").on('click', function () {\r\n      //alert(\"3\");\r\n     jquery__WEBPACK_IMPORTED_MODULE_0___default()(\".hideme\").hide();\r\n     jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#locationstuff\").removeClass(\"invisible\");\r\n     jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"#locationstuff\").show();\r\n    });\r\n  });\r\n\r\n}\r\n\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./App/js/adminpanel.js?");
+
+/***/ }),
+
 /***/ "./App/js/index.js":
 /*!*************************!*\
   !*** ./App/js/index.js ***!

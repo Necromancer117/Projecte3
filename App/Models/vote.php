@@ -1,11 +1,9 @@
 <?php
 
 namespace App\Models;
-
 use PDO;
 use PDOException;
 use FFI\Exception;
-
 class Vote
 {
 
@@ -16,7 +14,6 @@ class Vote
         $dsn = "mysql:dbname={$config['db']};host={$config['host']}";
         $usuari = $config["user"];
         $clau = $config["pass"];
-
         try {
             $this->sql = new PDO($dsn, $usuari, $clau);
         } catch (PDOException $e) {
