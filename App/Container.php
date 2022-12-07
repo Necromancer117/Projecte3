@@ -45,5 +45,14 @@ public $config = [];
         $this["users"] = function ($c) {
             return new \App\Models\users($this->config['database']);
         };
+        $this["edition"] = function ($c) {
+            return new \App\Models\Edition($this->config['database']);
+        };
+        $this["show"] = function ($c) {
+            return new \App\Models\Show($this->config['database']);
+        };
+        $this["location"] = function ($c) {
+            return new \App\Models\Location($this->config['database']);
+        };
     }
 }

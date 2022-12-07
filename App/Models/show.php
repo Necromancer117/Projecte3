@@ -22,12 +22,12 @@ class Show
         }
     }
 
-    public function insertShow($id_edition,$name,$type,$image){
+    public function insertShow($id_edition,$name,$type,$image,$description){
 
-        $query = 'insert into espectaculo (id_edicion_espectaculo, nombre_espectaculo, tipo_espectaculo , imagen_espectaculo) 
-        values(:id_edition,:name,:type,:image)';
+        $query = 'insert into espectaculo (id_edicion_espectaculo, nombre_espectaculo, tipo_espectaculo , imagen_espectaculo,descripcion_espectaculo) 
+        values(:id_edition,:name,:type,:image,:description)';
         $stm = $this->sql->prepare($query);
-        $result = $stm->execute([':id_edition' => $id_edition, ':name' => $name, ':type' => $type, ':image' => $image]);
+        $result = $stm->execute([':id_edition' => $id_edition, ':name' => $name, ':type' => $type, ':image' => $image,':description' => $description]);
 
         if ($stm->errorCode() !== '00000') {
             $err = $stm->errorInfo();
@@ -48,6 +48,27 @@ class Show
         }
         
         return $stm->fetch(\PDO::FETCH_ASSOC);
+
+    }
+
+    public function getAllShow(){
+        $query = 'select * from espectaculo';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([]);
+
+        if ($stm->errorCode() !== '00000') {
+            $err = $stm->errorInfo();
+            $code = $stm->errorCode();
+            throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
+        }
+        
+        $datas = [];
+
+        while ($data = $stm->fetch(PDO::FETCH_ASSOC)) {
+            $datas[] = $data;
+        }
+
+        return $datas;
 
     }
 

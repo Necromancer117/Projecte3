@@ -25,12 +25,12 @@ class Representation
     }
    
 
-    public function insertRepresentation($id_show,$id_location,$time){
+    public function insertRepresentation($showid,$spaceid,$starthour,$endhour,$date){
        
-        $query = 'insert into representacion (id_espectaculo_representacion,id_espacio_representacion,hora_inicio_representacion) 
-        values(:id_show,:id_location,:time)';
+        $query = 'insert into representacion (id_espectaculo_representacion,id_espacio_representacion,hora_inicio_representacion,hora_fin_representacion,fecha_inicio_representacion) 
+        values(:showid,:spaceid,:starthour,:endhour,:date)';
         $stm = $this->sql->prepare($query);
-        $stm->execute([':id_show' => $id_show, ':id_location' => $id_location, ':time' => $time]);
+        $stm->execute([':showid' => $showid, ':spaceid' => $spaceid, ':starthour' => $starthour, ':endhour' => $endhour, ':date' => $date]);
 
         if ($stm->errorCode() !== '00000') {
             $err = $stm->errorInfo();
@@ -53,6 +53,27 @@ class Representation
         }
         
         return $stm->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function getAllRepresentation(){
+
+        $query = 'select * from Representacion';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([]);
+
+        if ($stm->errorCode() !== '00000') {
+            $err = $stm->errorInfo();
+            $code = $stm->errorCode();
+            throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
+        }
+        
+        $datas = [];
+
+        while ($data = $stm->fetch(PDO::FETCH_ASSOC)) {
+            $datas[] = $data;
+        }
+
+        return $datas;
     }
 
     public function updateRepresentation($column,$newValue,$id){

@@ -48,6 +48,26 @@ class Edition
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
 
+    public function getAllEdition(){
+
+        $query = 'select * from edicion';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute([]);
+        if ($stm->errorCode() !== '00000') {
+            $err = $stm->errorInfo();
+            $code = $stm->errorCode();
+            throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
+        }
+
+        $datas = [];
+
+        while ($data = $stm->fetch(PDO::FETCH_ASSOC)) {
+            $datas[] = $data;
+        }
+
+        return $datas;
+    }
+
     public function updateEdition($column,$newValue,$id){
         $query = 'UPDATE edicion SET ' . $column . ' = :newValue WHERE id_edicion=:id';
         $stm = $this->sql->prepare($query);
@@ -61,7 +81,7 @@ class Edition
 
     public function deleteEdition($id){
 
-        $query = 'delte from edicion where id_edicion = :id';
+        $query = 'delete from edicion where id_edicion = :id';
         $stm = $this->sql->prepare($query);
         $stm->execute([':id' => $id]);
 

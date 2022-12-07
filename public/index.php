@@ -42,6 +42,8 @@ $app->route("privat", "\App\Controllers\Privat:privat", ["auth"]);
 $app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);
 $app->route("/adminpanel", "\App\Controllers\adminpanel:ctrlAdminpanel");
 $app->route("/admininsert", "\App\Controllers\admininsert:ctrlAdmininsert");
+$app->route("/adminupdate", "\App\Controllers\admininsert:ctrlAdminUpdate");
+$app->route("/adminDelete", "\App\Controllers\admininsert:ctrlAdminDelete");
 
 $app->route("ajax", function ($request, $response) {
     $response->set("result", "ok");
