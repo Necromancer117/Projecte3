@@ -702,7 +702,7 @@
 								</button>
 							</form>
 						</div>
-						<!-- delete space-->
+						<!-- delete  space-->
 						<div class="w-full p-8 w-full">
 							<form action="adminDelete" class="w-full" method="post">
 								<input type="hidden" name="hid" value="location">
