@@ -16,13 +16,14 @@ class Users
         $this->sql = $connexioDB->getConnection();
     }
 
-    public function insertUser($name, $surename, $mail, $password)
-    { //insert user requires the datta of the register form
+    
+
+    public function insertUser($name,$surename,$mail,$password,$avatar){//insert user requires the datta of the register form
         $password = password_hash($password, PASSWORD_DEFAULT); //Encripta contraseña
-        $query = 'insert into usuario (nombre_usuario,apellido_usuario,mail_usuario,contrasena_usuario) 
-        values (:name,:surename,:mail,:password)';
+        $query = 'insert into usuario (nombre_usuario,apellido_usuario,mail_usuario,contrasena_usuario,avatar_usuario) 
+        values (:name,:surename,:mail,:password,:avatar)';
         $stm = $this->sql->prepare($query);
-        $stm->execute([':name' => $name, ':surename' => $surename, ':mail' => $mail, ':password' => $password]);
+        $stm->execute([':name' => $name, ':surename' => $surename, ':mail' => $mail, ':password' => $password, ':avatar' => $avatar]);
 
         if ($stm->errorCode() !== '00000') {
             $err = $stm->errorInfo();
@@ -40,16 +41,24 @@ class Users
         $query = 'select id_usuario from usuario where :mail = mail_usuario';
         $stm = $this->sql->prepare($query);
         $result = $stm->execute([':mail' => $mail]);
+        if ($stm->errorCode() !== '00000') {
+            $err = $stm->errorInfo();
+            $code = $stm->errorCode();
+            throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
+        }
+        return $stm->fetch(\PDO::FETCH_ASSOC);
+    }
+    public function insertAdminUser($name,$surename,$mail,$password,$avatar,$role){//insert user requires the datta of the register form
+        $query = 'insert into usuario (nombre_usuario,apellido_usuario,mail_usuario,contrasena_usuario,avatar_usuario,usuario_rol) 
+        values (:name,:surename,:mail,:password,:avatar,:role)';
+        $stm = $this->sql->prepare($query);
+        $stm->execute([':name' => $name, ':surename' => $surename, ':mail' => $mail, ':password' => $password, ':avatar' => $avatar, ':role' =>$role]);
 
         if ($stm->errorCode() !== '00000') {
             $err = $stm->errorInfo();
             $code = $stm->errorCode();
             throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
         }
-
-
-
-        return $stm->fetch(\PDO::FETCH_ASSOC);
     }
 
     public function getUser($id)
@@ -62,19 +71,36 @@ class Users
             $err = $stm->errorInfo();
             $code = $stm->errorCode();
             throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
-        }
-
+        }//
+        
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
 
-    public function UpdateUser($column, $newValue, $id)
+    public function getAllUsers()
     {
-        if ($column == 'contrasena_usuario') {
-            $newValue = password_hash($newValue, PASSWORD_DEFAULT);
+        $query = 'select * from usuario';
+        $stm = $this->sql->prepare($query);
+        $result = $stm->execute();
+
+        if ($stm->errorCode() !== '00000') {
+            $err = $stm->errorInfo();
+            $code = $stm->errorCode();
+            throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
         }
+        
+        $datas = [];
+
+        while ($data = $stm->fetch(PDO::FETCH_ASSOC)) {
+            $datas[] = $data;
+        }
+
+        return $datas;
+    }
+
+    public function UpdateUser($column,$newValue,$id){
         $query = 'UPDATE usuario SET ' . $column . ' = :newValue WHERE id_usuario=:id';
         $stm = $this->sql->prepare($query);
-        $stm->execute([':id' => $id, ':newValue' => $newValue]);
+        $stm->execute([':id' => $id,':newValue' => $newValue]);
         if ($stm->errorCode() !== '00000') {
             $err = $stm->errorInfo();
             $code = $stm->errorCode();

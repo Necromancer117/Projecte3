@@ -47,6 +47,11 @@ $app->route("/signup", "\App\Controllers\login:ctrlSignup");
 $app->route("/signup", "\App\Controllers\login:ctrlSignup");
 $app->route("/user/favorites", "\App\Controllers\Favorites:ctrlMyfavorites", ["auth"]);
 
+$app->route("/adminpanel", "\App\Controllers\adminpanel:ctrlAdminpanel");
+$app->route("/admininsert", "\App\Controllers\admininsert:ctrlAdmininsert");
+$app->route("/adminupdate", "\App\Controllers\admininsert:ctrlAdminUpdate");
+$app->route("/adminDelete", "\App\Controllers\admininsert:ctrlAdminDelete");
+
 ///////////////////////////////////
 /////////*AJAX CONTROLLERS*////////
 ///////////////////////////////////
