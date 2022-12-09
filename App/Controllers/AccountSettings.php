@@ -81,6 +81,7 @@ class AccountSettings
             $extension = strtolower(pathinfo($img, PATHINFO_EXTENSION));
             //generate a name 
             $final_name = date("Y-m-d_h:i:s").'.'.$extension;
+            $final_name = str_replace(":","_",$final_name);
             //Put all to lower case
             $final_name = strtolower($final_name);
             $img=$final_name;
