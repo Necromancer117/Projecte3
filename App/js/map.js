@@ -2,7 +2,6 @@ import L from 'leaflet';
 import $ from 'jquery';
 
 
-<<<<<<< HEAD
 export default function map() {
     if ($('#map'.length)) {
 
@@ -49,12 +48,4 @@ export default function map() {
         });
     }
 
-=======
-export  default function map() {
-var map = L.map('map').setView([42.2655066, 2.9581046], 10);
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
->>>>>>> c96b473 (just pray)
 }

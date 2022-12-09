@@ -14,17 +14,12 @@
 
 	<title>Fake circ Login</title>
 </head>
-<<<<<<< HEAD
-=======
-
->>>>>>> c96b473 (just pray)
 <body>
 	<!-- BACKGROUND -->
 	<div class="bg-cover bg-center bg-no-repeat" style="background-image: url(img/login-bg.jpg)">
 		<!-- CONTAINER -->
 		<div class="h-screen grid grid-cols-1 place-items-center">
 			<!-- BOX -->
-<<<<<<< HEAD
 			<div class="w-[40%] border rounded-lg px-12 py-10 bg-white border-black items-center">
 				<div class="text-center text-4xl font-semibold mb-10">
 					Sign In
@@ -45,17 +40,6 @@
 				<?php } ?>
 				<!-- FORM -->
 				<form action="validarLogin" method="POST">
-=======
-			<div class="w-[30%] border rounded-lg px-12 py-10 bg-white border-black items-center">
-				<div class="text-center text-4xl font-semibold mb-10">
-					Sign In
-				</div>
-				<div class="text-center text-lg mb-5">
-					Enter to your Fake Circ account
-				</div>
-				<!-- FORM -->
-				<form action="">
->>>>>>> c96b473 (just pray)
 					<!-- EMAIL CONTAINER -->
 					<div class="flex flex-col gap-3 mb-5">
 						<div>
@@ -67,11 +51,7 @@
 					</div>
 					<!-- SHOW PASSWORD -->
 					<div class="flex items-center mb-5">
-<<<<<<< HEAD
 						<div class="mt-1">
-=======
-						<div>
->>>>>>> c96b473 (just pray)
 							<input class="w-4 h-4" type="checkbox" name="show_pass" id="show_pass">
 						</div>
 						<div class="ml-2">

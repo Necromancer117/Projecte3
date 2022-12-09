@@ -17,7 +17,6 @@
  * @param array $config  paràmetres de configuració de l'aplicació
  *
  **/
-<<<<<<< HEAD
 function ctrlPortada($request, $response, $container)
 {
     $data=[];
@@ -34,11 +33,6 @@ function ctrlPortada($request, $response, $container)
     $response->set('data',$data);
     $response->set('shows', $spectacle);
     $response->set('user', $user);
-=======
-function ctrlPortada($request, $response, $config)
-{
-   
->>>>>>> c96b473 (just pray)
     $response->SetTemplate("portada.php");
 
     return $response;

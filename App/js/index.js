@@ -2,24 +2,13 @@ import $ from "jquery";
 import login from "./login.js";
 import navbar from "./navbar.js"
 import map from './map.js'
-<<<<<<< HEAD
+import adminpanel from './adminpanel.js'
 
 
 $(document).ready(function() {
     login();
     navbar();
-    map();
-});
-=======
-import adminpanel from './adminpanel.js'
-
-
-$(function() {
-    login();
-    navbar();
     adminpanel();
-    //map();
+    map();
+    
 });
-
-//$("body").load(adminpanel);
->>>>>>> c96b473 (just pray)

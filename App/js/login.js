@@ -10,12 +10,9 @@ $('#show_pass').on('change',function () {
         $('#input_pass').attr('type', 'password');
     }
 })
-<<<<<<< HEAD
 $('#login_error').animate({
     opacity: '1'
 })
-=======
->>>>>>> c96b473 (just pray)
 }
 
 // ? ---- LOGIN FUNCTIONS ---- * //

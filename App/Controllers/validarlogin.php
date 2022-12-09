@@ -21,7 +21,6 @@
 function ctrlValidarLogin($request, $response, $container)
 {
     // Comptem quantes vegades has visitat aquesta pàgina
-<<<<<<< HEAD
     $email = $request->get(INPUT_POST, "email");
     $pass = $request->get(INPUT_POST, "pass");
 
@@ -60,22 +59,5 @@ function ctrlValidarLogin($request, $response, $container)
     }
 
 
-=======
-    $usuari = $request->get(INPUT_POST, "usuari");
-    $clau = $request->get(INPUT_POST, "clau");
-    $config = $container->get("config");
-
-
-    if ($usuari === $config["login"]["usuari"] && $clau == $config["login"]["clau"]) {
-        $response->setSession("usuari", $config["login"]["usuari"]);
-        $response->setSession("logat", true);
-        $response->redirect("location: /privat");
-    } else {
-        $response->setSession("error", "Usuari o clau incorrectes!");
-        $response->setSession("logat", false);
-        $response->redirect("location: /login");
-    }
-
->>>>>>> c96b473 (just pray)
     return $response;
 }

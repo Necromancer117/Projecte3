@@ -10,11 +10,7 @@ $(document).ready(function() {
         $('.item').removeClass('invisible');
         $("#user_options").animate({
             opacity: '1',
-<<<<<<< HEAD
             height: '170px',
-=======
-            height: '120px',
->>>>>>> c96b473 (just pray)
             width: '150px'
           });
           

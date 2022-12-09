@@ -30,7 +30,6 @@
           <a class="rounded p-2 transition bg-white duration-200 ease-in hover:bg-black hover:text-white" href="#">Old Circ</a>
         </div>
         <div class="ml-6">
-<<<<<<< HEAD
           <!--CHECK IF USER IS LOG-->
           <?php if ($user != '') { ?>
             <div class="relative my-auto mt-[-20px] mr-[-30px] inline-block text-left">
@@ -52,20 +51,6 @@
             <a class="rounded p-2 transition bg-white duration-200 ease-in hover:bg-black hover:text-white" href="/login">Sign In</a>
           <?php } ?>
           <!--END CHECK-->
-=======
-          <a class="rounded p-2 transition bg-white duration-200 ease-in hover:bg-black hover:text-white" href="/login">Sign In</a>
-        </div>
-      </div>
-      <div class="text-[30px] flex flex-row gap-3 mr-10 mt-7">
-        <div>
-          <a href="#"><i class="bi bi-facebook transition duration-150 ease-in hover:text-black"></i></a>
-        </div>
-        <div>
-          <a href="#"><i class="bi bi-twitter transition duration-150 ease-in hover:text-black"></i></a>
-        </div>
-        <div>
-          <a href="#"><i class="bi bi-discord transition duration-150 ease-in hover:text-black"></i></a>
->>>>>>> c96b473 (just pray)
         </div>
       </div>
     </div>
@@ -80,7 +65,6 @@
 
     </div>
   </div>
-<<<<<<< HEAD
   <div>
     <!--START SHOWS LIST-->
     <div class="bg-black text-center py-5 ">
@@ -117,18 +101,6 @@
     ?>
 
     <script src="./js/bundle.js"></script>
-=======
-  <div class="grid grid-cols-2">
-    <div class="h-[300px]" id="map"></div>
-    <div name='proxima_edicion'></div>
-  </div>
-    
-  <?php
-    include "../App/Views/footer.php";
-
-  ?>
-<script src="./js/bundle.js"></script>
->>>>>>> c96b473 (just pray)
 </body>
 
 </html>
