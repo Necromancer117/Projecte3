@@ -17,6 +17,7 @@ class Show
 
         $loged = $request->get("SESSION", "loged");
         $user_id = $request->get('SESSION','id');
+        $avatar=$request->get('SESSION','avatar');
 
         if (!isset($loged)) {
             $loged = false;
@@ -32,6 +33,7 @@ class Show
 
         $response->set('loged', $loged);
         $response->set('data', $data);
+        $response->set('avatar',$avatar);
         $response->setTemplate('show_info.php');
 
 

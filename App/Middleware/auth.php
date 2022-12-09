@@ -14,6 +14,8 @@ function auth($request, $response, $container, $next)
 
     $usuari = $request->get("SESSION", "user");
     $loged = $request->get("SESSION", "loged");
+    $avatar=$request->get('SESSION','avatar');
+        
 
     if (!isset($loged)) {
         $usuari = "";
@@ -22,7 +24,7 @@ function auth($request, $response, $container, $next)
 
     $response->set("usuari", $usuari);
     $response->set("loged", $loged);
-
+    $response->set('avatar',$avatar);
     // si l'usuari està logat permetem carregar el recurs
     if ($loged) {
         $response = nextMiddleware($request, $response, $container, $next);

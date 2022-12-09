@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "emeset/framework",
-            "version": "0.1.8",
+            "version": "0.1.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Emeset-mvc/emeset.git",
-                "reference": "e36314b47ee03b93ccfb9f3d9b82ec6b8c16a11b"
+                "reference": "3bef40d1e9ff9c93afba72c5e7b0c01d524ca194"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Emeset-mvc/emeset/zipball/e36314b47ee03b93ccfb9f3d9b82ec6b8c16a11b",
-                "reference": "e36314b47ee03b93ccfb9f3d9b82ec6b8c16a11b",
+                "url": "https://api.github.com/repos/Emeset-mvc/emeset/zipball/3bef40d1e9ff9c93afba72c5e7b0c01d524ca194",
+                "reference": "3bef40d1e9ff9c93afba72c5e7b0c01d524ca194",
                 "shasum": ""
             },
             "require": {
@@ -53,7 +53,7 @@
                 "issues": "https://github.com/laravel/emeset/issues",
                 "source": "https://github.com/Emeset-mvc/emeset"
             },
-            "time": "2022-11-10T14:04:20+00:00"
+            "time": "2022-11-24T16:10:24+00:00"
         },
         {
             "name": "nikic/fast-route",
@@ -215,5 +215,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

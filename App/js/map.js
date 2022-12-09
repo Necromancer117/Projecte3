@@ -3,8 +3,9 @@ import $ from 'jquery';
 
 
 export default function map() {
-    if ($('#map'.length)) {
+    if ($('#map').length != 0) {
 
+        
         var icon = L.icon({
             iconUrl: '../../img/map_pointers/marker-icon.png',
             shadowUrl: '../../img/map_pointers/marker-shadow.png',
@@ -37,7 +38,7 @@ export default function map() {
 
             $.ajax(settings).done(function (locations) {
                 
-                    console.log(locations['features']['0']['properties']['geocoding']);
+                    //console.log(locations['features']['0']['properties']['geocoding']);
                 
                 
                 L.marker([info.latitud_espacio, info.longitud_espacio], { icon: icon }).addTo(map).bindPopup("<b>Show: "+info.nombre_espectaculo+"</b><br>Event location:<br><b>Date: "+info.fecha_inicio_representacion+"</b><br>"+info.hora_inicio_representacion+" to "+info.hora_fin_representacion+"<br> On: "+locations['features']['0']['properties']['geocoding']['label']+"<br>"+locations['features']['0']['properties']['geocoding']['city']);

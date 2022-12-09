@@ -7,7 +7,7 @@ $(document).ready(function() {
      if (!show) {
         //$('#user_options').removeClass('invisible');
         show=!show;
-        $('.item').removeClass('invisible');
+        $('.item').removeClass('hidden');
         $("#user_options").animate({
             opacity: '1',
             height: '170px',
@@ -15,7 +15,7 @@ $(document).ready(function() {
           });
           
      }else{
-        $('.item').addClass('invisible');
+        $('.item').addClass('hidden');
         show=!show;
          $("#user_options").animate({
             opacity: '0',

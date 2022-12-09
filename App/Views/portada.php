@@ -10,6 +10,7 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="./css/leaflet.css">
 
 
@@ -26,22 +27,24 @@
         <div>
           <a class="rounded p-2 transition bg-white duration-200 ease-in hover:bg-black hover:text-white" href="#">FakeCirc 2023</a>
         </div>
+        <?php if (isset($user)) { ?>
         <div>
-          <a class="rounded p-2 transition bg-white duration-200 ease-in hover:bg-black hover:text-white" href="#">Old Circ</a>
+          <a class="rounded p-2 transition bg-white duration-200 ease-in hover:bg-black hover:text-white" href="/user/favorites">My Favorites</a>
         </div>
+        <?php } ?>
         <div class="ml-6">
           <!--CHECK IF USER IS LOG-->
-          <?php if ($user != '') { ?>
+          <?php if (isset($user)) { ?>
             <div class="relative my-auto mt-[-20px] mr-[-30px] inline-block text-left">
               <div>
-                <button><img id="avatar" name='avatar' class="w-16 border-2 rounded-full transition duration-400 hover:border-blue-600 ml-4" src="img/defaultAvatar.jpg" alt="" srcset=""></button>
+                <button><img id="avatar" name='avatar' class="w-16 border-2 rounded-full transition duration-400 hover:border-blue-600 ml-4" src="img/<?php echo ($avatar) ?>" alt="" srcset=""></button>
                 </button>
               </div>
 
               <div class=" opacity-0 h-0 w-0 absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" id="user_options">
                 <div class="py-1" role="none">
                   <span class="text-sm font-bold px-4 py-3"><?= $user ?></span>
-                  <a href="/account/id=<?php echo($data['user_id']) ?>/settings" class="item text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200" role="menuitem" tabindex="-1" id="menu-item-0">Account settings</a>
+                  <a href="/account/settings" class="item text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200" role="menuitem" tabindex="-1" id="menu-item-0">Account settings</a>
                   <a href="#" class="item text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200" role="menuitem" tabindex="-1" id="menu-item-1">Support</a>
                   <a href="#" class="item text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200" role="menuitem" tabindex="-1" id="menu-item-2">log out</a>
                 </div>
@@ -73,17 +76,22 @@
     <div class="grid gap-1 grid-cols-3">
       <?php foreach ($shows as $show) { ?>
 
-        <div class="relative">
+        <div class="relative group">
           <a href="/show/id=<?php echo ($show['id_espectaculo']) ?>">
-            <img class="object-fill h-full w-full" src="img/shows/<?php echo ($show['imagen_espectaculo']) ?>" alt="" srcset="">
-            <div class='img__overlay group absolute top-0 left-0 w-full h-full bg-black opacity-0 bg-opacity-60 flex flex-col items-center justify-center transition duration-200 ease-in hover:opacity-100'>
+            <img class="object-fill h-full w-full poster" src="img/shows/<?php echo ($show['imagen_espectaculo']) ?>" alt="" srcset="">
+            <div class='img__overlay absolute top-0 left-0 w-full h-full bg-black opacity-0 bg-opacity-60 flex flex-col items-center justify-center transition duration-200 ease-in group-hover:opacity-100'>
               <div class="overlay__title transition duration-200 ease-in group-hover:translate-y-0 translate-y-10 text-white text-center text-4xl font-bold hover:text-amber-500"><?php echo ($show['nombre_espectaculo']) ?></div>
               <p class="overlay__description transition duration-200 ease-in group-hover:translate-y-0 translate-y-10 text-white text-center mt-4">
                 Click for more info here!
               </p>
             </div>
           </a>
-
+          <?php if (isset($user)) { ?>
+              <div class="opacity-0 absolute top-6 left-6 group-hover:opacity-100 transition-all duration-200 hover:scale-125">
+                <button class="favorite <?php if($fav[$show['id_espectaculo']]){echo('active');} ?>" id="<?php echo ($show['id_espectaculo']) ?>" style="z-index: 100;">
+                  <i class="bi bi-heart-fill <?php if($fav[$show['id_espectaculo']]){echo('text-red-600');}else{echo('text-white');} ?>  stroke-1 text-opacity-100 text-3xl transition duration-200 ease-in hover:text-red-600"></i></button>
+              </div>
+          <?php } ?>
         </div>
 
       <?php } ?>
