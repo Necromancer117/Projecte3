@@ -44,7 +44,7 @@ $app->route("/show/id={id}", "\App\Controllers\Show:ctrlShow");
 $app->route("/signup", "ctrlInserUser");
 $app->route("createUser", "\App\Controllers\Signup:ctrlInsertUser");
 $app->route("/signup", "\App\Controllers\login:ctrlSignup");
-$app->route("/signup", "\App\Controllers\login:ctrlSignup");
+$app->route("/vote", "\App\Controllers\Vote:ctrlVote");
 $app->route("/user/favorites", "\App\Controllers\Favorites:ctrlMyfavorites", ["auth"]);
 
 $app->route("/adminpanel", "\App\Controllers\adminpanel:ctrlAdminpanel");
