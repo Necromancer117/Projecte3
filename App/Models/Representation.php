@@ -16,24 +16,23 @@ class Representation
         $this->sql = $connexioDB->getConnection();
     }
 
-
-    public function insertRepresentation($id_show, $id_location, $time)
-    {
-
-        $query = 'insert into representacion (id_espectaculo_representacion,id_espacio_representacion,hora_inicio_representacion) 
-        values(:id_show,:id_location,:time)';
+   
+    public function insertRepresentation($showid,$spaceid,$starthour,$endhour,$date){
+       
+        $query = 'insert into representacion (id_espectaculo_representacion,id_espacio_representacion,hora_inicio_representacion,hora_fin_representacion,fecha_inicio_representacion) 
+        values(:showid,:spaceid,:starthour,:endhour,:date)';
         $stm = $this->sql->prepare($query);
-        $stm->execute([':id_show' => $id_show, ':id_location' => $id_location, ':time' => $time]);
+        $stm->execute([':showid' => $showid, ':spaceid' => $spaceid, ':starthour' => $starthour, ':endhour' => $endhour, ':date' => $date]);
 
         if ($stm->errorCode() !== '00000') {
             $err = $stm->errorInfo();
             $code = $stm->errorCode();
             throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
         }
+
     }
 
-    public function getRepresentation($id)
-    {
+    public function getRepresentation($id){
 
         $query = 'select * from Representacion where id_representacion = :id';
         $stm = $this->sql->prepare($query);
@@ -65,7 +64,6 @@ class Representation
             $code = $stm->errorCode();
             throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
         }
-
         $datas = [];
 
         while ($data = $stm->fetch(PDO::FETCH_ASSOC)) {
@@ -75,23 +73,41 @@ class Representation
         return $datas;
     }
 
+        
+    public function getAllRepresentation(){
 
-
-    public function updateRepresentation($column, $newValue, $id)
-    {
-
-        $query = 'UPDATE representacion SET ' . $column . ' = :newValue WHERE id_representacion=:id';
+        $query = 'select * from Representacion';
         $stm = $this->sql->prepare($query);
-        $stm->execute([':id' => $id, ':newValue' => $newValue]);
+        $result = $stm->execute([]);
+
         if ($stm->errorCode() !== '00000') {
             $err = $stm->errorInfo();
             $code = $stm->errorCode();
             throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
         }
+        $datas = [];
+
+        while ($data = $stm->fetch(PDO::FETCH_ASSOC)) {
+            $datas[] = $data;
+        }
+
+        return $datas;
     }
 
-    public function deleteRepresentation($id)
-    {
+    public function updateRepresentation($column,$newValue,$id){
+
+        $query = 'UPDATE representacion SET ' . $column . ' = :newValue WHERE id_representacion=:id';
+        $stm = $this->sql->prepare($query);
+        $stm->execute([':id' => $id,':newValue' => $newValue]);
+        if ($stm->errorCode() !== '00000') {
+            $err = $stm->errorInfo();
+            $code = $stm->errorCode();
+            throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
+        }
+
+    }
+
+    public function deleteRepresentation($id){
 
         $query = 'delete from representacion where id_representacion = :id';
         $stm = $this->sql->prepare($query);

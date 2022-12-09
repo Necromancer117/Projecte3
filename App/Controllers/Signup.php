@@ -23,10 +23,12 @@ class Signup
         $second = $request->get(INPUT_POST, "secondName");
         $pass = $request->get(INPUT_POST, "password");
 
+        $img = "defaultAvatar.jpg";
+
         $existence = $users->exist($email, $pass);
 
         if (!$existence) {
-            $users->insertUser($name, $second, $email, $pass);
+            $users->insertUser($name, $second, $email, $pass, $img);
             $response->redirect("location: /login");
         } else {
             //* Send existence to singup view and brake

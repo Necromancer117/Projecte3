@@ -11,7 +11,6 @@
 </head>
 
 <body class="bg-gray-100">
-
     <?php include "../App/Views/navbar_user.php"; ?>
     <div class="flex flex-col place-items-center my-auto">
         <div class="w-[80%] flex-col gap-6 my-7">
