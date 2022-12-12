@@ -59,6 +59,7 @@ $app->route("/adminDelete", "\App\Controllers\admininsert:ctrlAdminDelete");
 $app->route("/account/settings/check", "\App\Controllers\AccountSettings:ajaxSelector", ["auth"]);
 $app->route("/account/settings/upload", "\App\Controllers\AccountSettings:upload", ["auth"]);
 $app->route('/favorites','\App\Controllers\Favorites:addFavorite',['auth']);
+$app->route('/sendVote','\App\Controllers\Vote:sendVote');
 
 $app->route("/hola/{id}", function ($request, $response) {
     $id = $request->getParam("id");

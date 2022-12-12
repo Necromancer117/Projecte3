@@ -4,6 +4,7 @@ export default function rate() {
 
     var check = false
 
+
     const emojis = [
         '&#10024',
         '&#128577',
@@ -24,9 +25,9 @@ export default function rate() {
     $('.star').on('mouseenter', function () {
         if (!check) {
             const rate = $('#' + this.id).data('rate');
-            
-        $('#emoji').html(emojis[rate]);
-        $('#rating').html(rating[rate]);
+
+            $('#emoji').html(emojis[rate]);
+            $('#rating').html(rating[rate]);
 
             for (let index = 1; index <= 5; index++) {
                 if (index <= rate) {
@@ -43,7 +44,8 @@ export default function rate() {
 
         if (!check) {
             const rate = $('#' + this.id).data('rate');
-            
+
+
             $('#emoji').html(emojis[0]);
             $('#rating').html(rating[0]);
             for (let index = 1; index <= 5; index++) {
@@ -59,12 +61,13 @@ export default function rate() {
 
         check = true;
         const rate = $('#' + this.id).data('rate');
+
         $('#emoji').html(emojis[rate]);
         $('#rating').html(rating[rate]);
         $('#vote_send').animate({
-            opacity:'1'
+            opacity: '1'
         });
-    
+
         for (let index = 1; index <= 5; index++) {
             if (index <= rate) {
                 $('#star-' + index).children('i').removeClass('bi-star');
@@ -74,7 +77,32 @@ export default function rate() {
                 $('#star-' + index).children('i').addClass('bi-star');
             }
         }
+
+
+        $('#vote_send').on('click', function () {
+            const id_show = $('#vote_send').children('button').data('show_id');
+            $.ajax({
+                type: 'POST',
+                url: '/sendVote',
+                data: { rate: rate,id_show:id_show },
+                success: function (res) {
+                    
+                    if (res['query']) {
+                        $('#setRate').addClass('hidden');
+                        $('#vote_send').addClass('hidden');
+                        $('#thankYou').removeClass('hidden');
+                        $('#thankYou').animate({
+                            opacity:'1'
+                        })
+                    }else{
+                        
+                    }
+                }
+            });
+        })
     })
+
+
 }
 
 

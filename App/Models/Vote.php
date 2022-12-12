@@ -9,18 +9,11 @@ use FFI\Exception;
 class Vote
 {
 
-    private $sql;
+    private $sql = null;
 
-    public function __construct($config)
+    public function __construct($connexioDB)
     {
-        $dsn = "mysql:dbname={$config['db']};host={$config['host']}";
-        $usuari = $config["user"];
-        $clau = $config["pass"];
-        try {
-            $this->sql = new PDO($dsn, $usuari, $clau);
-        } catch (PDOException $e) {
-            die('Ha fallat la connexió: ' . $e->getMessage());
-        }
+        $this->sql = $connexioDB->getConnection();
     }
 
     public function insertVote($id, $valoration)
@@ -28,7 +21,13 @@ class Vote
 
         $query = 'insert into voto (id_espectaculo_voto,valoracion_voto) values (:id,:valoration)';
         $stm = $this->sql->prepare($query);
-        $stm->execute([':id' => $id, ':valoration' => $valoration]);
+
+        if ($stm->execute([':id' => $id, ':valoration' => $valoration])) {
+            return true;
+        }else{
+            return false;
+        }
+        
 
         if ($stm->errorCode() !== '00000') {
             $err = $stm->errorInfo();
