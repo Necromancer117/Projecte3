@@ -31,6 +31,7 @@ function ctrlPortada($request, $response, $container)
     $representation = $container->get('representation');
     $data['mapinfo'] = $representation->getMapinfo();
 
+    
     $favorite = $container->get('favorite');
     $favorites=$favorite->getUserFavorites($user_id);
 
