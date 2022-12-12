@@ -113,53 +113,58 @@
       <div name='proxima_edicion'></div>
     </div>
     <!--END MAP-->
-    <div class="bg-black text-center py-5 ">
-      <span class="font-extrabold text-transparent text-7xl bg-clip-text bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#B38728]">Send us a message</span>
-    </div>
     <!--MESSAGE FORM-->
-    <div class="min-h-[300px] bg-center bg-no-repeat bg-cover relative" style="background-image:url(/img/bg_form.jpg);">
-      <div class="relative top-0 left-0 bg-black w-full min-h-[300px] bg-opacity-60 py-10 px-5 flex flex-col">
-        <div class="flex flex-col items-center">
-          <label class="text-white" for="select">Message category: </label>
-          <select class="w-1/2 bg-red-900 py-3 pl-2 rounded-lg text-white" name="message_category" id="select_message">
-            <option disabled selected><i class="bi bi-question-diamond-fill"></i> Select an option</option>
-            <option value="question">Question</option>
-            <option value="incident">Incident</option>
-          </select>
-        </div>
-        <div id="if_question" class="hidden flex flex-col items-center my-5">
-          <div class="w-1/2">
-            <textarea class="resize-none border w-full border-black p-2" name="question" id="question" rows="5" placeholder="Type your question here"></textarea>
-          </div>
-          <div>
-            <button id="question_submit" class="hidden bg-red-600 text-white font-semibold border-2 border-red-600 rounded-md py-0.5 px-3 hover:bg-white hover:text-red-600 transition duration-300 ease-in">Submit</button>
-          </div>
-        </div>
-        <div id="if_incident" class="hidden flex flex-col gap-3 items-center my-5 w-1/2 mx-auto">
-          <div class="grid grid-cols-1 gap-3 w-full">
-            <select class="w-full pl-2 bg-red-900 py-3 rounded-lg text-white" name="incidence_show" id="incidence_show">
-            <option disabled selected><i class="bi bi-question-diamond-fill"></i>What show ?</option>
-              <?php foreach ($shows as $show) { ?>
-                <option value="<?php echo($show['nombre_espectaculo']) ?>"><?php echo($show['nombre_espectaculo']) ?></option>
-                <?php } ?>
-            </select>
-            <select class="w-full pl-2 bg-red-900 py-3 rounded-lg text-white" name="incidence_show" id="incidence_location">
-            <option disabled selected><i class="bi bi-question-diamond-fill"></i>Where ?</option>
-              <?php foreach ($data['mapinfo'] as $location) { ?>
-                <option value="<?php echo($location['nombre_espacio']) ?>"><?php echo($location['nombre_espacio']) ?></option>
-                <?php } ?>
+    <?php if (isset($user)) { ?>
+
+
+      <div class="bg-black text-center py-5 ">
+        <span class="font-extrabold text-transparent text-7xl bg-clip-text bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#B38728]">Send us a message</span>
+      </div>
+
+      <div class="min-h-[300px] bg-center bg-no-repeat bg-cover relative" style="background-image:url(/img/bg_form.jpg);">
+        <div class="relative top-0 left-0 bg-black w-full min-h-[300px] bg-opacity-60 py-10 px-5 flex flex-col">
+          <div class="flex flex-col items-center">
+            <label class="text-white" for="select">Message category: </label>
+            <select class="w-1/2 bg-red-900 py-3 pl-2 rounded-lg text-white" name="message_category" id="select_message">
+              <option disabled selected><i class="bi bi-question-diamond-fill"></i> Select an option</option>
+              <option value="question">Question</option>
+              <option value="incident">Incident</option>
             </select>
           </div>
-          <div class="w-full">
-            <textarea class="resize-none border w-full border-black p-2" name="incidence" id="incidence" rows="5" placeholder="Type your message here"></textarea>
+          <div id="if_question" class="hidden flex flex-col items-center my-5">
+            <div class="w-1/2">
+              <textarea class="resize-none border w-full border-black p-2" name="question" id="question" rows="5" placeholder="Type your question here"></textarea>
+            </div>
+            <div>
+              <button id="question_submit" class="hidden bg-red-600 text-white font-semibold border-2 border-red-600 rounded-md py-0.5 px-3 hover:bg-white hover:text-red-600 transition duration-300 ease-in">Submit</button>
+            </div>
           </div>
-          <div>
-            <button id="incidence_submit" class="hidden bg-red-600 text-white font-semibold border-2 border-red-600 rounded-md py-0.5 px-3 hover:bg-white hover:text-red-600 transition duration-300 ease-in">Submit</button>
+          <div id="if_incident" class="hidden flex flex-col gap-3 items-center my-5 w-1/2 mx-auto">
+            <div class="grid grid-cols-1 gap-3 w-full">
+              <select class="w-full pl-2 bg-red-900 py-3 rounded-lg text-white" name="incidence_show" id="incidence_show">
+                <option disabled selected><i class="bi bi-question-diamond-fill"></i>What show ?</option>
+                <?php foreach ($shows as $show) { ?>
+                  <option value="<?php echo ($show['nombre_espectaculo']) ?>"><?php echo ($show['nombre_espectaculo']) ?></option>
+                <?php } ?>
+              </select>
+              <select class="w-full pl-2 bg-red-900 py-3 rounded-lg text-white" name="incidence_show" id="incidence_location">
+                <option disabled selected><i class="bi bi-question-diamond-fill"></i>Where ?</option>
+                <?php foreach ($data['mapinfo'] as $location) { ?>
+                  <option value="<?php echo ($location['nombre_espacio']) ?>"><?php echo ($location['nombre_espacio']) ?></option>
+                <?php } ?>
+              </select>
+            </div>
+            <div class="w-full">
+              <textarea class="resize-none border w-full border-black p-2" name="incidence" id="incidence" rows="5" placeholder="Type your message here"></textarea>
+            </div>
+            <div>
+              <button id="incidence_submit" class="hidden bg-red-600 text-white font-semibold border-2 border-red-600 rounded-md py-0.5 px-3 hover:bg-white hover:text-red-600 transition duration-300 ease-in">Submit</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!--END MESSAGE FORM-->                                      
+    <?php } ?>
+    <!--END MESSAGE FORM-->
     <?php
     include "../App/Views/footer.php";
     ?>

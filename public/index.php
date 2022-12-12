@@ -18,7 +18,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 include "../vendor/autoload.php";
 include "../App/config.php";
 
-include "../App/Controllers/portada.php";
+//include "../App/Controllers/portada.php";
 include "../App/Controllers/error.php";
 //include "../App/Controllers/login.php";
 include "../App/Controllers/validarlogin.php";
@@ -34,7 +34,7 @@ $contenidor = new \App\Container($config);
 $app = new \Emeset\Emeset($contenidor);
 
 
-$app->route("", "ctrlPortada");
+$app->route("", "\App\Controllers\Portada:ctrlPortada");
 //$app->route("/login", "ctrlLogin");
 $app->route("/login", "\App\Controllers\login:ctrlLogin");
 $app->route("validarLogin", "ctrlValidarLogin");
@@ -60,6 +60,7 @@ $app->route("/account/settings/check", "\App\Controllers\AccountSettings:ajaxSel
 $app->route("/account/settings/upload", "\App\Controllers\AccountSettings:upload", ["auth"]);
 $app->route('/favorites','\App\Controllers\Favorites:addFavorite',['auth']);
 $app->route('/sendVote','\App\Controllers\Vote:sendVote');
+$app->route('/sendMessage','\App\Controllers\Portada:sendMessage');
 
 $app->route("/hola/{id}", function ($request, $response) {
     $id = $request->getParam("id");

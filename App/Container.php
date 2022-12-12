@@ -19,7 +19,10 @@ class Container extends EmesetContainer
         ////////////////////////////////
         /////////CONTROLADORES//////////
         ////////////////////////////////
-
+        $this["\App\Controllers\Portada"] = function ($c) {
+            // Aqui podem inicialitzar totes les dependències del controlador i passar-les com a paràmetre.
+            return new \App\Controllers\Portada($c);
+        };
         $this["\App\Controllers\Privat"] = function ($c) {
             // Aqui podem inicialitzar totes les dependències del controlador i passar-les com a paràmetre.
             return new \App\Controllers\Privat($c);
@@ -44,8 +47,6 @@ class Container extends EmesetContainer
             // Aqui podem inicialitzar totes les dependències del controlador i passar-les com a paràmetre.
             return new \App\Controllers\Vote($c);
         };
-
-
         $this["\App\Controllers\adminpanel"] = function ($c) {
             // Aqui podem inicialitzar totes les dependències del controlador i passar-les com a paràmetre.
             return new \App\Controllers\adminpanel($c);
