@@ -17,9 +17,8 @@
               <a href="#" class="item text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200" role="menuitem" tabindex="-1" id="menu-item-2">log out</a>
             </div>
           </div>
-          <?php } else {  ?>
-            <a class=" transition duration-200 ease-in hover:text-white" href="/login">Sign In</a>
           <?php } ?>
+
       </div>
     </div>
     <div class="flex flex-row gap-12 text-end items-center justify-self-end mx-auto mt-6 md:mt-0 md:ml-auto md:mr-6 text-lg text-yellow-400">

@@ -5,6 +5,7 @@ import map from './map.js'
 import account from "./accountSettings";
 import favorites from "./favorites.js";
 import adminpanel from './adminpanel.js'
+import rate from "./rate.js";
 
 
 $(document).ready(function() {
@@ -12,5 +13,5 @@ $(document).ready(function() {
     navbar();
     adminpanel();
     map();
-    
+    rate();
 });
