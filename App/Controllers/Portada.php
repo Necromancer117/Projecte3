@@ -66,6 +66,21 @@ class Portada
 
     public function sendMessage($request, $response, $container){
 
-        echo('yolo');
+        $user_id=$request->get('SESSION','id');
+        $type = $request->get(INPUT_POST,'type');
+        $message_content= $request->get(INPUT_POST,'message');
+
+        $message = $container->get('message');
+
+        if ($message->addMessage($user_id,$type,$message_content)) {
+            $response->set('query',true);
+            return $response;
+        }else{
+            $response->set('query',false);
+            return $response;
+        }
+        
+
+
     }
 }

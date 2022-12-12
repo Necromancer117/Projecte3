@@ -22,7 +22,7 @@ export default function portada_form() {
     })
 
     $('#incidence').on('keydown', function () {
-        console.log('hola');
+        
         if (($('#incidence').val() != "") && ($('#incidence_show').val() != null)&&($('#incidence_location').val() != null)) {
         $('#incidence_submit').removeClass('hidden');
     } else {
@@ -33,16 +33,46 @@ export default function portada_form() {
     $('#question_submit').on('click',function(){
         const question = $('#question').val();
         const type = $('#select_message').val();
-        console.log(type);
+        
         $.ajax({
             type: 'POST',
             async: false,
             url: '/sendMessage',
             data: { message:question,type:type },
             success: function (result) {
-                success = true;
+                $('#form_content').addClass('hidden');
+                $('#send_ok').removeClass('hidden');
+                setTimeout(restore_form,3000);
             }
         });
     })
 
+    $('#incidence_submit').on('click',function(){
+        
+        let incidence = $('#incidence').val();
+        const type = $('#select_message').val();
+        const show = $('#incidence_show').val();
+        const location = $('#incidence_location').val();
+
+        incidence = 'Show: '+show+' Location: '+location+"\nMessage: "+incidence
+        console.log(type);
+        $.ajax({
+            type: 'POST',
+            async: false,
+            url: '/sendMessage',
+            data: { message:incidence,type:type },
+            success: function (result) {
+                $('#form_content').addClass('hidden');
+                $('#send_ok').removeClass('hidden');
+                setTimeout(restore_form,3000);
+            }
+        });
+    })
+
+}
+
+function restore_form() {
+    $('#send_ok').addClass('hidden');
+    $('#form_content').removeClass('hidden');
+    
 }

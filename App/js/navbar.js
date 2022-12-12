@@ -8,7 +8,8 @@ $(document).ready(function() {
         //$('#user_options').removeClass('invisible');
         show=!show;
         $('.item').removeClass('hidden');
-        $("#user_options").animate({
+        $('.user_options').removeClass('hidden');
+        $(".user_options").animate({
             opacity: '1',
             height: '170px',
             width: '150px'
@@ -17,7 +18,7 @@ $(document).ready(function() {
      }else{
         $('.item').addClass('hidden');
         show=!show;
-         $("#user_options").animate({
+         $(".user_options").animate({
             opacity: '0',
             height: '0px',
             width: '0px'

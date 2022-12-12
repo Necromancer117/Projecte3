@@ -98,5 +98,9 @@ class Container extends EmesetContainer
         $this["vote"] = function ($c) {
             return new \App\Models\Vote($c["connection"]);
         };
+        // * MESSAGE
+        $this["message"] = function ($c) {
+            return new \App\Models\Message($c["connection"]);
+        };
     }
 }

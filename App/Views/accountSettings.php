@@ -95,8 +95,6 @@
             </div>
         </div>
     </div>
-
-
     <script src="/js/bundle.js"></script>
 </body>
 
