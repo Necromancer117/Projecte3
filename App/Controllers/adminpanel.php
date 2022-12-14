@@ -22,15 +22,35 @@ class adminpanel
         
         $show = $container->get('show');
         $showList = $show->getAllShow();
+
+        //VOTE SECTION
+        $vote = $container->get('vote');
+
+
+        $curShows = $show -> getShows();
+        $dataVotes = [];
+
+        foreach ($curShows as $show) {
+           $res= $vote -> getAvgVote($show['id_espectaculo']);
+           
+           if (is_null($res['votos'])){
+            $res['votos']=0;
+           }
+            $dataVotes [$show['nombre_espectaculo']] = floatval($res['votos']);  
+        }
         
+        
+        //END VOTE SECTION
+
         $repre = $container->get('representation');
         $repreList = $repre->getAllRepresentation();
         
         $location = $container->get('location');
         $locationList = $location->getAllLocation();
         
-        //var_dump($editionList);
-        //die;
+        // var_dump($dataVotes);
+        // die;
+        $response->set('dataVotes',$dataVotes);
         $response->set("list",$list);
         $response->set("editionList",$editionList);
         $response->set("showList",$showList);

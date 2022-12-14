@@ -737,7 +737,7 @@
 					</div><!-- end div -->
 					<!-- Results space -->
 					<div id="resultstuff" class="hideme hidden">
-						<canvas class="w-[250px] h-[200px]" id="results"></canvas>
+						<canvas data-votes='<?php echo(json_encode($dataVotes))?>' class="w-[250px] h-[200px]" id="results"></canvas>
 						
 					</div>
 				</div>

@@ -39,7 +39,7 @@ class Vote
     public function getAvgVote($id)
     {
 
-        $query = 'select avg(valoracion_voto) from voto where id_espectaculo_voto=:id';
+        $query = 'select avg(valoracion_voto) as votos from voto where id_espectaculo_voto=:id';
         $stm = $this->sql->prepare($query);
         $result = $stm->execute([':id' => $id]);
 

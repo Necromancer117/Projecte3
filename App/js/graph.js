@@ -1,14 +1,25 @@
 import $ from "jquery";
 import Chart from 'chart.js/auto';
 
+if ($('#results').length != 0) {
 var canvas = document.getElementById('results');
 
-
+var data = $('#results').data();
+var names = [];
+var votes = [];
+var cont = 0;
+$.each(data['votes'],function (key,value) {
+    names [cont] = key;
+    votes [cont] = value;
+    cont++;
+}) 
+console.log(names);
 var config = {
     type: "bar",
-    data: {labels: ['test1','test2','test3','test4','test5'],
-    datasets:[{label:'Number of votes', data:[5,3,10,12,4]}]
+    data: {labels: names,
+    datasets:[{label:'Average valoration of each show (current edition)', data:votes}],
 }
 };
 
 var chart = new Chart(canvas,config);
+}
