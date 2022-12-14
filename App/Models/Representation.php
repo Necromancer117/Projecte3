@@ -76,7 +76,7 @@ class Representation
         
     public function getAllRepresentation(){
 
-        $query = 'select * from Representacion';
+        $query = 'select * from representacion';
         $stm = $this->sql->prepare($query);
         $result = $stm->execute([]);
 

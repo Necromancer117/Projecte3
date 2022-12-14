@@ -13,20 +13,22 @@ class adminpanel
     }
     public function ctrlAdminpanel($request, $response, $container)
     {
+        
         $users = $container->get('users');
         $list=$users->getAllUsers();
-
+        
         $edition = $container->get('edition');
         $editionList = $edition->getAllEdition();
-
+        
         $show = $container->get('show');
         $showList = $show->getAllShow();
-
+        
         $repre = $container->get('representation');
         $repreList = $repre->getAllRepresentation();
-
+        
         $location = $container->get('location');
         $locationList = $location->getAllLocation();
+        
         //var_dump($editionList);
         //die;
         $response->set("list",$list);
