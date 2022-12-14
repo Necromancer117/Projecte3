@@ -31,6 +31,8 @@ class Show
         $representation = $container->get('representation');
         $data['mapinfo'] = $representation->getMapinfo($id);
 
+        
+
         $response->set('loged', $loged);
         $response->set('data', $data);
         $response->set('avatar',$avatar);

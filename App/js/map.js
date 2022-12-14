@@ -24,8 +24,9 @@ export default function map() {
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
 
+        
         //START FOR EACH MARKER
-        //UNCOMMENT THIS TO ENABLE MAP MARKERS IN CLIENT SIDE
+        //COMMENT THIS TO DISABLE MAP MARKERS IN CLIENT SIDE
         infos['mapinfo'].forEach(info => {
 
             const settings = {
@@ -35,7 +36,7 @@ export default function map() {
                 "method": "GET"
 
             };
-
+            
             $.ajax(settings).done(function (locations) {
                 
                     //console.log(locations['features']['0']['properties']['geocoding']);
@@ -43,6 +44,8 @@ export default function map() {
                 
                 L.marker([info.latitud_espacio, info.longitud_espacio], { icon: icon }).addTo(map).bindPopup("<b>Show: "+info.nombre_espectaculo+"</b><br>Event location:<br><b>Date: "+info.fecha_inicio_representacion+"</b><br>"+info.hora_inicio_representacion+" to "+info.hora_fin_representacion+"<br> On: "+locations['features']['0']['properties']['geocoding']['label']+"<br>"+locations['features']['0']['properties']['geocoding']['city']);
 
+                $('#loc_'+info.id_representacion).children('div').text(locations['features']['0']['properties']['geocoding']['label']);
+                $('#city_'+info.id_representacion).text(locations['features']['0']['properties']['geocoding']['city']);
             });
 
 

@@ -24,6 +24,9 @@
     "start": "npm-run-all -p watch serve"
   },
   "dependencies": {
+    "datatables": "^1.10.18",
+    "datatables.net": "^1.13.1",
+    "datatables.net-dt": "^1.13.1",
     "jsdom": "^20.0.2",
     "leaflet": "^1.9.2"
   }

@@ -49,11 +49,11 @@ class Representation
     public function getMapinfo($id_show = false)
     {
         if ($id_show == false) {
-            $query = 'select * from representacion r JOIN espacio es ON r.id_espacio_representacion=es.id_espacio JOIN espectaculo e ON e.id_espectaculo = r.id_espectaculo_representacion where r.fecha_inicio_representacion >= NOW()';
+            $query = 'select * from representacion r JOIN espacio es ON r.id_espacio_representacion=es.id_espacio JOIN espectaculo e ON e.id_espectaculo = r.id_espectaculo_representacion join edicion ed ON ed.id_edicion = e.id_edicion_espectaculo where r.fecha_inicio_representacion <= ed.dia_final_edicion';
             $stm = $this->sql->prepare($query);
             $stm->execute([]);
         } else {
-            $query = 'select * from representacion r JOIN espacio es ON r.id_espacio_representacion=es.id_espacio JOIN espectaculo e ON e.id_espectaculo = r.id_espectaculo_representacion where r.fecha_inicio_representacion >= NOW() && r.id_espectaculo_representacion = :id_show;';
+            $query = 'select * from representacion r JOIN espacio es ON r.id_espacio_representacion=es.id_espacio JOIN espectaculo e ON e.id_espectaculo = r.id_espectaculo_representacion join edicion ed ON ed.id_edicion = e.id_edicion_espectaculo where r.fecha_inicio_representacion <= ed.dia_final_edicion && r.id_espectaculo_representacion = :id_show ORDER BY r.fecha_inicio_representacion ASC ;';
             $stm = $this->sql->prepare($query);
             $stm->execute([':id_show' => $id_show]);
         }
