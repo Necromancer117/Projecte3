@@ -50,6 +50,11 @@
 							<span class="ml-3">Locations</span>
 						</a>
 					</li>
+					<li>
+						<a href="#" id="resulttarget" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg hover:bg-gray-100">
+							<span class="ml-3">Vote results</span>
+						</a>
+					</li>
 
 				</ul>
 			</aside>
@@ -729,6 +734,11 @@
 							</form>
 						</div>
 
+					</div><!-- end div -->
+					<!-- Results space -->
+					<div id="resultstuff" class="hideme hidden">
+						
+						<p>HI</p>
 					</div><!-- end div -->
 				</div>
 			</main>
