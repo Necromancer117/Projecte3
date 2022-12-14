@@ -737,9 +737,9 @@
 					</div><!-- end div -->
 					<!-- Results space -->
 					<div id="resultstuff" class="hideme hidden">
+						<canvas class="w-[250px] h-[200px]" id="results"></canvas>
 						
-						<p>HI</p>
-					</div><!-- end div -->
+					</div>
 				</div>
 			</main>
 		</div>

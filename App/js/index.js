@@ -9,6 +9,7 @@ import rate from "./rate.js";
 import portada_form from "./portada_form";
 import search from "./search_table";
 import search_table from "./search_table";
+import graph from "./graph.js"
 
 $(document).ready(function() {
     login();
