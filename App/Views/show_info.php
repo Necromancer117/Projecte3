@@ -52,9 +52,9 @@
                         <td><?php echo ($info['hora_inicio_representacion']) ?></td>
                         <td><?php echo ($info['hora_fin_representacion']) ?></td>
                         <td class="overflow-y-auto w-60" id="loc_<?php echo ($info['id_representacion']) ?>">
-                        <div class="w-full h-16 overflow-y-auto"></div>
+                        <div class="w-full h-16 overflow-y-auto "><img class="w-[150px]" src="/img/loading.gif" alt=""></div>
                         </td>
-                        <td id="city_<?php echo ($info['id_representacion']) ?>"></td>
+                        <td id="city_<?php echo ($info['id_representacion']) ?>"><img class="w-[150px]" src="/img/loading.gif" alt=""></td>
                     </tr>
                 <?php } ?>
             </tbody>
