@@ -24,6 +24,7 @@
     "start": "npm-run-all -p watch serve"
   },
   "dependencies": {
+    "chart.js": "^4.0.1",
     "datatables": "^1.10.18",
     "datatables.net": "^1.13.1",
     "datatables.net-dt": "^1.13.1",

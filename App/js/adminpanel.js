@@ -40,6 +40,14 @@ export default function adminpanel() {
      $("#locationstuff").show();
     });
   });
+  $(function () {
+    $("#resulttarget").on('click', function () {
+      //alert("3");
+     $(".hideme").hide();
+     $("#resultstuff").removeClass("invisible");
+     $("#resultstuff").show();
+    });
+  });
 
 }
 
