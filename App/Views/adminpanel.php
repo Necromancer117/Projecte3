@@ -9,8 +9,8 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
 	<!-- Tailwind CSS -->
-	<script src="https://cdn.tailwindcss.com"></script>
-	<link rel="stylesheet" href="/styles.css">
+	<!-- <script src="https://cdn.tailwindcss.com"></script> -->
+	<link rel="stylesheet" href="/css/styles.css">
 
 	<title>Fake circ Login</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
