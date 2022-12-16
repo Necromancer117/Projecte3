@@ -52,6 +52,8 @@ $app->route("/admininsert", "\App\Controllers\admininsert:ctrlAdmininsert");
 $app->route("/adminupdate", "\App\Controllers\admininsert:ctrlAdminUpdate");
 $app->route("/adminDelete", "\App\Controllers\admininsert:ctrlAdminDelete");
 
+$app->route("/crator", "\App\Controllers\creator:ctrlCreator");
+
 ///////////////////////////////////
 /////////*AJAX CONTROLLERS*////////
 ///////////////////////////////////
