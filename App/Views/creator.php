@@ -100,69 +100,7 @@
 
 
 <body>
-    <div class="h-screen grid grid-cols-1 place-items-center">
-        <div class="w-[90%] border rounded-lg px-6 py-9 bg-white border-gray items-center">
-            <div class="flex justify-between">
-                <div>
-                    <p class="text-2xl font-strong">Shows</p>
-                    <p class="text-gray-600 text-sm mt-2">List of shows from the edition Fake Circ 2022</p>
-                </div>
-                <a href="#" class="h-full bg-indigo-600 text-white hover:text-white block px-3 py-2 rounded-md text-base font-medium">Add show</a>
-            </div>
-            <div class="overflow-x-auto">
-                <table class="w-full text-sm text-left text-gray-900 mt-10">
-                    <thead class="bg-white border-b border-gray-400">
-                        <tr>
-                            <th scope="col" class="py-3 px-6">#</th>
-                            <th scope="col" class="py-3 px-6">Title</th>
-                            <th scope="col" class="py-3 px-6">Class</th>
-                            <th scope="col" class="py-3 px-6">Banner</th>
-                            <th scope="col" class="py-3 px-6">
-                                <span class="sr-only">Votes</span>
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                <span class="sr-only">Edit</span>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="bg-white" >
-                            <td scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">1</td>
-                            <td scope="row" class="py-4 px-6 font-medium text-gray-600 whitespace-nowrap">Cownon</td>
-                            <td scope="row" class="py-4 px-6 font-medium text-gray-600 whitespace-nowrap">Bufet</td>
-                            <td scope="row" class="py-4 px-6 font-medium text-gray-600 whitespace-nowrap">
-                                <a href="#" class="font-medium text-gray-600 border-gray rounded-md">cownon.png</a>
-                            </td>
-                            <td scope="row" class="py-4 px-6 font-medium text-indigo-900 whitespace-nowrap">
-                                <a href="#" class="font-medium text-indigo-600 hover:underline">Votes</a>
-                            </td>
-                            <td scope="row" class="py-4 px-6 font-medium text-indigo-600 whitespace-nowrap">
-                                <a href="#" class="font-medium text-indigo-600 hover:underline">Edit</a>
-                            </td>
-                        </tr>
-                        <tr class="bg-white border-t" >
-                            <td scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">2</td>
-                            <td scope="row" class="py-4 px-6 font-medium text-gray-600 whitespace-nowrap">Cownon</td>
-                            <td scope="row" class="py-4 px-6 font-medium text-gray-600 whitespace-nowrap">Bufet</td>
-                            <td scope="row" class="py-4 px-6 font-medium text-gray-600 whitespace-nowrap">
-                                <a href="#" class="font-medium text-gray-600 border-gray rounded-md">cownon.png</a>
-                            </td>
-                            <td scope="row" class="py-4 px-6 font-medium text-indigo-900 whitespace-nowrap">
-                                <a href="#" class="font-medium text-indigo-600 hover:underline">Votes</a>
-                            </td>
-                            <td scope="row" class="py-4 px-6 font-medium text-indigo-600 whitespace-nowrap">
-                                <a href="#" class="font-medium text-indigo-600 hover:underline">Edit</a>
-                            </td>
-                        </tr>
-                        
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="botBar">
-
-        </div>
-    </div>
+    
 </body>
 
 </html>
