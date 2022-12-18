@@ -26,9 +26,9 @@
         <a href="#"><img class="w-[200px]" src="img/logo.png" alt="" srcset=""></a>
       </div>
       <div class="flex w-full flex-row px-4 md:ml-auto md:mr-20 mt-10 md:mt-0 md:text-2xl text-black">
-        <div>
+        <!-- <div>
           <a class="rounded p-2 transition bg-white duration-200 ease-in hover:bg-black hover:text-white" href="#">FakeCirc 2023</a>
-        </div>
+        </div> -->
         <?php if (isset($user)) { ?>
           <div class="ml-auto">
             <a class="rounded p-2 transition bg-white duration-200 ease-in hover:bg-black hover:text-white" href="/user/favorites">My Favorites</a>

@@ -14,7 +14,7 @@
 <body class="bg-gray-100">
     <?php include "../App/Views/navbar_user.php"; ?>
     <div class="flex flex-col place-items-center my-auto">
-        <div class="w-[80%] flex-col gap-6 my-7">
+        <div class="md:w-[80%] flex-col gap-6 my-7">
             <div>
                 <h1 class="text-3xl font-bold">Account Settings</h1>
             </div>
@@ -22,7 +22,7 @@
                 <p class="text-lg text-gray-600">Change your profile and account settings</p>
             </div>
         </div>
-        <div class="w-[80%] rounded shadow-lg mx-auto border-2 bg-white flex">
+        <div class="w-[100%] md:w-[80%] rounded shadow-lg mx-auto border-2 bg-white flex">
             <div class="border-r-2 flex flex-col gap-4 pt-5 px-4">
                 <div id="account_step1" class="text-blue-400 underline">
                     <button class="flex flex-row gap-2">
