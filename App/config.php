@@ -5,13 +5,8 @@ $config = array();
 /* configuració de connexió a la base dades */
 $config['database'] = array(
     "db" => "votaciones",
-<<<<<<< HEAD
-    "user" => "root",
-    "pass" => "",
-=======
     "user" => "psoual",
     "pass" => "daw-2022",
->>>>>>> 754b22e (portada responsive)
     "host" => "localhost"
 );
 
