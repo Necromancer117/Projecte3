@@ -13,9 +13,9 @@ class AccountSettings
 
     public function ctrlAccountSettings($request, $response, $container)
     {
-
-
         
+        $user = $request->get("SESSION", "user");
+        $response->set('user', $user);
         $response->setTemplate('accountSettings.php');
         return $response;
     }

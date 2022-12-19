@@ -18,6 +18,7 @@ class Show
         $loged = $request->get("SESSION", "loged");
         $user_id = $request->get('SESSION','id');
         $avatar=$request->get('SESSION','avatar');
+        $user = $request->get("SESSION", "user");
 
         if (!isset($loged)) {
             $loged = false;
@@ -32,7 +33,8 @@ class Show
         $data['mapinfo'] = $representation->getMapinfo($id);
 
         
-
+        $response->set('user', $user);
+        $response->set('loged', $loged);
         $response->set('loged', $loged);
         $response->set('data', $data);
         $response->set('avatar',$avatar);

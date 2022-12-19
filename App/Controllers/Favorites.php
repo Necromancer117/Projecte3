@@ -18,6 +18,7 @@ class Favorites
         $shows = $container->get('show');
         $spectacle = $shows->getShows();
         $user_id = $request->get('SESSION', 'id');
+        $user = $request->get("SESSION", "user");
 
         $favorite = $container->get('favorite');
         $favorites = $favorite->getUserFavorites($user_id);
@@ -29,7 +30,7 @@ class Favorites
         }
         $response->set('fav',$fav);
         $response->set('shows', $spectacle);
-
+        $response->set('user', $user);
         $response->setTemplate('myfavorites.php');
         return $response;
     }

@@ -21,9 +21,9 @@ include "../App/config.php";
 //include "../App/Controllers/portada.php";
 include "../App/Controllers/error.php";
 //include "../App/Controllers/login.php";
-include "../App/Controllers/validarlogin.php";
+//include "../App/Controllers/validarlogin.php";
 //include "../App/Controllers/privat.php";
-include "../App/Controllers/tancarSessio.php";
+//include "../App/Controllers/tancarSessio.php";
 include "../App/Middleware/auth.php";
 include "../App/Middleware/test.php";
 
@@ -37,7 +37,7 @@ $app = new \Emeset\Emeset($contenidor);
 $app->route("", "\App\Controllers\Portada:ctrlPortada");
 //$app->route("/login", "ctrlLogin");
 $app->route("/login", "\App\Controllers\login:ctrlLogin");
-$app->route("validarLogin", "ctrlValidarLogin");
+$app->route("validarLogin", "\App\Controllers\validarlogin:ctrlValidarLogin");
 $app->route("/account/settings", "\App\Controllers\AccountSettings:ctrlAccountSettings", ["auth"]);
 $app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);
 $app->route("/show/id={id}", "\App\Controllers\Show:ctrlShow");
@@ -46,6 +46,7 @@ $app->route("createUser", "\App\Controllers\Signup:ctrlInsertUser");
 $app->route("/signup", "\App\Controllers\login:ctrlSignup");
 $app->route("/vote", "\App\Controllers\Vote:ctrlVote");
 $app->route("/user/favorites", "\App\Controllers\Favorites:ctrlMyfavorites", ["auth"]);
+$app->route("/logout", "\App\Controllers\tancarSessio:ctrlTancarSessio");
 
 $app->route("/adminpanel", "\App\Controllers\adminpanel:ctrlAdminpanel", ["auth"]);
 $app->route("/admininsert", "\App\Controllers\admininsert:ctrlAdmininsert");
