@@ -108,5 +108,44 @@ class Show
             $code = $stm->errorCode();
             throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
         }
+    }    
+
+    public function getCretorShows(){
+        $query = 'SELECT e.id_espectaculo, e.nombre_espectaculo, e.tipo_espectaculo, e.imagen_espectaculo, e.descripcion_espectaculo, ed.titulo_edicion FROM espectaculo e JOIN edicion ed ON e.id_edicion_espectaculo=ed.id_edicion WHERE YEAR(ed.dia_inicio_edicion) = :edicion;';
+        $stm = $this->sql->prepare($query);
+        $stm->execute([':edicion' => $edicion]);
+        if ($stm->errorCode() !== '00000') {
+            $err = $stm->errorInfo();
+            $code = $stm->errorCode();
+            throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
+        }
+        $results = [];
+
+        while ($result = $stm->fetch(PDO::FETCH_ASSOC)) {
+            $results[] = $result;
+        }
+
+        return $results;
     }
+    
+    public function getEdicion(){
+        $query = 'SELECT * FROM edicion ORDER BY dia_inicio_edicion;';
+        $stm = $this->sql->prepare($query);
+        $stm->execute();
+        if ($stm->errorCode() !== '00000') {
+            $err = $stm->errorInfo();
+            $code = $stm->errorCode();
+            throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
+        }
+        $results = [];
+
+        while ($result = $stm->fetch(PDO::FETCH_ASSOC)) {
+            $results[] = $result;
+        }
+
+        return $results;
+    }
+
+
+
 }
