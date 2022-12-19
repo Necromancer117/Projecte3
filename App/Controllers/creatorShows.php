@@ -11,7 +11,7 @@
 
 namespace App\Controllers;
 
-class creator
+class creatorShows
 {
 
   public $contenidor;
@@ -28,17 +28,32 @@ class creator
    * @param array $config  paràmetres de configuració de l'aplicació
    *
    **/
-  function ctrlCreator($request, $response, $container)
+  function ctrlShows($request, $response, $container)
   {
     // Comptem quantes vegades has visitat aquesta pàgina
     
     $error = $request->get("SESSION", "error");
     $repre = $container->get('representation');
+
+    // * DONEM CONEXIO A LA BASE DE DADES
+    $showConn = $container->get('show');
+    // * RETORNA TOTES LES EDICIONS
+    $showEditon = $showConn->getEdicion();
+    $data = isset($edition) ? $edition : date('Y');
+    $edition = '2023';
+    $showList = $showConn->getCretorShows($data);    
     
+    // ! ERRORS
     $response->set("error", $error);
     $response->setSession("error", "");
 
-    $response->SetTemplate("creator.php");
+    // ? VARS
+    $response->set("edition",$edition);
+    $response->set("showList",$showList);
+    $response->set("showEditon",$showEditon);
+
+
+    $response->SetTemplate("creatorShows.php");
     
     return $response;
   }
