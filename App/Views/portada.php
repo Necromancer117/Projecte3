@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
   <!-- Tailwind CSS -->
-  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="./css/leaflet.css">
 
@@ -19,23 +19,25 @@
 
 <body>
   <div class="bg-cover bg-center bg-no-repeat" style="background-image: url(img/portada-bg.jpg)">
-    <div class="flex flex-row underline decoration-white text-white font-bold bg-black bg-opacity-20">
+
+  <!-- NAVBAR -->
+    <div class="flex flex-col md:flex-row underline decoration-white text-white font-bold bg-black bg-opacity-20 items-center">
       <div class=" text-[50px] my-4 ml-6">
         <a href="#"><img class="w-[200px]" src="img/logo.png" alt="" srcset=""></a>
       </div>
-      <div class="flex flex-row gap-12 text-end justify-self-end ml-auto mr-20 mt-10 text-2xl text-black">
-        <div>
+      <div class="flex w-full flex-row px-4 md:ml-auto md:mr-20 mt-10 md:mt-0 md:text-2xl text-black">
+        <!-- <div>
           <a class="rounded p-2 transition bg-white duration-200 ease-in hover:bg-black hover:text-white" href="#">FakeCirc 2023</a>
-        </div>
+        </div> -->
         <?php if (isset($user)) { ?>
-          <div>
+          <div class="ml-auto">
             <a class="rounded p-2 transition bg-white duration-200 ease-in hover:bg-black hover:text-white" href="/user/favorites">My Favorites</a>
           </div>
         <?php } ?>
-        <div class="ml-6">
+        <div class="ml-auto">
           <!--CHECK IF USER IS LOG-->
           <?php if (isset($user)) { ?>
-            <div class="relative my-auto mt-[-20px] mr-[-30px] inline-block text-left">
+            <div class="absolute my-auto top-10 right-4 md:right-12 inline-block text-left">
               <div>
                 <button><img id="avatar" name='avatar' class="w-16 border-2 rounded-full transition duration-400 hover:border-blue-600 ml-4" src="img/<?php echo ($avatar) ?>" alt="" srcset=""></button>
                 </button>
@@ -57,13 +59,16 @@
         </div>
       </div>
     </div>
+     <!-- END NAVBAR -->
+     <!-- OVERLAY -->
     <div class="h-[90vh] flex">
-      <div class="xl:w-[500px] md:w-[450px]  rounded text-white ml-10 h-[90%] font-bold text-center my-auto bg-black bg-gradient-to-r p-[6px] from-[#BF953F] via-[#FCF6BA] to-[#B38728]">
+      <div class="xl:w-[500px] md:w-[450px]  rounded text-white md:ml-10 w-full h-[150px] md:h-[90%] font-bold text-center mt-10 md:my-auto bg-black bg-gradient-to-r p-[6px] from-[#BF953F] via-[#FCF6BA] to-[#B38728]">
         <div class="flex flex-col justify-between h-full bg-black text-white rounded-lg p-4">
-          <span class="font-extrabold my-auto text-transparent lg:text-7xl md:text-6xl bg-clip-text bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#B38728]">THE GREATEST SHOW OF EUROPE!</span>
+          <span class="font-extrabold my-auto text-transparent text-3xl md:text-7xl bg-clip-text bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#B38728]">THE GREATEST SHOW OF EUROPE!</span>
         </div>
       </div>
     </div>
+   <!-- END OVERLAY  -->
     <div class="bg-white">
 
     </div>
@@ -73,13 +78,13 @@
     <div class="bg-black text-center py-5 ">
       <span class="font-extrabold text-transparent text-7xl bg-clip-text bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#B38728]">Our shows</span>
     </div>
-    <div class="grid gap-1 grid-cols-3">
+    <div class="grid gap-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       <?php foreach ($shows as $show) { ?>
 
         <div class="relative group">
           <a href="/show/id=<?php echo ($show['id_espectaculo']) ?>">
             <img class="object-fill h-full w-full poster" src="img/shows/<?php echo ($show['imagen_espectaculo']) ?>" alt="" srcset="">
-            <div class='img__overlay absolute top-0 left-0 w-full h-full bg-black opacity-0 bg-opacity-60 flex flex-col items-center justify-center transition duration-200 ease-in group-hover:opacity-100'>
+            <div class='img__overlay absolute top-0 left-0 w-full h-full bg-black opacity-100 lg:opacity-0 bg-opacity-60 flex flex-col items-center justify-center transition duration-200 ease-in lg:group-hover:opacity-100'>
               <div class="overlay__title transition duration-200 ease-in group-hover:translate-y-0 translate-y-10 text-white text-center text-4xl font-bold hover:text-amber-500"><?php echo ($show['nombre_espectaculo']) ?></div>
               <p class="overlay__description transition duration-200 ease-in group-hover:translate-y-0 translate-y-10 text-white text-center mt-4">
                 Click for more info here!

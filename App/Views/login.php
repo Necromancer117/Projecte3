@@ -10,22 +10,26 @@
 
 	<!-- Tailwind CSS -->
 	<!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    <link rel="stylesheet" href="/css/styles.css">
+	<link rel="stylesheet" href="/css/styles.css">
 
 	<title>Fake circ Login</title>
 </head>
+
 <body>
 	<!-- BACKGROUND -->
 	<div class="bg-cover bg-center bg-no-repeat" style="background-image: url(img/login-bg.jpg)">
 		<!-- CONTAINER -->
 		<div class="h-screen grid grid-cols-1 place-items-center">
 			<!-- BOX -->
-			<div class="w-[40%] border rounded-lg px-12 py-10 bg-white border-black items-center">
+			<div class="w-[100%] md:w-[40%] border rounded-lg px-12 py-10 bg-white border-black items-center">
+				<div class="flex justify-center">
+					<a href="/">
+						<img src="./img/logo.png" class="h-12">
+					</a>
+				</div>
 				<div class="text-center text-4xl font-semibold mb-10">
 					Sign In
 				</div>
-
-				
 
 				<div class="text-center text-lg mb-5">
 					Enter to your Fake Circ account
