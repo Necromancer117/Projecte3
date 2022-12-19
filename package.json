@@ -24,6 +24,7 @@
     "start": "npm-run-all -p watch serve"
   },
   "dependencies": {
+    "alpinejs-focus-modal": "^0.0.3",
     "chart.js": "^4.0.1",
     "datatables": "^1.10.18",
     "datatables.net": "^1.13.1",

@@ -10,13 +10,18 @@ import portada_form from "./portada_form";
 import search from "./search_table";
 import search_table from "./search_table";
 import graph from "./graph.js"
+import creatorNavbar from "./creatorNavbar.js"
+import AlpineFocusModal from "alpinejs-focus-modal";
 
-$(document).ready(function() {
+
+$(document).ready(function () {
     login();
     navbar();
     adminpanel();
     map();
     rate();
-    portada_form()
+    portada_form();
     search_table();
+    creatorNavBar();
+    creatorShowsDropdwon();
 });

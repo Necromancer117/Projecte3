@@ -2,8 +2,8 @@ import $ from "jquery";
 
 var show = false;
 
-export default function creatorNavBar() {
-    $('#creatorDropDown').show();
+export default function cratorShowsDropdwon() {
+    $('#cratorShowsDropdwon').show();
 
     $('#profileImage').on('click', function () {
         show = !show;
