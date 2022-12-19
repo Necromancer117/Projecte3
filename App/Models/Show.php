@@ -110,7 +110,7 @@ class Show
         }
     }    
 
-    public function getCretorShows(){
+    public function getCreatorShows($edicion){
         $query = 'SELECT e.id_espectaculo, e.nombre_espectaculo, e.tipo_espectaculo, e.imagen_espectaculo, e.descripcion_espectaculo, ed.titulo_edicion FROM espectaculo e JOIN edicion ed ON e.id_edicion_espectaculo=ed.id_edicion WHERE YEAR(ed.dia_inicio_edicion) = :edicion;';
         $stm = $this->sql->prepare($query);
         $stm->execute([':edicion' => $edicion]);

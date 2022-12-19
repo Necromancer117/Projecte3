@@ -35,22 +35,46 @@ class creatorShows
     $error = $request->get("SESSION", "error");
     $repre = $container->get('representation');
 
+    //$edition = $peticio->get(INPUT_POST, "data");
+    $edition = "2023";
+    // * DENOMINEM EL VALOR DATE AMB UN DEFAULT DE EL ANY ACTUAL EN EL CAS DE NO HAVER SELECCIONAT CAP ALTRE DATA
+    $date = isset($edition) ? $edition : date('Y');
+
     // * DONEM CONEXIO A LA BASE DE DADES
     $showConn = $container->get('show');
     // * RETORNA TOTES LES EDICIONS
     $showEditon = $showConn->getEdicion();
-    $data = isset($edition) ? $edition : date('Y');
-    $edition = '2023';
-    $showList = $showConn->getCretorShows($data);    
+    // * RETORNA TOTS ELS SHOWS SEGONS EL VALOR $date
+    $showList = $showConn->getCreatorShows($date);    
+
+
+    // ? VOTE SECTION
+
+    $vote = $container->get('vote');
+
+    $curShows = $showConn -> getShows();
+    $dataVotes = [];
+
+    foreach ($curShows as $show) {
+       $res= $vote -> getAvgVote($show['id_espectaculo']);
+       
+       if (is_null($res['votos'])){
+        $res['votos']=0;
+       }
+        $dataVotes [$show['nombre_espectaculo']] = floatval($res['votos']);  
+    }
+    
+    // ? END VOTE SECTION
     
     // ! ERRORS
     $response->set("error", $error);
     $response->setSession("error", "");
 
     // ? VARS
-    $response->set("edition",$edition);
-    $response->set("showList",$showList);
+    $response->set('dataVotes',$dataVotes);
     $response->set("showEditon",$showEditon);
+    $response->set("date",$date);
+    $response->set("showList",$showList);
 
 
     $response->SetTemplate("creatorShows.php");
