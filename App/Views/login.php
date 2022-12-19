@@ -24,7 +24,7 @@
 			<div class="w-[100%] md:w-[40%] border rounded-lg px-12 py-10 bg-white border-black items-center">
 				<div class="flex justify-center">
 					<a href="/">
-						<img src="./img/logo.png" class="h-12">
+						<img alt="logo" src="./img/logo.png" class="h-12">
 					</a>
 				</div>
 				<div class="text-center text-4xl font-semibold mb-10">
@@ -47,10 +47,10 @@
 					<!-- EMAIL CONTAINER -->
 					<div class="flex flex-col gap-3 mb-5">
 						<div>
-							<input class="appearance-none block w-full text-gray-700 border border-gray-200 rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400" type="text" name="email" placeholder="Email">
+							<input aria-label="mail" class="appearance-none block w-full text-gray-700 border border-gray-200 rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400" type="text" name="email" placeholder="Email">
 						</div>
 						<div>
-							<input id="input_pass" class="appearance-none block w-full text-gray-700 border border-gray-200 rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400" type="password" name="pass" placeholder="Password">
+							<input aria-label="pass" id="input_pass" class="appearance-none block w-full text-gray-700 border border-gray-200 rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gray-400" type="password" name="pass" placeholder="Password">
 						</div>
 					</div>
 					<!-- SHOW PASSWORD -->

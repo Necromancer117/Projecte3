@@ -48,21 +48,21 @@
                     </div>
                     <div class="grid grid-cols-1 grid-rows-4 md:grid-cols-2 md:grid-rows-2 h-full">
                         <div class="flex flex-col mr-14">
-                            <label class="text-gray-500" for="first_name">First name</label>
-                            <input class="border-2 border-gray-400 rounded-md py-0.5 outline-blue-500" type="text" name="first_name">
+                            <label  class="text-gray-500" for="first_name">First name</label>
+                            <input class="border-2 border-gray-400 rounded-md py-0.5 outline-blue-500" type="text" name="first_name" id="first_name">
                         </div>
                         <div class="flex flex-col mr-14">
                             <label class="text-gray-500" for="last_name">Last name</label>
-                            <input class="border-2 border-gray-400 rounded-md py-0.5 outline-blue-500" type="text" name="last_name">
+                            <input class="border-2 border-gray-400 rounded-md py-0.5 outline-blue-500" type="text" name="last_name" id="last_name">
                         </div>
                         <div class="flex flex-col mr-14">
                             <label class="text-gray-500" for="mail">E-mail</label>
-                            <input class="border-2 border-gray-400 rounded-md py-0.5 outline-blue-500" type="email" name="mail">
+                            <input class="border-2 border-gray-400 rounded-md py-0.5 outline-blue-500" type="email" name="mail" id="mail">
                         </div>
                         <form enctype="multipart/form-data" id="formuploadajax" method="post" action="/account/settings/upload">
                             <div class="flex flex-col mr-14">
                                 <label class="text-gray-500" for="file">Change avatar</label>
-                                <input class=" py-0.5" type="file" name="file" accept="image/png">
+                                <input class=" py-0.5" type="file" name="file" id="file" accept="image/png">
                             </div>
                         </form>
 
@@ -76,16 +76,16 @@
                     <div class="grid grid-cols-1 h-full md:w-1/2 mx-auto">
                         <div class="flex flex-col mr-14">
                             <label class="text-gray-500" for="current_password">Current password</label>
-                            <input class="border-2 border-gray-400 rounded-md py-0.5 outline-blue-500" type="password" name="current_password">
+                            <input class="border-2 border-gray-400 rounded-md py-0.5 outline-blue-500" type="password" name="current_password" id="current_password">
                         </div>
 
                         <div class="flex flex-col mr-14">
                             <label class="text-gray-500" for="new_password">New password</label>
-                            <input class="border-2 border-gray-400 rounded-md py-0.5 outline-blue-500" type="password" name="new_password">
+                            <input class="border-2 border-gray-400 rounded-md py-0.5 outline-blue-500" type="password" name="new_password" id="new_password">
                         </div>
                         <div class="flex flex-col mr-14">
                             <label class="text-gray-500" for="repeat_password">Repeat password</label>
-                            <input class="border-2 border-gray-400 rounded-md py-0.5 outline-blue-500" type="password" name="repeat_password">
+                            <input class="border-2 border-gray-400 rounded-md py-0.5 outline-blue-500" type="password" name="repeat_password" id="repeat_password">
                         </div>
                     </div>
                 </div>
