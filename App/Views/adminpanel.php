@@ -50,6 +50,11 @@
 							<span class="ml-3">Locations</span>
 						</a>
 					</li>
+					<li>
+						<a href="tancar-sessio" class="flex items-center p-2 mt-20 text-base font-normal text-gray-900 rounded-lg bg-red-200 hover:bg-red-100">
+							<span class="ml-3">Log Out</span>
+						</a>
+					</li>
 
 				</ul>
 			</aside>
@@ -94,7 +99,7 @@
 							<button class="bg-blue-500 mt-4 hover:bg-blue-400 text-white py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
 								Submit
 							</button>
-							<button class="bg-blue-500 mt-4 hover:bg-blue-400 text-white py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+							<button id="rnd-btn" class="bg-blue-500 mt-4 hover:bg-blue-400 text-white py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
 								Random user
 							</button>
 

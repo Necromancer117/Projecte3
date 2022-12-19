@@ -45,7 +45,7 @@ function ctrlValidarLogin($request, $response, $container)
 
                 break;
             case 'administrador':
-
+                $response->redirect("location: /adminpanel");
                 break;
 
             default:
