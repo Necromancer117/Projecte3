@@ -33,7 +33,7 @@
     <?php if (!empty($data['mapinfo'])) { ?>
     
     <div class="py-12 flex flex-col justify-center overflow-x-auto px-10">
-    <input class="border border-black rounded-lg mb-3 w-1/2 p-2" type="text" id="search_city"  placeholder="Search your city..">
+    <input aria-label="search table" class="border border-black rounded-lg mb-3 w-1/2 p-2" type="text" id="search_city"  placeholder="Search your city..">
         <table id="show_list" class="overflow-hidden border-spacing-6 table-auto border w-full shadow-xl rounded-lg">
             <thead class="text-white bg-slate-800">
                 <tr id="header" class="">

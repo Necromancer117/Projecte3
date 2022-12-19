@@ -23,7 +23,7 @@
   <!-- NAVBAR -->
     <div class="flex flex-col md:flex-row underline decoration-white text-white font-bold bg-black bg-opacity-20 items-center">
       <div class=" text-[50px] my-4 ml-6">
-        <a href="#"><img class="w-[200px]" src="img/logo.png" alt="" srcset=""></a>
+        <a href="#"><img class="w-[200px]" src="img/logo.png" alt="logo" srcset=""></a>
       </div>
       <div class="flex w-full flex-row px-4 md:ml-auto md:mr-20 mt-10 md:mt-0 md:text-2xl text-black">
         <!-- <div>
@@ -39,7 +39,7 @@
           <?php if (isset($user)) { ?>
             <div class="absolute my-auto top-10 right-4 md:right-12 inline-block text-left">
               <div>
-                <button><img id="avatar" name='avatar' class="w-16 border-2 rounded-full transition duration-400 hover:border-blue-600 ml-4" src="img/<?php echo ($avatar) ?>" alt="" srcset=""></button>
+                <button aria-label="settings"><img id="avatar" name='avatar' class="w-16 border-2 rounded-full transition duration-400 hover:border-blue-600 ml-4" src="img/<?php echo ($avatar) ?>" alt="" srcset=""></button>
                 </button>
               </div>
 
@@ -93,7 +93,7 @@
           </a>
           <?php if (isset($user)) { ?>
             <div class="opacity-0 absolute top-6 left-6 group-hover:opacity-100 transition-all duration-200 hover:scale-125">
-              <button class="favorite <?php if ($fav[$show['id_espectaculo']]) {
+              <button aria-label="fav" class="favorite <?php if ($fav[$show['id_espectaculo']]) {
                                         echo ('active');
                                       } ?>" id="<?php echo ($show['id_espectaculo']) ?>" style="z-index: 100;">
                 <i class="bi bi-heart-fill <?php if ($fav[$show['id_espectaculo']]) {
@@ -131,7 +131,7 @@
           <div id="form_content" class="hi" >
             <div class="flex flex-col items-center">
               <label class="text-white" for="select">Message category: </label>
-              <select class="w-1/2 bg-red-900 py-3 pl-2 rounded-lg text-white" name="message_category" id="select_message">
+              <select aria-label="message option" class="w-1/2 bg-red-900 py-3 pl-2 rounded-lg text-white" name="message_category" id="select_message">
                 <option disabled selected><i class="bi bi-question-diamond-fill"></i> Select an option</option>
                 <option value="question">Question</option>
                 <option value="incident">Incident</option>
@@ -139,7 +139,7 @@
             </div>
             <div id="if_question" class="hidden flex flex-col items-center my-5">
               <div class="w-1/2">
-                <textarea class="resize-none border w-full border-black p-2" name="question" id="question" rows="5" placeholder="Type your question here"></textarea>
+                <textarea aria-label="question textarea" class="resize-none border w-full border-black p-2" name="question" id="question" rows="5" placeholder="Type your question here"></textarea>
               </div>
               <div>
                 <button id="question_submit" class="hidden bg-red-600 text-white font-semibold border-2 border-red-600 rounded-md py-0.5 px-3 hover:bg-white hover:text-red-600 transition duration-300 ease-in">Submit</button>
@@ -147,13 +147,13 @@
             </div>
             <div id="if_incident" class="hidden flex flex-col gap-3 items-center my-5 w-1/2 mx-auto">
               <div class="grid grid-cols-1 gap-3 w-full">
-                <select class="w-full pl-2 bg-red-900 py-3 rounded-lg text-white" name="incidence_show" id="incidence_show">
+                <select aria-label="show_name" class="w-full pl-2 bg-red-900 py-3 rounded-lg text-white" name="incidence_show" id="incidence_show">
                   <option disabled selected><i class="bi bi-question-diamond-fill"></i>What show ?</option>
                   <?php foreach ($shows as $show) { ?>
                     <option value="<?php echo ($show['nombre_espectaculo']) ?>"><?php echo ($show['nombre_espectaculo']) ?></option>
                   <?php } ?>
                 </select>
-                <select class="w-full pl-2 bg-red-900 py-3 rounded-lg text-white" name="incidence_location" id="incidence_location">
+                <select aria-label="location" class="w-full pl-2 bg-red-900 py-3 rounded-lg text-white" name="incidence_location" id="incidence_location">
                   <option disabled selected><i class="bi bi-question-diamond-fill"></i>Where ?</option>
                   <?php foreach ($data['mapinfo'] as $location) { ?>
                     <option value="<?php echo ($location['nombre_espacio']) ?>"><?php echo ($location['nombre_espacio']) ?></option>
@@ -161,7 +161,7 @@
                 </select>
               </div>
               <div class="w-full">
-                <textarea class="resize-none border w-full border-black p-2" name="incidence" id="incidence" rows="5" placeholder="Type your message here"></textarea>
+                <textarea aria-label="incidence textarea" class="resize-none border w-full border-black p-2" name="incidence" id="incidence" rows="5" placeholder="Type your message here"></textarea>
               </div>
               <div>
                 <button id="incidence_submit" class="hidden bg-red-600 text-white font-semibold border-2 border-red-600 rounded-md py-0.5 px-3 hover:bg-white hover:text-red-600 transition duration-300 ease-in">Submit</button>
