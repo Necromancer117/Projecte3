@@ -55,6 +55,14 @@ class Container extends EmesetContainer
             // Aqui podem inicialitzar totes les dependències del controlador i passar-les com a paràmetre.
             return new \App\Controllers\admininsert($c);
         };
+        $this["\App\Controllers\tancarSessio"] = function ($c) {
+            // Aqui podem inicialitzar totes les dependències del controlador i passar-les com a paràmetre.
+            return new \App\Controllers\tancarSessio($c);
+        };
+        $this["\App\Controllers\validarlogin"] = function ($c) {
+            // Aqui podem inicialitzar totes les dependències del controlador i passar-les com a paràmetre.
+            return new \App\Controllers\validarlogin($c);
+        };
         ////////////////////////////////
         /////////////MODELOS////////////
         ////////////////////////////////
