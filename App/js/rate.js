@@ -4,7 +4,7 @@ export default function rate() {
 
     var check = false
 
-
+    //Emojis
     const emojis = [
         '&#10024',
         '&#128577',
@@ -13,6 +13,7 @@ export default function rate() {
         '&#128512',
         '&#128525'
     ]
+    //Rating text
     const rating = [
         'Rating',
         'Very Bad',
@@ -22,13 +23,14 @@ export default function rate() {
         'Excellent !'
     ]
 
+    //Change icon when mouse enter of star
     $('.star').on('mouseenter', function () {
         if (!check) {
             const rate = $('#' + this.id).data('rate');
 
             $('#emoji').html(emojis[rate]);
             $('#rating').html(rating[rate]);
-
+            //Fill stars before current star
             for (let index = 1; index <= 5; index++) {
                 if (index <= rate) {
                     $('#star-' + index).children('i').removeClass('bi-star');
@@ -40,6 +42,7 @@ export default function rate() {
             }
         }
     })
+    //Reset stars
     $('.star').on('mouseout', function () {
 
         if (!check) {
@@ -56,7 +59,7 @@ export default function rate() {
             }
         }
     })
-
+    //Fill stars when click
     $('.star').on('click', function () {
 
         check = true;
@@ -78,7 +81,7 @@ export default function rate() {
             }
         }
 
-
+        //Send vote
         $('#vote_send').on('click', function () {
             const id_show = $('#vote_send').children('button').data('show_id');
             $.ajax({

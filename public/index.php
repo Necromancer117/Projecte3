@@ -17,15 +17,15 @@ ini_set('display_errors',0);
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 include "../vendor/autoload.php";
 include "../App/config.php";
+include "../App/Middleware/auth.php";
 
 //include "../App/Controllers/portada.php";
-include "../App/Controllers/error.php";
 //include "../App/Controllers/login.php";
 //include "../App/Controllers/validarlogin.php";
 //include "../App/Controllers/privat.php";
 //include "../App/Controllers/tancarSessio.php";
-include "../App/Middleware/auth.php";
-include "../App/Middleware/test.php";
+
+
 
 
 /* Creem els diferents models */
@@ -33,9 +33,11 @@ $contenidor = new \App\Container($config);
 
 $app = new \Emeset\Emeset($contenidor);
 
+///////////////////////////////////
+/////////NORMAL CONTROLLERS////////
+///////////////////////////////////
 
 $app->route("", "\App\Controllers\Portada:ctrlPortada");
-//$app->route("/login", "ctrlLogin");
 $app->route("/login", "\App\Controllers\login:ctrlLogin");
 $app->route("validarLogin", "\App\Controllers\validarlogin:ctrlValidarLogin");
 $app->route("/account/settings", "\App\Controllers\AccountSettings:ctrlAccountSettings", ["auth"]);
@@ -65,11 +67,6 @@ $app->route('/favorites','\App\Controllers\Favorites:addFavorite',['auth']);
 $app->route('/sendVote','\App\Controllers\Vote:sendVote');
 $app->route('/sendMessage','\App\Controllers\Portada:sendMessage');
 
-$app->route("/hola/{id}", function ($request, $response) {
-    $id = $request->getParam("id");
-    $response->setBody("Hola {$id}!");
-    return $response;
-});
 
 $app->route(\Emeset\Routers\Router::DEFAULT_ROUTE, "ctrlError");
 

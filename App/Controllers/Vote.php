@@ -14,6 +14,7 @@ class Vote
 
     public function ctrlVote($request, $response, $container){
 
+        //Get session if user is loged
         $loged = $request->get("SESSION", "loged");
         $user_id = $request->get('SESSION','id');
         $avatar=$request->get('SESSION','avatar');
@@ -22,12 +23,14 @@ class Vote
             $loged = false;
         }
         $data = [];
+
+        //Get id of show and get info from this
         $id = $request->getParam('id');
         $show = $container->get('show');
         $data['show'] = $show->getShow(1);
         
         
-
+        //Send data to template
         $response->set('avatar',$avatar);
         $response->set('loged',$loged);
         $response->set('show',$data['show']);
@@ -36,6 +39,7 @@ class Vote
     }
     public function sendVote($request, $response, $container){
 
+        //Get the points fro the vote and id from show
         $rate = $request->get(INPUT_POST,'rate');
         $id_show = $request->get(INPUT_POST,'id_show');
         $vote = $container->get('vote');

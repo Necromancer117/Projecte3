@@ -42,7 +42,7 @@
                 <button aria-label="settings"><img id="avatar" name='avatar' class="w-16 border-2 rounded-full transition duration-400 hover:border-blue-600 ml-4" src="img/<?php echo ($avatar) ?>" alt="" srcset=""></button>
                 </button>
               </div>
-
+              <!-- DROPDOWN -->
               <div class="user_options hidden opacity-0 h-0 w-0 absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" id="user_options">
                 <div class="py-1" role="none">
                   <span class="text-sm font-bold px-4 py-3">Hi: <?= $user ?></span>
@@ -51,6 +51,7 @@
                   <a href="/logout" class="item text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200" role="menuitem" tabindex="-1" id="menu-item-2">log out</a>
                 </div>
               </div>
+              <!-- END DROPDOWN -->
             </div>
           <?php } else { ?>
             <a class="rounded p-2 transition bg-white duration-200 ease-in hover:bg-black hover:text-white" href="/login">Sign In</a>
@@ -82,6 +83,7 @@
       <?php foreach ($shows as $show) { ?>
 
         <div class="relative group">
+          <!-- IMAGE -->
           <a href="/show/id=<?php echo ($show['id_espectaculo']) ?>">
             <img class="object-fill h-full w-full poster" src="img/shows/<?php echo ($show['imagen_espectaculo']) ?>" alt="" srcset="">
             <div class='img__overlay absolute top-0 left-0 w-full h-full bg-black opacity-100 lg:opacity-0 bg-opacity-60 flex flex-col items-center justify-center transition duration-200 ease-in lg:group-hover:opacity-100'>
@@ -91,7 +93,9 @@
               </p>
             </div>
           </a>
+          <!-- END IMAGE -->
           <?php if (isset($user)) { ?>
+            <!-- FAV BUTTON  -->
             <div class="opacity-0 absolute top-6 left-6 group-hover:opacity-100 transition-all duration-200 hover:scale-125">
               <button aria-label="fav" class="favorite <?php if ($fav[$show['id_espectaculo']]) {
                                         echo ('active');
@@ -102,6 +106,7 @@
                                               echo ('text-white');
                                             } ?>  stroke-1 text-opacity-100 text-3xl transition duration-200 ease-in hover:text-red-600"></i></button>
             </div>
+            <!-- END FAV BUTTON -->
           <?php } ?>
         </div>
 

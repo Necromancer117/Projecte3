@@ -1,5 +1,7 @@
 import $ from 'jquery';
 
+
+//Filter to search by city on table
 export default function search_table(){
     $('#search_city').on('keyup',function(){
         var input, filter, table, tr, td, i, txtValue;

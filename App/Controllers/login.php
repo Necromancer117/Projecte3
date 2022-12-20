@@ -30,7 +30,7 @@ class login
    **/
   function ctrlLogin($request, $response, $container)
   {
-    // Comptem quantes vegades has visitat aquesta pàgina
+    //Login with getter error
     
     $error = $request->get("SESSION", "error");
     $repre = $container->get('representation');

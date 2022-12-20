@@ -16,6 +16,7 @@
 
 <body>
     <?php include "../App/Views/navbar_user.php"; ?>
+    <!-- MAIN CONTENT -->
     <div class="min-h-screen flex flex-col justify-start">
         <div class="text-center bg-black font-black text-amber-200 text-5xl underline">
             <div class="mx-auto py-4">
@@ -28,6 +29,7 @@
         <div class="mx-auto w-[300px]">
             <img src="/img/shows/<?php echo ($show['imagen_espectaculo']) ?>" alt="">
         </div>
+        <!-- RATING -->
         <div id="setRate" class="border-lg flex gap-1 flex-col items-center mt-6">
             <div class="bg-black text-white bg-opacity-60 border rounded-lg border-black px-28 py-4">
                 <div class="text-center flex flex-col gap-3">
@@ -58,6 +60,7 @@
                 </div>
             </div>
         </div>
+        <!-- END RATING -->
         <div id="thankYou" class="mx-auto opacity-0 hidden">
             <img class="w-[300px]" src="/img/thank-you-6.gif" alt="">
         </div>
@@ -65,6 +68,7 @@
             <button class="bg-red-600 text-white text-lg py-2 px-6 border rounded-lg" data-show_id="<?php echo ($show['id_espectaculo']) ?>">Send</button>
         </div>
     </div>
+    <!-- END MAIN CONTENT -->
     <?php include '../App/Views/footer.php' ?>
     <script src="js/bundle.js"></script>
 </body>

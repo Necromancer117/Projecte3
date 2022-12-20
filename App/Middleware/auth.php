@@ -11,17 +11,17 @@
  */
 function auth($request, $response, $container, $next)
 {
-
+    //Get session from user
     $usuari = $request->get("SESSION", "user");
     $loged = $request->get("SESSION", "loged");
     $avatar=$request->get('SESSION','avatar');
         
-
+    //Set logued
     if (!isset($loged)) {
         $usuari = "";
         $loged = false;
     }
-
+    //Send values
     $response->set("usuari", $usuari);
     $response->set("loged", $loged);
     $response->set('avatar',$avatar);

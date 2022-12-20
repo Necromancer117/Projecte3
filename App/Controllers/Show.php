@@ -14,7 +14,7 @@ class Show
 
     public function ctrlShow($request, $response, $container)
     {
-
+        //Get user session 
         $loged = $request->get("SESSION", "loged");
         $user_id = $request->get('SESSION','id');
         $avatar=$request->get('SESSION','avatar');
@@ -24,15 +24,17 @@ class Show
             $loged = false;
         }
         $data = [];
+        //Recover id of show from url
+        //Get show
         $id = $request->getParam('id');
         $show = $container->get('show');
         $data['show'] = $show->getShow($id);
         $data['user_id']=$user_id;
-
+        //Prepare data to send to template
         $representation = $container->get('representation');
         $data['mapinfo'] = $representation->getMapinfo($id);
 
-        
+        //Send data
         $response->set('user', $user);
         $response->set('loged', $loged);
         $response->set('loged', $loged);
