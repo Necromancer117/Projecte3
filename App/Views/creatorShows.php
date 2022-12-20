@@ -23,7 +23,7 @@
                 <!-- Mobile menu button-->
                 <button type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
-                        <!--
+                    <!--
                         Icon when menu is closed.
             
                         Heroicon name: outline/bars-3
@@ -33,7 +33,7 @@
                     <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
-                        <!--
+                    <!--
                         Icon when menu is open.
             
                         Heroicon name: outline/x-mark
@@ -62,7 +62,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <!-- Profile dropdown -->
                 <div class="relative ml-3">
@@ -100,32 +100,79 @@
 // var_dump($showList[0]);
 // die();
 ?>
+
 <body>
-<div class="h-screen grid grid-cols-1 place-items-center">
+    <div class="h-screen grid grid-cols-1 place-items-center">
         <div class="w-[90%] border rounded-lg px-6 py-9 bg-white border-gray items-center">
             <div class="flex justify-between">
                 <div>
                     <p class="text-2xl font-strong">Shows</p>
-                    <p class="text-gray-600 text-sm mt-2">List of shows from the edition Fake Circ <?=$date?></p>
+                    <p class="text-gray-600 text-sm mt-2">List of shows from the edition Fake Circ <?= $date ?></p>
                 </div>
                 <div class="flex h-full">
                     <div>
-                        <button class="border border-indigo-600 text-indigo-600 block px-3 py-2 rounded-md text-base font-medium mr-4"><?=$date?></button>
-                        <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow">
-                            <ul class="py-1 text-sm text-gray-700" aria-labelledby="dropdownDefault">
+                        <button id="cratorShowsButton" class="border border-indigo-600 text-indigo-600 block px-3 py-2 rounded-md text-base font-medium mr-4"><?= $date ?></button>
+                        <div id="cratorShowsDropdwon" hidden class="absolute right-50 z-10 mt-2 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                            <ul class="py-1 h-full text-sm text-gray-700" aria-labelledby="dropdownDefault">
                                 <?php
-                                    for ($i=0; $i < COUNT($showEditon); $i++) { 
-                                        ?>
-                                        <li>
-                                            <a href="/creator/shows/<?=date("Y", strtotime($showEditon[$i]["dia_inicio_edicion"]))?>" class="block py-2 px-4 hover:bg-gray-100"><?= date("Y", strtotime($showEditon[$i]["dia_inicio_edicion"]))?></a>
-                                        </li>
-                                        <?php
-                                    }
+                                for ($i = 0; $i < COUNT($showEditon); $i++) {
                                 ?>
+                                    <li>
+                                        <a value="<?= date("Y", strtotime($showEditon[$i]["dia_inicio_edicion"])) ?>" class="block py-2 px-4 hover:bg-gray-100"><?= date("Y", strtotime($showEditon[$i]["dia_inicio_edicion"])) ?></a>
+                                    </li>
+                                <?php
+                                }
+                                ?>
+                                <li>
+                                    <a href="/creator/shows/addShow" class="block py-2 px-4 bg-gray-50 hover:bg-gray-100">Add Show</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
-                    <a href="#" class="bg-indigo-600 text-white block px-3 py-2 rounded-md text-base font-medium">Add show</a>
+                    <div x-data="{ open: false }" @body-scroll="document.body.style.overflowY = open ? 'hidden' : ''">
+                        <button id="addShow" @click="open = !open; $dispatch('body-scroll', {})" class="bg-indigo-600 text-white block px-3 py-2 rounded-md text-base font-medium">Add show</button>
+                        <div x-show="open" x-cloak="" class="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-50" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                            <div @click.away="open = false; $dispatch('body-scroll', {})" class="bg-white rounded shadow-lg p-8 relative w-1/2">
+                                <form action="#" method="POST">
+                                    <!-- INNER CONTAINER -->
+                                    <div class="w-full">
+                                        <!-- INFO CONTAINER -->
+                                        <div class="flex flex-wrap -mx-3 mb-6">
+                                            <!-- TITLE -->
+                                            <div class="flex space-betweeen w-full px-3 mb-6 md:mb-0">
+                                                <input id='title_addShow' type="text" placeholder="Title" class="appearance-none block w-full text-gray-700 border border-gray-200 bg-gray-50 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600" />
+                                                <p hidden class="text-red-500 text-xs italic">Please fill out this field.</p>
+                                            </div>
+                                        </div>
+                                        <!-- SECOND -->
+                                        <div class="flex flex-wrap -mx-3 mb-6 h-full">
+                                            <!-- CLASS -->
+                                            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                                <input id='class_addShow' type="text" placeholder="Class" class="appearance-none block w-full text-gray-700 border border-gray-200 bg-gray-50 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600" />
+                                                <p hidden class="text-red-500 text-xs italic">Please fill out this field.</p>
+                                            </div>
+                                            <!-- FILE -->
+                                            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                                <input id="banner_addShow" class="appearance-none block w-full text-gray-700 border border-gray-200 bg-gray-50 rounded-lg py-2.5 px-4 leading-tight focus:outline-none focus:border-indigo-600" aria-describedby="banner_<?= $showList[$i]["id_espectaculo"] ?>" type="file">
+                                            </div>
+                                        </div>
+                                        <!-- DESCRIPTION-->
+                                        <div class="flex flex-wrap -mx-3 mb-6">
+                                            <div class="w-full px-3 mb-6 md:mb-0">
+                                                <label for="description_addShow" class="block mb-2 text-sm font-medium text-gray-900">Description</label>
+                                                <textarea id="description_addShow" rows="4" class="appearance-none block w-full text-gray-700 border border-gray-200 bg-gray-50 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600 resize-none" placeholder="Some text in here..."></textarea>
+                                            </div>
+                                        </div>
+                                        <!-- BUTTON CONTAINER -->
+                                        <div class="flex justify-between">
+                                            <button @click="open = false; $dispatch('body-scroll', {})" class="border border-indigo-600 text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">Discard</button>
+                                            <button type="submit" id="submitSignup" class="bg-indigo-600 text-white block px-3 py-2 rounded-md text-base font-medium">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="overflow-x-auto">
@@ -146,90 +193,96 @@
                     </thead>
                     <tbody>
                         <?php
-                            for ($i=0; $i < COUNT($showList); $i++) { 
-                                if ($i == 0) {
-                                    ?>
-                                    <tr class="bg-white" >
-                                        <td scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap"><?=$showList[$i]["id_espectaculo"]?></td>
-                                        <td scope="row" class="py-4 px-6 font-medium text-gray-600 whitespace-nowrap"><?=$showList[$i]["nombre_espectaculo"]?></td>
-                                        <td scope="row" class="py-4 px-6 font-medium text-gray-600 whitespace-nowrap"><?=$showList[$i]["tipo_espectaculo"]?></td>
-                                        <td scope="row" class="py-4 px-6 font-medium text-gray-600 whitespace-nowrap">
-                                            <a href="#" class="font-medium text-gray-600 border-gray rounded-md"><?=$showList[$i]["imagen_espectaculo"]?></a>
-                                        </td>
-                                        <td scope="row" class="py-4 px-6 font-medium text-indigo-900 whitespace-nowrap">
-                                            <a href="#" class="font-medium text-indigo-600 hover:underline">Votes</a>
-                                        </td>
-                                        <td scope="row" class="py-4 px-6 font-medium text-indigo-600 whitespace-nowrap">
-                                            <div x-data="{ open: false }" @body-scroll="document.body.style.overflowY = open ? 'hidden' : ''">
-                                                <button id= "<?=showList[$i]["id_espectaculo"]?>" @click="open = !open; $dispatch('body-scroll', {})"  class="font-medium text-indigo-600 hover:underline">Edit</button>
-                                                <div x-show="open" x-cloak="" class="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-75" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
-                                                    <div @click.away="open = false; $dispatch('body-scroll', {})" class="bg-white rounded shadow-lg p-8 relative w-1/2">
-                                                        <form action="#" method="POST">
-                                                            <!-- INNER CONTAINER -->
-                                                            <div class="w-full">
-                                                                <!-- INFO CONTAINER -->
-                                                                <div class="flex flex-wrap -mx-3 mb-6">
-                                                                    <!-- TITLE -->
-                                                                    <div class="flex space-betweeen w-full px-3 mb-6 md:mb-0">
-                                                                        <div class="grid place-items-center" >
-                                                                            <span class="mr-5 text-lg" > <?=$showList[$i]["id_espectaculo"]?> </span>
-                                                                        </div>
-                                                                        <input id='title_<?=$showList[$i]["id_espectaculo"]?>' type="text" value="<?=$showList[$i]["nombre_espectaculo"]?>" class="appearance-none block w-full text-gray-700 border border-gray-200 bg-gray-50 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600" />
-                                                                        <p hidden class="text-red-500 text-xs italic">Please fill out this field.</p>
+                        for ($i = 0; $i < COUNT($showList); $i++) {
+                            if ($i == 0) {
+                        ?>
+                                <tr class="bg-white">
+                                    <td scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap"><?= $showList[$i]["id_espectaculo"] ?></td>
+                                    <td scope="row" class="py-4 px-6 font-medium text-gray-600 whitespace-nowrap"><?= $showList[$i]["nombre_espectaculo"] ?></td>
+                                    <td scope="row" class="py-4 px-6 font-medium text-gray-600 whitespace-nowrap"><?= $showList[$i]["tipo_espectaculo"] ?></td>
+                                    <td scope="row" class="py-4 px-6 font-medium text-gray-600 whitespace-nowrap">
+                                        <a href="#" class="font-medium text-gray-600 border-gray rounded-md"><?= $showList[$i]["imagen_espectaculo"] ?></a>
+                                    </td>
+                                    <td scope="row" class="py-4 px-6 font-medium text-indigo-900 whitespace-nowrap">
+                                        <a href="#" class="font-medium text-indigo-600 hover:underline">Votes</a>
+                                    </td>
+                                    <td scope="row" class="py-4 px-6 font-medium text-indigo-600 whitespace-nowrap">
+                                        <div x-data="{ open: false }" @body-scroll="document.body.style.overflowY = open ? 'hidden' : ''">
+                                            <button id="<?= $showList[$i]["id_espectaculo"] ?>" @click="open = !open; $dispatch('body-scroll', {})" class="font-medium text-indigo-600 hover:underline">Edit</button>
+                                            <div x-show="open" x-cloak="" class="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-50" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                                                <div @click.away="open = false; $dispatch('body-scroll', {})" class="bg-white rounded shadow-lg p-8 relative w-1/2">
+                                                    <form action="#" method="POST">
+                                                        <!-- INNER CONTAINER -->
+                                                        <div class="w-full">
+                                                            <!-- INFO CONTAINER -->
+                                                            <div class="flex flex-wrap -mx-3 mb-6">
+                                                                <!-- TITLE -->
+                                                                <div class="flex space-betweeen w-full px-3 mb-6 md:mb-0">
+                                                                    <div class="grid place-items-center">
+                                                                        <span class="mr-5 text-lg"> <?= $showList[$i]["id_espectaculo"] ?> </span>
                                                                     </div>
-                                                                </div>
-                                                                <!-- SECOND -->
-                                                                <div class="flex flex-wrap -mx-3 mb-6 h-full">
-                                                                    <!-- CLASS -->
-                                                                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                                                        <input id='class_<?=$showList[$i]["id_espectaculo"]?>' type="text" value="<?=$showList[$i]["tipo_espectaculo"]?>" class="appearance-none block w-full text-gray-700 border border-gray-200 bg-gray-50 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600" />
-                                                                        <p hidden class="text-red-500 text-xs italic">Please fill out this field.</p>
-                                                                    </div>
-                                                                    <!-- FILE -->
-                                                                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                                                        <input id="banner_<?=$showList[$i]["id_espectaculo"]?>" class="appearance-none block w-full text-gray-700 border border-gray-200 bg-gray-50 rounded-lg py-2.5 px-4 leading-tight focus:outline-none focus:border-indigo-600" aria-describedby="banner_<?=$showList[$i]["id_espectaculo"]?>" type="file">
-                                                                    </div>
-                                                                </div>
-                                                                <!-- DESCRIPTION-->
-                                                                <div class="flex flex-wrap -mx-3 mb-6">
-                                                                    <div class="w-full px-3 mb-6 md:mb-0">
-                                                                        <label for="description_<?=$showList[$i]["id_espectaculo"]?>" class="block mb-2 text-sm font-medium text-gray-900">Description</label>
-                                                                        <textarea id="description_<?=$showList[$i]["id_espectaculo"]?>" rows="4" class="appearance-none block w-full text-gray-700 border border-gray-200 bg-gray-50 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600" value="<?=$showList[$i]["descripcion_espectaculo"]?>"></textarea>
-                                                                    </div>
-                                                                </div>
-                                                                <!-- BUTTON CONTAINER -->
-                                                                <div class="flex justify-between">
-                                                                    <button @click="open = false; $dispatch('body-scroll', {})" class="border border-indigo-600 text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">Discard changes</button>
-                                                                    <button type="submit" id="submitSignup" class="bg-indigo-600 text-white block px-3 py-2 rounded-md text-base font-medium">Save</button>
+                                                                    <input id='title_<?= $showList[$i]["id_espectaculo"] ?>' type="text" value="<?= $showList[$i]["nombre_espectaculo"] ?>" class="appearance-none block w-full text-gray-700 border border-gray-200 bg-gray-50 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600" />
+                                                                    <p hidden class="text-red-500 text-xs italic">Please fill out this field.</p>
                                                                 </div>
                                                             </div>
-                                                        </form>
-                                                    </div>
+                                                            <!-- SECOND -->
+                                                            <div class="flex flex-wrap -mx-3 mb-6 h-full">
+                                                                <!-- CLASS -->
+                                                                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                                                    <input id='class_<?= $showList[$i]["id_espectaculo"] ?>' type="text" value="<?= $showList[$i]["tipo_espectaculo"] ?>" class="appearance-none block w-full text-gray-700 border border-gray-200 bg-gray-50 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600" />
+                                                                    <p hidden class="text-red-500 text-xs italic">Please fill out this field.</p>
+                                                                </div>
+                                                                <!-- FILE -->
+                                                                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                                                    <input id="banner_<?= $showList[$i]["id_espectaculo"] ?>" class="appearance-none block w-full text-gray-700 border border-gray-200 bg-gray-50 rounded-lg py-2.5 px-4 leading-tight focus:outline-none focus:border-indigo-600" aria-describedby="banner_<?= $showList[$i]["id_espectaculo"] ?>" type="file">
+                                                                </div>
+                                                            </div>
+                                                            <!-- DESCRIPTION-->
+                                                            <div class="flex flex-wrap -mx-3 mb-6">
+                                                                <div class="w-full px-3 mb-6 md:mb-0">
+                                                                    <label for="description_<?= $showList[$i]["id_espectaculo"] ?>" class="block mb-2 text-sm font-medium text-gray-900">Description</label>
+                                                                    <textarea id="description_<?= $showList[$i]["id_espectaculo"] ?>" rows="4" class="appearance-none block w-full text-gray-700 border border-gray-200 bg-gray-50 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600 resize-none" value="<?= $showList[$i]["descripcion_espectaculo"] ?>"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <!--URL AND QR-->
+                                                            <div class="flex flex-wrap -mx-3 mb-6">
+                                                                <div class="w-full px-3 mb-6 md:mb-0">
+                                                                    <span class="appearance-none block w-full text-gray-700 border border-gray-200 bg-gray-50 rounded-lg py-3 px-4"> <?= $showList[$i]["id_espectaculo"] ?> </span>
+
+                                                                </div>
+                                                            </div>
+                                                            <!-- BUTTON CONTAINER -->
+                                                            <div class="flex justify-between">
+                                                                <button @click="open = false; $dispatch('body-scroll', {})" class="border border-indigo-600 text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">Discard changes</button>
+                                                                <button type="submit" id="submitSignup" class="bg-indigo-600 text-white block px-3 py-2 rounded-md text-base font-medium">Apply changes</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
-                                        </td>
-                                    </tr>
-                                    <?php
-                                }
-                                else {
-                                    ?>
-                                    <tr class="bg-white border-t" >
-                                        <td scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap"><?=$showList[$i]["id_espectaculo"]?></td>
-                                        <td scope="row" class="py-4 px-6 font-medium text-gray-600 whitespace-nowrap"><?=$showList[$i]["nombre_espectaculo"]?></td>
-                                        <td scope="row" class="py-4 px-6 font-medium text-gray-600 whitespace-nowrap"><?=$showList[$i]["tipo_espectaculo"]?></td>
-                                        <td scope="row" class="py-4 px-6 font-medium text-gray-600 whitespace-nowrap">
-                                            <a href="#" class="font-medium text-gray-600 border-gray rounded-md"><?=$showList[$i]["imagen_espectaculo"]?></a>
-                                        </td>
-                                        <td scope="row" class="py-4 px-6 font-medium text-indigo-900 whitespace-nowrap">
-                                            <a href="#" class="font-medium text-indigo-600 hover:underline">Votes</a>
-                                        </td>
-                                        <td scope="row" class="py-4 px-6 font-medium text-indigo-600 whitespace-nowrap">
-                                            <a href="#" class="font-medium text-indigo-600 hover:underline">Edit</a>
-                                        </td>
-                                    </tr>
-                                    <?php
-                                }
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php
+                            } else {
+                            ?>
+                                <tr class="bg-white border-t">
+                                    <td scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap"><?= $showList[$i]["id_espectaculo"] ?></td>
+                                    <td scope="row" class="py-4 px-6 font-medium text-gray-600 whitespace-nowrap"><?= $showList[$i]["nombre_espectaculo"] ?></td>
+                                    <td scope="row" class="py-4 px-6 font-medium text-gray-600 whitespace-nowrap"><?= $showList[$i]["tipo_espectaculo"] ?></td>
+                                    <td scope="row" class="py-4 px-6 font-medium text-gray-600 whitespace-nowrap">
+                                        <a href="#" class="font-medium text-gray-600 border-gray rounded-md"><?= $showList[$i]["imagen_espectaculo"] ?></a>
+                                    </td>
+                                    <td scope="row" class="py-4 px-6 font-medium text-indigo-900 whitespace-nowrap">
+                                        <a href="#" class="font-medium text-indigo-600 hover:underline">Votes</a>
+                                    </td>
+                                    <td scope="row" class="py-4 px-6 font-medium text-indigo-600 whitespace-nowrap">
+                                        <a href="#" class="font-medium text-indigo-600 hover:underline">Edit</a>
+                                    </td>
+                                </tr>
+                        <?php
                             }
+                        }
                         ?>
                     </tbody>
                 </table>
@@ -239,7 +292,7 @@
 
         </div>
     </div>
-    <script src="js/bundle.js"defer></script>
+    <script src="/js/bundle.js"></script>
 
 </body>
 
