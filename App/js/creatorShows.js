@@ -1,5 +1,19 @@
 import $ from "jquery";
 
+const editBtn = $('a[data-role=edit]');
+const discardChanges = $('a[data-role=discardChanges]');
+
+const modalEdit = $("div[data-role=editModal]");
+
+editBtn.on('click',function(){
+    modalEdit.toggleClass("hidden");
+})
+
+discardChanges.on('click',function(){
+    modalEdit.toggleClass("hidden");
+})
+
+
 var show = false;
 
 export default function creatorShowsDropdwon() {
@@ -15,13 +29,17 @@ export default function creatorShowsDropdwon() {
 
     $('a[data-role=edit]').on('click', function () {
         var id = $(this).data('id');
-        var title = $('#'+id).children('td[data-target=title]').text;
-        var type = $('#'+id).children('td[data-target=type]').text;
-        var banner = $('#'+id).children('td[data-target=banner]').text;
+        var title = $('#'+id).children('td[data-target=title]').text(); 
+        var type = $('#'+id).children('td[data-target=type]').text();
+        var description = $('#'+id).children('td[data-target=description]').text();
+        var banner = $('#'+id).children('td[data-target=banner]').text();
+        var hash = id
 
+        $('#num').html(id);
         $('#title').val(title);
         $('#type').val(type);
+        $('#description').val(description);
         $('#banner').val(banner);
-        $('#popUp').modal('toggle');
+        $('#hash').val(hash);
     });
 }
