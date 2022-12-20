@@ -2,6 +2,7 @@ import $ from "jquery";
 
 var show = false;
 export  default function login() {
+    //Get checkbox value to show password
 $('#show_pass').on('change',function () {
     show=!show;
     if (show) {
@@ -10,6 +11,7 @@ $('#show_pass').on('change',function () {
         $('#input_pass').attr('type', 'password');
     }
 })
+//Animate error
 $('#login_error').animate({
     opacity: '1'
 })

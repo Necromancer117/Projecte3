@@ -5,7 +5,7 @@ import $ from 'jquery';
 export default function map() {
     if ($('#map').length != 0) {
 
-        
+        //Get icon for map 
         var icon = L.icon({
             iconUrl: '../../img/map_pointers/marker-icon.png',
             shadowUrl: '../../img/map_pointers/marker-shadow.png',
@@ -13,11 +13,11 @@ export default function map() {
             iconAnchor: [12, 36],
             popupAnchor: [0, -28]
         });
-
+        //Get data stored in map div
         var infos = $('#map').data();
 
 
-
+        //Create a new map
         var map = L.map('map').setView([42.2655066, 2.9581046], 10);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
@@ -27,6 +27,8 @@ export default function map() {
         
         //START FOR EACH MARKER
         //COMMENT THIS TO DISABLE MAP MARKERS IN CLIENT SIDE
+
+        //Transform coordinates to street name with nominatim API
         infos['mapinfo'].forEach(info => {
 
             const settings = {
@@ -37,6 +39,7 @@ export default function map() {
 
             };
             
+            //When done put marker on the map with show info and put info on table
             $.ajax(settings).done(function (locations) {
                 
                     //console.log(locations['features']['0']['properties']['geocoding']);

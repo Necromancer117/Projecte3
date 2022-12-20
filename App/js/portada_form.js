@@ -2,6 +2,7 @@ import $ from "jquery";
 
 export default function portada_form() {
 
+    //Show a form in function of type of message
     $('#select_message').on('change', function () {
         if ($('#select_message').val() == 'question') {
             $('#if_question').removeClass('hidden');
@@ -12,7 +13,7 @@ export default function portada_form() {
             $('#if_incident').removeClass('hidden');
         }
     })
-
+    //Toggle button when textarea is not empty
     $('#question').on('keypress', function () {
         if ($('#question').val() != "") {
             $('#question_submit').removeClass('hidden');
@@ -30,6 +31,7 @@ export default function portada_form() {
     }
     })
 
+        //Submit message
     $('#question_submit').on('click',function(){
         const question = $('#question').val();
         const type = $('#select_message').val();
@@ -47,6 +49,7 @@ export default function portada_form() {
         });
     })
 
+    //Submit incidence
     $('#incidence_submit').on('click',function(){
         
         let incidence = $('#incidence').val();
@@ -71,6 +74,7 @@ export default function portada_form() {
 
 }
 
+//Sending animation
 function restore_form() {
     $('#send_ok').addClass('hidden');
     $('#form_content').removeClass('hidden');

@@ -3,6 +3,8 @@ var show = false
 export default function login() {
 $(document).ready(function() {
    //$('#user_options').css();
+
+   //Toggle dropdown when click on avatar
     $('#avatar').on('click',function () {
      if (!show) {
         //$('#user_options').removeClass('invisible');

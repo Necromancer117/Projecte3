@@ -1,11 +1,12 @@
 
 import $ from 'jquery';
 
+//Steps is for switching pages
 var step1 = true;
 var step2 = false;
 
 
-
+//Get all imputs
 var firstname = $('input[name="first_name"]');
 var lastname = $('input[name="last_name"]');
 var mail = $('input[name="mail"]');
@@ -22,6 +23,7 @@ export default function accountSettings() {
 
 }
 
+//When click change page
 $('#account_step1').on('click', function () {
 
 
@@ -41,6 +43,7 @@ $('#account_step2').on('click', function () {
     resetParamsStep1();
 })
 
+//When click reset values from the last step
 function resetParamsStep1() {
 
     step1 = false;
@@ -62,6 +65,7 @@ function resetParamsStep2() {
 
 }
 
+//Custom error message
 function error(message) {
     $('#account_password_message').removeClass();
     $('#account_password_message').addClass('opacity-0 mx-auto lg:w-1/2 mt-3 mb-3 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative')
@@ -72,6 +76,7 @@ function error(message) {
     })
 }
 
+//Custom success message
 function Success(message) {
 
     $('#account_password_message').removeClass();
@@ -84,6 +89,7 @@ function Success(message) {
 
 }
 
+//Check if file is valid
 function validateTypefile(file) {
 
     var index = file.lastIndexOf('.') + 1;
@@ -97,10 +103,12 @@ function validateTypefile(file) {
     }
 }
 
+//AJAX SECTION
 $('#settings_submit').on('click', function () {
 
     if (step1) {
 
+        //First name
         var success = false;
         if ($('input[name="first_name"]').val() != '') {
             $.ajax({
@@ -113,6 +121,7 @@ $('#settings_submit').on('click', function () {
                 }
             });
         }
+        //Last name
         if ($('input[name="last_name"]').val() != '') {
             $.ajax({
                 type: 'POST',
@@ -124,6 +133,7 @@ $('#settings_submit').on('click', function () {
                 }
             });
         }
+        //Mail
         if ($('input[name="mail"]').val() != '') {
             $.ajax({
                 type: 'POST',
@@ -135,13 +145,16 @@ $('#settings_submit').on('click', function () {
                 }
             });
         }
+        //File
         if ($('input[name="file"]').val() != '') {
 
             var file = $('input[name="file"]').val();
+            //Check if file is valid
             if (validateTypefile(file)) {
+                //Get form in Formdata
                 var formData = new FormData(document.getElementById("formuploadajax"));
                 formData.append("dato", "valor");
-
+                //Send file
                 $.ajax({
                     url: '/account/settings/upload',
                     async: false,
@@ -168,6 +181,8 @@ $('#settings_submit').on('click', function () {
             Success('Your credentials has been changed');
         }
     }
+
+    //AJAX STEP 2
     if (step2) {
         //If passwords are not empty and doesn't match
         if (($('input[name="new_password"]').val() != "") && ($('input[name="repeat_password"]').val() != "") && ($('input[name="current_password"]').val() != "")) {

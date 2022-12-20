@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <!-- TAILWIND -->
     <link rel="stylesheet" href="/css/styles.css">
     <title>Document</title>
 </head>
@@ -14,6 +15,7 @@
 <body class="bg-gray-100">
     <?php include "../App/Views/navbar_user.php"; ?>
     <div class="flex flex-col place-items-center my-auto">
+        
         <div class="md:w-[80%] flex-col gap-6 my-7">
             <div>
                 <h1 class="text-3xl font-bold">Account Settings</h1>
@@ -22,26 +24,30 @@
                 <p class="text-lg text-gray-600">Change your profile and account settings</p>
             </div>
         </div>
+        
+        
         <div class="w-[100%] md:w-[80%] rounded shadow-lg mx-auto border-2 bg-white flex">
             <div class="border-r-2 flex flex-col gap-4 pt-5 px-4">
+                <!-- SWITCHES -->
                 <div id="account_step1" class="text-blue-400 underline">
                     <button class="flex flex-row gap-2">
                         <i class="text-lg font-bolder bi bi-person"></i>
                         <p class="pt-1">Account</p>
                     </button>
                 </div>
-
                 <div id="account_step2">
                     <button class="flex flex-row gap-2">
                         <i class="text-lg font-bolder bi bi-lock"></i>
                         <p class="pt-1">Password</p>
                     </button>
                 </div>
+                <!-- END SWITCHES -->
             </div>
             <div class="pt-10 pb-5 px-4 flex flex-col w-full">
                 <div id="account_password_message" class="">
 
                 </div>
+                <!-- STEP 1 -->
                 <div id="account__account" class="">
                     <div>
                         <h2 class="text-xl font-bold">General info</h2>
@@ -68,6 +74,8 @@
 
                     </div>
                 </div>
+                <!-- END -->
+                <!-- STEP 2 -->
                 <div id="account__password" class="hidden">
                     <div class="text-xl font-bold">
                         <h2>Change password</h2>
@@ -89,7 +97,7 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- END -->
                 <div class="flex justify-end mr-14 mt-10">
                     <button id="settings_submit" class="bg-red-600 text-white font-semibold border-2 border-red-600 rounded-md py-0.5 px-3 hover:bg-white hover:text-red-600 transition duration-300 ease-in">Submit</button>
                 </div>

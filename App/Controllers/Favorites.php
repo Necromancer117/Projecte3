@@ -14,7 +14,8 @@ class Favorites
 
     public function ctrlMyfavorites($request, $response, $container)
     {
-
+        //Load template 
+        //Get all shows and favorites and build a new array that links shows with favorites
         $shows = $container->get('show');
         $spectacle = $shows->getShows();
         $user_id = $request->get('SESSION', 'id');
@@ -37,7 +38,7 @@ class Favorites
 
     public function addFavorite($request, $response, $container)
     {
-
+        //Add favorite AJAX with selector
         $user_id = $request->get('SESSION', 'id');
         $id_show = $request->get(INPUT_POST, 'value');
         $selector = $request->get(INPUT_POST, 'selector');

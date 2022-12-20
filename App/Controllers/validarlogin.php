@@ -31,23 +31,25 @@ class validarlogin
      **/
     function ctrlValidarLogin($request, $response, $container)
     {
-        // Comptem quantes vegades has visitat aquesta pàgina
+        // Get mail and pass
         $email = $request->get(INPUT_POST, "email");
         $pass = $request->get(INPUT_POST, "pass");
 
 
-
+        //Check if user exist
         $users = $container->get('users');
         $exist = $users->exist($email, $pass);
 
 
         if ($exist) {
+            //If exist get info from user and open a session
             $id = $users->getId($email);
             $usuario = $users->getUser($id['id_usuario']);
             $response->setSession('user', $usuario['nombre_usuario']);
             $response->setSession('id', $id['id_usuario']);
             $response->setSession('loged', true);
             $response->setSession('avatar', $usuario['avatar_usuario']);
+            //Get user rol and redirect to respective pages
             switch ($usuario['usuario_rol']) {
                 case 'cliente':
                     $response->redirect("location: /");
@@ -67,6 +69,7 @@ class validarlogin
                     break;
             }
         } else {
+            //If not exist set an error and redirect to login to show error
             $response->redirect("location: /login");
             $response->setSession('error', 'The user doesn\'t exist');
         }

@@ -1,3 +1,9 @@
+//////////////////////////////
+////////////WEBPACK///////////
+//////////////////////////////
+
+
+
 import $ from "jquery";
 import login from "./login.js";
 import navbar from "./navbar.js"

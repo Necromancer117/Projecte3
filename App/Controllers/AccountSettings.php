@@ -13,7 +13,7 @@ class AccountSettings
 
     public function ctrlAccountSettings($request, $response, $container)
     {
-        
+        //Load template 
         $user = $request->get("SESSION", "user");
         $response->set('user', $user);
         $response->setTemplate('accountSettings.php');
@@ -22,13 +22,13 @@ class AccountSettings
 
     public function ajaxSelector($request, $response, $container)
     {
-
+        //Selector
         $selector = $request->get(INPUT_POST, 'select');
 
         $user_id = $request->get('SESSION', 'id');
         $response->set('result', $selector);
         $users = $container->get('users');
-
+        //Select an action 
         switch ($selector) {
             case 'check_pass':
 
@@ -66,6 +66,7 @@ class AccountSettings
         return $response;
     }
 
+    //Section to upload image to server
     public function upload($request, $response, $container)
     {
         $user_id=$request->get('SESSION','id');

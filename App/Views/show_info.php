@@ -16,6 +16,7 @@
 
 <body>
     <?php include "../App/Views/navbar_user.php"; ?>
+    <!-- SHOW INFO -->
     <div class="bg-black text-center py-5">
         <p class="font-extrabold text-amber-200 text-5xl underline"><?php echo ($data['show']['nombre_espectaculo']) ?></p>
     </div>
@@ -30,8 +31,9 @@
             </div>
         </div>
     </div>
+    <!-- END SHOW INFO -->
     <?php if (!empty($data['mapinfo'])) { ?>
-    
+    <!-- TABLE -->
     <div class="py-12 flex flex-col justify-center overflow-x-auto px-10">
     <input aria-label="search table" class="border border-black rounded-lg mb-3 w-1/2 p-2" type="text" id="search_city"  placeholder="Search your city..">
         <table id="show_list" class="overflow-hidden border-spacing-6 table-auto border w-full shadow-xl rounded-lg">
@@ -63,11 +65,14 @@
 
         </table>
     </div>
+    <!-- END TABLE -->
     <?php } ?>
+    <!-- MAP -->
     <div class="bg-black text-center py-5">
         <p class="font-extrabold text-amber-200 text-5xl underline">Locations</p>
     </div>
     <div id="map" class="h-[300px]" data-mapInfo='<?php echo (json_encode($data['mapinfo'])) ?>'></div>
+    <!-- END MAP -->
     <script src="/js/bundle.js"></script>
 </body>
 

@@ -31,15 +31,16 @@ class Portada
      **/
     function ctrlPortada($request, $response, $container)
     {
+
         $data = [];
         $shows = $container->get('show');
         $spectacle = $shows->getShows();
-
+        //Get user session
         $user = $request->get("SESSION", "user");
         $user_id = $request->get('SESSION', 'id');
         $avatar = $request->get('SESSION', 'avatar');
         $data['user_id'] = $user_id;
-
+        //Get all shows, favorites and representations
         $representation = $container->get('representation');
         $data['mapinfo'] = $representation->getMapinfo();
 
@@ -47,13 +48,14 @@ class Portada
         $favorite = $container->get('favorite');
         $favorites = $favorite->getUserFavorites($user_id);
 
+        //Link shows with favorites
         $fav = [];
 
         foreach ($favorites as $favo) {
             $fav[$favo['id_espectaculo_favorito']] = true;
         }
 
-
+        //Send data
         $response->set('fav', $fav);
         $response->set('data', $data);
         $response->set('shows', $spectacle);
@@ -66,6 +68,8 @@ class Portada
 
     public function sendMessage($request, $response, $container){
 
+        //Get user id
+        //Get type message with content and load it to DB
         $user_id=$request->get('SESSION','id');
         $type = $request->get(INPUT_POST,'type');
         $message_content= $request->get(INPUT_POST,'message');

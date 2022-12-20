@@ -4,8 +4,10 @@ export default function favorites() {}
 
 $('.favorite').click(function(){
 
+    //Get id from show
     var id_show = this.id;
 
+    //if its not a favorite, then set it fav
     if(!$('#'+id_show).hasClass('active')){
         $.ajax({
         type: 'POST',
@@ -17,6 +19,7 @@ $('.favorite').click(function(){
             $('#'+id_show).children().addClass('text-red-600')
         }
     });
+    //if its fav remove it
     }else{
         $.ajax({
             type: 'POST',
