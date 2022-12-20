@@ -14,6 +14,13 @@ class Vote
 
     public function ctrlVote($request, $response, $container){
 
+        $edition = $container->get('edition');
+        $ed = $edition->getCurrentEdition();
+        print_r($ed);
+       //print_r(date('Y-m-d'));
+       die();
+
+
         //Get session if user is loged
         $loged = $request->get("SESSION", "loged");
         $user_id = $request->get('SESSION','id');
