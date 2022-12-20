@@ -135,7 +135,8 @@ $('#settings_submit').on('click', function () {
         }
         //Mail
         if ($('input[name="mail"]').val() != '') {
-            $.ajax({
+            if(isEmail($('input[name="mail"]').val())){
+                $.ajax({
                 type: 'POST',
                 async: false,
                 url: '/account/settings/check',
@@ -144,6 +145,10 @@ $('#settings_submit').on('click', function () {
                     success = true;
                 }
             });
+            }else{
+                error('The email is not valid');
+            }
+            
         }
         //File
         if ($('input[name="file"]').val() != '') {
@@ -220,5 +225,11 @@ $('#settings_submit').on('click', function () {
 
 
 });
+
+//Pattern to check if mail is valid
+function isEmail(email) {
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return regex.test(email);
+  }
 
 
