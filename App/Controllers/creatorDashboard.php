@@ -11,7 +11,7 @@
 
 namespace App\Controllers;
 
-class creator
+class creatorDashboard
 {
 
   public $contenidor;
@@ -28,7 +28,7 @@ class creator
    * @param array $config  paràmetres de configuració de l'aplicació
    *
    **/
-  function ctrlCreator($request, $response, $container)
+  function ctrlDashboard($request, $response, $container)
   {
     // Comptem quantes vegades has visitat aquesta pàgina
     
@@ -38,7 +38,7 @@ class creator
     $response->set("error", $error);
     $response->setSession("error", "");
 
-    $response->SetTemplate("creator.php");
+    $response->SetTemplate("creatorDashboard.php");
     
     return $response;
   }

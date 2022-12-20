@@ -16,12 +16,13 @@ class Show
         $this->sql = $connexioDB->getConnection();
     }
 
-    public function insertShow($id_edition,$name,$type,$image,$description){
+    public function insertShow($id_edition, $name, $type, $image, $description)
+    {
 
         $query = 'insert into espectaculo (id_edicion_espectaculo, nombre_espectaculo, tipo_espectaculo , imagen_espectaculo,descripcion_espectaculo) 
         values(:id_edition,:name,:type,:image,:description)';
         $stm = $this->sql->prepare($query);
-        $result = $stm->execute([':id_edition' => $id_edition, ':name' => $name, ':type' => $type, ':image' => $image,':description' => $description]);
+        $result = $stm->execute([':id_edition' => $id_edition, ':name' => $name, ':type' => $type, ':image' => $image, ':description' => $description]);
 
         if ($stm->errorCode() !== '00000') {
             $err = $stm->errorInfo();
@@ -68,7 +69,8 @@ class Show
         return $shows;
     }
 
-    public function getAllShow(){
+    public function getAllShow()
+    {
         $query = 'select * from espectaculo';
         $stm = $this->sql->prepare($query);
         $result = $stm->execute([]);
@@ -85,13 +87,13 @@ class Show
         }
 
         return $datas;
-
     }
 
-    public function updateShow($column,$newValue,$id){
+    public function updateShow($column, $newValue, $id)
+    {
         $query = 'UPDATE espectaculo SET ' . $column . ' = :newValue WHERE id_espectaculo=:id';
         $stm = $this->sql->prepare($query);
-        $stm->execute([':id' => $id,':newValue' => $newValue]);
+        $stm->execute([':id' => $id, ':newValue' => $newValue]);
         if ($stm->errorCode() !== '00000') {
             $err = $stm->errorInfo();
             $code = $stm->errorCode();
@@ -99,7 +101,8 @@ class Show
         }
     }
 
-    public function deleteShow($id){
+    public function deleteShow($id)
+    {
         $query = 'delete from espectaculo where id_espectaculo = :id';
         $stm = $this->sql->prepare($query);
         $stm->execute([':id' => $id]);
@@ -108,5 +111,43 @@ class Show
             $code = $stm->errorCode();
             throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
         }
+    }
+
+    public function getCreatorShows($edicion)
+    {
+        $query = 'SELECT e.id_espectaculo, e.nombre_espectaculo, e.tipo_espectaculo, e.imagen_espectaculo, e.descripcion_espectaculo, ed.titulo_edicion FROM espectaculo e JOIN edicion ed ON e.id_edicion_espectaculo=ed.id_edicion WHERE YEAR(ed.dia_inicio_edicion) = :edicion;';
+        $stm = $this->sql->prepare($query);
+        $stm->execute([':edicion' => $edicion]);
+        if ($stm->errorCode() !== '00000') {
+            $err = $stm->errorInfo();
+            $code = $stm->errorCode();
+            throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
+        }
+        $results = [];
+
+        while ($result = $stm->fetch(PDO::FETCH_ASSOC)) {
+            $results[] = $result;
+        }
+
+        return $results;
+    }
+
+    public function getEdicion()
+    {
+        $query = 'SELECT * FROM edicion ORDER BY dia_inicio_edicion;';
+        $stm = $this->sql->prepare($query);
+        $stm->execute();
+        if ($stm->errorCode() !== '00000') {
+            $err = $stm->errorInfo();
+            $code = $stm->errorCode();
+            throw new Exception("Error.   {$err[0]} - {$err[1]}\n{$err[2]} $query");
+        }
+        $results = [];
+
+        while ($result = $stm->fetch(PDO::FETCH_ASSOC)) {
+            $results[] = $result;
+        }
+
+        return $results;
     }
 }
