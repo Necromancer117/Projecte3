@@ -13,7 +13,7 @@
  * I amb el navegador visitar la url http://localhost:8000/
  *
  */
-ini_set('display_errors',0);
+ini_set('display_errors', 0);
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 include "../vendor/autoload.php";
 include "../App/config.php";
@@ -57,6 +57,7 @@ $app->route("/adminDelete", "\App\Controllers\admininsert:ctrlAdminDelete");
 
 $app->route("/creator/dashboard", "\App\Controllers\creatorDashboard:ctrlDashboard");
 $app->route("/creator/shows", "\App\Controllers\creatorShows:ctrlShows");
+$app->route("/creator/shows/print/{id}", "\App\Controllers\creatorShowsPrint:ctrlShowsPrint");
 
 ///////////////////////////////////
 /////////*AJAX CONTROLLERS*////////
@@ -64,9 +65,9 @@ $app->route("/creator/shows", "\App\Controllers\creatorShows:ctrlShows");
 
 $app->route("/account/settings/check", "\App\Controllers\AccountSettings:ajaxSelector", ["auth"]);
 $app->route("/account/settings/upload", "\App\Controllers\AccountSettings:upload", ["auth"]);
-$app->route('/favorites','\App\Controllers\Favorites:addFavorite',['auth']);
-$app->route('/sendVote','\App\Controllers\Vote:sendVote');
-$app->route('/sendMessage','\App\Controllers\Portada:sendMessage');
+$app->route('/favorites', '\App\Controllers\Favorites:addFavorite', ['auth']);
+$app->route('/sendVote', '\App\Controllers\Vote:sendVote');
+$app->route('/sendMessage', '\App\Controllers\Portada:sendMessage');
 
 
 $app->route(\Emeset\Routers\Router::DEFAULT_ROUTE, "ctrlError");

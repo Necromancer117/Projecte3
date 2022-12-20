@@ -17,6 +17,7 @@ import search from "./search_table.js";
 import search_table from "./search_table.js";
 import graph from "./graph.js"
 import creatorNavBar from "./creatorNavbar.js"
+import creatorPrintPage from "./creatorShowsPrint.js"
 import creatorShowsDropdwon from "./creatorShows.js"
 
 $(document).ready(function () {
@@ -29,4 +30,6 @@ $(document).ready(function () {
     search_table();
     creatorNavBar();
     creatorShowsDropdwon();
+    creatorPrintPage();
+
 });
