@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- TAILWIND -->
-    <link rel="stylesheet" href="/css/styles.css">
+    <!-- <link rel="stylesheet" href="/css/styles.css"> -->
     <title>Document</title>
 </head>
 
@@ -81,7 +81,7 @@
                         <h2>Change password</h2>
                     </div>
 
-                    <div class="grid grid-cols-1 h-full md:w-1/2 mx-auto">
+                    <div class="grid grid-cols-1 h-full md:w-3/4 mx-auto">
                         <div class="flex flex-col mr-14">
                             <label class="text-gray-500" for="current_password">Current password</label>
                             <input class="border-2 border-gray-400 rounded-md py-0.5 outline-blue-500" type="password" name="current_password" id="current_password">
