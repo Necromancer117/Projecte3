@@ -35,7 +35,8 @@ export default function creatorShowsDropdwon() {
         var description = $('#'+id).children('td[data-target=description]').text();
         // var banner = $('#'+id).children('td[data-target=banner]').text();
         var hash = btoa("show_"+id);
-        var url = "http://projecte3.local/vote/"+hash;
+        var url = "http://fakecirc.psoual.me/vote/"+hash;
+        console.log(url);
 
         
         $("#qr").attr("href","/creator/shows/print/"+id);

@@ -8,7 +8,7 @@ export default function creatorPrintPage() {
     //on canvas with id qr 
     var id = document.getElementById("num");
     var hash = btoa("show_"+id);
-    var url = "http://projecte3.local/vote/"+hash;
+    var url = "http://fakecirc.psoual.me/vote/"+hash;
 
     var canvas = document.getElementById("qr");
     QRCode.toCanvas(canvas,url,{
