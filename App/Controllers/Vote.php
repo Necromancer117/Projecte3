@@ -17,7 +17,10 @@ class Vote
     public function ctrlVote($request, $response, $container)
     {
         
-
+        $hash = $request->getParam('hash');
+        $param = base64_decode($hash);
+        $id_show = substr($param,5);
+        
         if (!isset($_COOKIE['voted'])) {
             $voted = false;
         }else{
@@ -38,7 +41,7 @@ class Vote
         //Get id of show and get info from this
         $id = $request->getParam('id');
         $show = $container->get('show');
-        $data['show'] = $show->getShow(1);
+        $data['show'] = $show->getShow($id_show);
 
 
         //Send data to template
