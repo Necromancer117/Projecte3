@@ -1,4 +1,5 @@
 import $ from "jquery";
+import QRCode from 'qrcode';
 
 const editBtn = $('a[data-role=edit]');
 const discardChanges = $('a[data-role=discardChanges]');
@@ -26,20 +27,26 @@ export default function creatorShowsDropdwon() {
             $('#cratorShowsDropdwon').hide();
         }
     });
-
+    
     $('a[data-role=edit]').on('click', function () {
         var id = $(this).data('id');
         var title = $('#'+id).children('td[data-target=title]').text(); 
         var type = $('#'+id).children('td[data-target=type]').text();
         var description = $('#'+id).children('td[data-target=description]').text();
-        var banner = $('#'+id).children('td[data-target=banner]').text();
-        var hash = id
+        // var banner = $('#'+id).children('td[data-target=banner]').text();
+        var hash = btoa("show_"+id);
+        var url = "http://projecte3.local/vote/"+hash;
+
+        
+        $("#qr").attr("href","/creator/shows/print/"+id);
 
         $('#num').html(id);
         $('#title').val(title);
         $('#type').val(type);
         $('#description').val(description);
-        $('#banner').val(banner);
-        $('#hash').val(hash);
+        // $('#banner').val(banner);
+        $('#hash').html(url);
     });
+
+
 }
