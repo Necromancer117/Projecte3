@@ -31,7 +31,7 @@ class creatorShows
   function ctrlShows($request, $response, $container)
   {
     // Comptem quantes vegades has visitat aquesta pàgina
-    
+
     $error = $request->get("SESSION", "error");
     $repre = $container->get('representation');
 
@@ -45,40 +45,40 @@ class creatorShows
     // * RETORNA TOTES LES EDICIONS
     $showEditon = $showConn->getEdicion();
     // * RETORNA TOTS ELS SHOWS SEGONS EL VALOR $date
-    $showList = $showConn->getCreatorShows($date);    
+    $showList = $showConn->getCreatorShows($date);
 
 
     // ? VOTE SECTION
 
     $vote = $container->get('vote');
 
-    $curShows = $showConn -> getShows();
+    $curShows = $showConn->getShows();
     $dataVotes = [];
 
     foreach ($curShows as $show) {
-       $res= $vote -> getAvgVote($show['id_espectaculo']);
-       
-       if (is_null($res['votos'])){
-        $res['votos']=0;
-       }
-        $dataVotes [$show['nombre_espectaculo']] = floatval($res['votos']);  
+      $res = $vote->getAvgVote($show['id_espectaculo']);
+
+      if (is_null($res['votos'])) {
+        $res['votos'] = 0;
+      }
+      $dataVotes[$show['nombre_espectaculo']] = floatval($res['votos']);
     }
-    
+
     // ? END VOTE SECTION
-    
+
     // ! ERRORS
     $response->set("error", $error);
     $response->setSession("error", "");
 
     // ? VARS
-    $response->set('dataVotes',$dataVotes);
-    $response->set("showEditon",$showEditon);
-    $response->set("date",$date);
-    $response->set("showList",$showList);
+    $response->set('dataVotes', $dataVotes);
+    $response->set("showEditon", $showEditon);
+    $response->set("date", $date);
+    $response->set("showList", $showList);
 
 
     $response->SetTemplate("creatorShows.php");
-    
+
     return $response;
   }
 }

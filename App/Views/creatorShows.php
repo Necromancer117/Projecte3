@@ -12,7 +12,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <link rel="stylesheet" href="/styles.css">
-    <title></title>
+    <title>creator Shows</title>
 
 </head>
 
@@ -112,7 +112,7 @@
                 <div class="flex h-full">
                     <div class="flex">
                         <button id="cratorShowsButton" class="border border-indigo-600 text-indigo-600 block px-3 py-2 rounded-md text-base font-medium mr-4"><?= $date ?></button>
-                        <div id="cratorShowsDropdwon" hidden class="absolute right-50 z-10 mt-2 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        <div id="cratorShowsDropdwon" hidden class="absolute right-50 z-10 mt-12 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                             <ul class="py-1 h-full text-sm text-gray-700" aria-labelledby="dropdownDefault">
                                 <?php
                                 for ($i = 0; $i < COUNT($showEditon); $i++) {
@@ -196,7 +196,7 @@
                                     <div id="numContainer" class="grid place-items-center">
                                         <span id="num" class="mr-5 text-lg"></span>
                                     </div>
-                                    <input id='title' type="text" class="appearance-none block w-full text-gray-700 border border-gray-200 bg-gray-50 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600" placeholder="Title" />
+                                    <input id='title' title="title" type="text" class="appearance-none block w-full text-gray-700 border border-gray-200 bg-gray-50 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600" placeholder="Title" />
                                     <p hidden class="text-red-500 text-xs italic">Please fill out this field.</p>
                                 </div>
                             </div>
@@ -204,19 +204,19 @@
                             <div class="flex flex-wrap -mx-3 mb-6 h-full">
                                 <!-- TYPE -->
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                    <input id='type' type="text" class="appearance-none block w-full text-gray-700 border border-gray-200 bg-gray-50 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600" placeholder="Type" />
+                                    <input id='type' title="type" type="text" class="appearance-none block w-full text-gray-700 border border-gray-200 bg-gray-50 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600" placeholder="Type" />
                                     <p hidden class="text-red-500 text-xs italic">Please fill out this field.</p>
                                 </div>
                                 <!-- FILE -->
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                    <input id="banner" class="appearance-none block w-full text-gray-700 border border-gray-200 bg-gray-50 rounded-lg py-2.5 px-4 leading-tight focus:outline-none focus:border-indigo-600" aria-describedby="banner_<?= $showList[$i]["id_espectaculo"] ?>" type="file" accept="image/png">
+                                    <input id="banner" title="banner" class="appearance-none block w-full text-gray-700 border border-gray-200 bg-gray-50 rounded-lg py-2.5 px-4 leading-tight focus:outline-none focus:border-indigo-600" aria-describedby="banner_<?= $showList[$i]["id_espectaculo"] ?>" type="file" accept="image/png">
                                 </div>
                             </div>
                             <!-- DESCRIPTION-->
                             <div class=" flex flex-wrap -mx-3 mb-6">
                                 <div class="w-full px-3 mb-6 md:mb-0">
                                     <label for="description" class="block mb-2 text-sm font-medium text-gray-900">Description</label>
-                                    <textarea id="description" rows="4" class="appearance-none block w-full text-gray-700 border border-gray-200 bg-gray-50 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600 resize-none" value="<?= $showList[$i]["descripcion_espectaculo"] ?>" placeholder="Some description in here.."></textarea>
+                                    <textarea id="description" title="description" rows="4" class="appearance-none block w-full text-gray-700 border border-gray-200 bg-gray-50 rounded-lg py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600 resize-none" value="<?= $showList[$i]["descripcion_espectaculo"] ?>" placeholder="Some description in here.."></textarea>
                                 </div>
                             </div>
                             <!--URL AND QR-->
