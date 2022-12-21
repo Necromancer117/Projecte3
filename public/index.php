@@ -59,6 +59,8 @@ $app->route("/creator/dashboard", "\App\Controllers\creatorDashboard:ctrlDashboa
 $app->route("/creator/shows", "\App\Controllers\creatorShows:ctrlShows");
 $app->route("/creator/shows/print/{id}", "\App\Controllers\creatorShowsPrint:ctrlShowsPrint");
 $app->route("/creator/shows/update", "\App\Controllers\creatorShowsUpdate:ctrlShowsUpdate");
+$app->route("/creator/shows/add", "\App\Controllers\creatorShowsAdd:ctrlShowsAdd");
+$app->route("/creator/shows/add/upload", "\App\Controllers\creatorShowsAdd:ctrlShowsAddUpload");
 
 ///////////////////////////////////
 /////////*AJAX CONTROLLERS*////////

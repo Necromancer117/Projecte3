@@ -18,7 +18,7 @@ import search_table from "./search_table.js";
 import graph from "./graph.js"
 import creatorNavBar from "./creatorNavbar.js"
 import creatorPrintPage from "./creatorShowsPrint.js"
-import creatorShowsDropdwon from "./creatorShows.js"
+import creatorShows from "./creatorShows.js"
 
 $(document).ready(function () {
     login();
@@ -29,7 +29,7 @@ $(document).ready(function () {
     portada_form();
     search_table();
     creatorNavBar();
-    creatorShowsDropdwon();
+    creatorShows();
     creatorPrintPage();
 
 });

@@ -3,12 +3,12 @@ import QRCode from 'qrcode';
 
 export default function creatorPrintPage() {
 
-    $('#qr').on('click', function () {
+    $('#qrButton').on('click', function () {
 
-        $('#qr').hide();
+        $('#qrButton').hide();
 
         //on canvas with id qr 
-        var id = document.getElementById("num");
+        var id = document.getElementById("num").textContent;
         var hash = btoa("show_"+id);
         var url = "http://projecte3.local/vote/"+hash;
 
