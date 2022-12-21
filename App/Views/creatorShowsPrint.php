@@ -27,7 +27,8 @@
                 <p id="description" class="border rounded-lg p-3"><?= $description ?></p>
             </div>
             <div class="grid grid-cols-1 place-items-center">
-                <canvas id="qr" width="200" height="200"> </canvas>
+                <button id="qr" class="bg-indigo-600 text-white block px-3 py-2 rounded-md text-base font-medium my-5">Click to get QR</button>
+                <canvas id="qrPrint" width="200" height="200"> </canvas>
             </div>
         </div>
     </div>
