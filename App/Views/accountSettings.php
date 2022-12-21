@@ -15,7 +15,7 @@
 <body class="bg-gray-100">
     <?php include "../App/Views/navbar_user.php"; ?>
     <div class="flex flex-col place-items-center my-auto">
-        
+
         <div class="md:w-[80%] flex-col gap-6 my-7">
             <div>
                 <h1 class="text-3xl font-bold">Account Settings</h1>
@@ -24,8 +24,8 @@
                 <p class="text-lg text-gray-600">Change your profile and account settings</p>
             </div>
         </div>
-        
-        
+
+
         <div class="w-[100%] md:w-[80%] rounded shadow-lg mx-auto border-2 bg-white flex">
             <div class="border-r-2 flex flex-col gap-4 pt-5 px-4">
                 <!-- SWITCHES -->
@@ -54,7 +54,7 @@
                     </div>
                     <div class="grid grid-cols-1 grid-rows-4 md:grid-cols-2 md:grid-rows-2 h-full">
                         <div class="flex flex-col mr-14">
-                            <label  class="text-gray-500" for="first_name">First name</label>
+                            <label class="text-gray-500" for="first_name">First name</label>
                             <input class="border-2 border-gray-400 rounded-md py-0.5 outline-blue-500" type="text" name="first_name" id="first_name">
                         </div>
                         <div class="flex flex-col mr-14">
