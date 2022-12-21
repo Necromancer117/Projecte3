@@ -48,5 +48,27 @@ export default function creatorShowsDropdwon() {
         $('#hash').html(url);
     });
 
+    $('#save').on('click', function () {
+        var id = $('#num').text();
+        var title = $('#title').val();
+        var type = $('#type').val();
+        var description = $('#description').val();
+
+        $.ajax({
+
+            url       : '/creator/shows/update',
+            method    : 'POST',
+            data      : {id : id, title : title, type : type, description : description},
+            success   : function (response) {
+                            $('#'+id).children('td[data-target=title]').text(title); 
+                            $('#'+id).children('td[data-target=type]').text(type);
+                            $('#'+id).children('td[data-target=description]').text(description);
+                        }
+        })
+
+        modalEdit.toggleClass("hidden");
+    });
+
+
 
 }
